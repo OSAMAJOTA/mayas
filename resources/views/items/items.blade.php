@@ -67,7 +67,8 @@
 
             <div class="col-sm-6 col-md-3">
 
-                <a class="modal-effect btn btn-outline-primary btn-block" data-effect="effect-scale" data-toggle="modal" href="#modaldemo1">اضافة صنف</a>
+                <a class="modal-effect btn btn-outline-primary btn-block" data-effect="effect-scale" data-toggle="modal" href="#modaldemo1"> <i
+                        class="fas fa-plus"></i>&nbsp; اضافة صنف</a>
             </div>
           <br>   <br>   <br>
 

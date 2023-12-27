@@ -18,7 +18,7 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-
+Route::resource('employees', 'EmployeesController');
 Route::resource('careers', 'CareersController');
 Route::resource('sections', 'SectionsController');
 Route::resource('items', 'ItemsController');

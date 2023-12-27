@@ -8,6 +8,7 @@
 							<a href="{{ url('/' . $page='index') }}"><img src="{{URL::asset('assets/img/brand/favicon.png')}}" class="logo-2" alt="logo"></a>
 							<a href="{{ url('/' . $page='index') }}"><img src="{{URL::asset('assets/img/brand/favicon.png')}}" class="dark-logo-2" alt="logo"></a>
 						</div>
+                        <img src="{{URL::asset('assets/img/miyaslogo.png')}}" width="50px" height="50px">
 						<div class="app-sidebar__toggle" data-toggle="sidebar">
 							<a class="open-toggle" href="#"><i class="header-icon fe fe-align-left" ></i></a>
 							<a class="close-toggle" href="#"><i class="header-icons fe fe-x"></i></a>

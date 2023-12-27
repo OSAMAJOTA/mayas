@@ -26273,7 +26273,7 @@ input.parsley-error:focus, textarea.parsley-error:focus, input.parsley-success:f
 .main-mail-content {
   background-color: #fafcff;
   flex: 1;
-  max-width: 100vw -480px; }
+  max-width: 100vw; }
   .main-mail-content .main-mail-header {
     margin-bottom: 0;
     padding: 20px; }

@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('title')
-    الاقسام
+     الوظائف
 @stop
 @section('css')
     <!-- Internal Data table css -->
@@ -16,7 +16,7 @@
     <div class="breadcrumb-header justify-content-between">
         <div class="my-auto">
             <div class="d-flex">
-                <h4 class="content-title mb-0 my-auto">مدخلات النظام</h4><span class="text-muted mt-1 tx-13 mr-2 mb-0">/  اسماء  الاقسام</span>
+                <h4 class="content-title mb-0 my-auto">مدخلات النظام</h4><span class="text-muted mt-1 tx-13 mr-2 mb-0">/  اسماء الوظائف  </span>
             </div>
         </div>
 
@@ -67,7 +67,7 @@
 
             <div class="col-sm-6 col-md-3">
 
-                <a class="modal-effect btn btn-outline-primary btn-block" data-effect="effect-scale" data-toggle="modal" href="#modaldemo1">اضافة قسم</a>
+                <a class="modal-effect btn btn-outline-primary btn-block" data-effect="effect-scale" data-toggle="modal" href="#modaldemo1">اضافة وظيفة</a>
             </div>
           <br>   <br>   <br>
 
@@ -86,7 +86,7 @@
                             <thead>
                             <tr>
                                 <th class="border-bottom-0">#</th>
-                                <th class="border-bottom-0">اسم القسم</th>
+                                <th class="border-bottom-0">اسم الوظيفة</th>
 
                                 <th class="border-bottom-0">العمليات</th>
 
@@ -95,22 +95,22 @@
                             <tbody>
 
 
-                            @foreach($sections as $x)
+                            @foreach($careers as $x)
 
                                 <tr>
                                     <td>{{$x->id}}</td>
-                                    <td>{{$x->sections_name}}</td>
+                                    <td>{{$x->careers_name}}</td>
 
                                     <td>
                                         <a class="modal-effect btn btn-sm btn-info" data-effect="effect-scale"
-                                           data-id="{{ $x->id }}" data-sections_name="{{ $x->sections_name }}"
+                                           data-id="{{ $x->id }}" data-careers_name="{{ $x->careers_name }}"
                                            data-toggle="modal"
                                            href="#exampleModal2" title="تعديل"><i class="las la-pen"></i></a>
 
 
 
                                         <a class="modal-effect btn btn-sm btn-danger" data-effect="effect-scale"
-                                           data-id="{{ $x->id }}" data-sections_name="{{ $x->sections_name }}"
+                                           data-id="{{ $x->id }}" data-careers_name="{{ $x->careers_name }}"
                                            data-toggle="modal" href="#modaldemo9" title="حذف"><i
                                                 class="las la-trash"></i></a>
 
@@ -139,16 +139,16 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content modal-content-demo">
                 <div class="modal-header">
-                    <h6 class="modal-title">اضافة قسم</h6><button aria-label="Close" class="close" data-dismiss="modal"
+                    <h6 class="modal-title">اضافة وظيفة</h6><button aria-label="Close" class="close" data-dismiss="modal"
                                                                   type="button"><span aria-hidden="true">&times;</span></button>
                 </div>
                 <div class="modal-body">
-                    <form action="{{ route('sections.store') }}" method="post">
+                    <form action="{{ route('careers.store') }}" method="post">
                         {{ csrf_field() }}
 
                         <div class="form-group">
-                            <label for="exampleInputEmail1">اسم القسم</label>
-                            <input type="text" class="form-control" id="sections_name" name="sections_name">
+                            <label for="exampleInputEmail1">اسم الوظيفة</label>
+                            <input type="text" class="form-control" id="careers_name" name="careers_name">
                         </div>
 
 
@@ -169,20 +169,20 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">تعديل القسم</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">تعديل الوظيفة</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
 
-                    <form action="sections/update" method="post" autocomplete="off">
+                    <form action="careers/update" method="post" autocomplete="off">
                         {{ method_field('patch') }}
                         {{ csrf_field() }}
                         <div class="form-group">
                             <input type="hidden" name="id" id="id" value="">
-                            <label for="recipient-name" class="col-form-label">اسم القسم:</label>
-                            <input class="form-control" name="sections_name" id="sections_name" type="text">
+                            <label for="recipient-name" class="col-form-label">اسم الوظيفة:</label>
+                            <input class="form-control" name="careers_name" id="careers_name" type="text">
                         </div>
 
                 </div>
@@ -205,16 +205,16 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content modal-content-demo">
                 <div class="modal-header">
-                    <h6 class="modal-title">حذف القسم</h6><button aria-label="Close" class="close" data-dismiss="modal"
+                    <h6 class="modal-title">حذف الوظيفة</h6><button aria-label="Close" class="close" data-dismiss="modal"
                                                                   type="button"><span aria-hidden="true">&times;</span></button>
                 </div>
-                <form action="sections/destroy" method="post">
+                <form action="careers/destroy" method="post">
                     {{ method_field('delete') }}
                     {{ csrf_field() }}
                     <div class="modal-body">
                         <p>هل انت متاكد من عملية الحذف ؟</p><br>
                         <input type="hidden" name="id" id="id" value="">
-                        <input class="form-control" name="sections_name" id="sections_name" type="text" readonly>
+                        <input class="form-control" name="careers_name" id="careers_name" type="text" readonly>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">الغاء</button>
@@ -256,11 +256,11 @@
         $('#exampleModal2').on('show.bs.modal', function(event) {
             var button = $(event.relatedTarget)
             var id = button.data('id')
-            var sections_name = button.data('sections_name')
+            var careers_name = button.data('careers_name')
 
             var modal = $(this)
             modal.find('.modal-body #id').val(id);
-            modal.find('.modal-body #sections_name').val(sections_name);
+            modal.find('.modal-body #careers_name').val(careers_name);
 
         })
     </script>
@@ -271,10 +271,10 @@
         $('#modaldemo9').on('show.bs.modal', function(event) {
             var button = $(event.relatedTarget)
             var id = button.data('id')
-            var sections_name = button.data('sections_name')
+            var careers_name = button.data('careers_name')
             var modal = $(this)
             modal.find('.modal-body #id').val(id);
-            modal.find('.modal-body #sections_name').val(sections_name);
+            modal.find('.modal-body #careers_name').val(careers_name);
         })
 
     </script>

@@ -8,8 +8,12 @@ class employees extends Model
 {
     protected $guarded = [];
 
-    public function employees()
+    public function section()
     {
-        return $this->belongsTo('App\employees');
+        return $this->belongsTo('App\sections');
+    }
+    public function careers()
+    {
+        return $this->belongsTo('App\careers');
     }
 }

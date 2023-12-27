@@ -55,8 +55,8 @@
                             <tr>
                                 <td>{{$x->id}}</td>
                                 <td>{{$x->employees_name}}</td>
-                                <td>{{$x->career->careers_name}}</td>
                                 <td>{{$x->section->sections_name}}</td>
+                                <td>{{$x->careers->careers_name}}</td>
                                 <td>{{$x->employees_igama}}</td>
                                 <td>{{$x->phone}}</td>
                                 <td>{{$x->email}}</td>

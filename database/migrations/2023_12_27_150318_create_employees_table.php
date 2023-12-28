@@ -24,6 +24,7 @@ class CreateEmployeesTable extends Migration
             $table->integer('phone');
             $table->string('email');
             $table->string('nationality');
+
             $table->text('tasks')->nullable();
             $table->text('comment')->nullable();
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\sections;
 use App\careers;
+use App\nationalities;
 use App\employees;
 use Illuminate\Http\Request;
 
@@ -28,7 +29,10 @@ class EmployeesController extends Controller
      */
     public function create()
     {
-        //
+        $nationalities=nationalities::all();
+        $career=careers::all();
+        $sections = sections::all();
+        return view('employees.add_employees', compact('sections','career','nationalities'));
     }
 
     /**
@@ -39,7 +43,31 @@ class EmployeesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'employees_igama' => 'required|unique:employees|max:255',
+
+        ],[
+
+            'employees_igama.unique' =>'هوية الموظف مسجل مسبقآ',
+            'employees_igama.required' =>'رقم الهوية مطلوب ',
+
+        ]);
+        employees::create([
+
+            'section_id' => $request->section_id,
+            'employees_name' => $request->employees_name,
+            'careers_id' => $request->careers_id,
+            'employees_igama' => $request->employees_igama,
+            'phone' => $request->phone,
+            'email' => $request->email,
+            'nationality' => $request->nationalities_name,
+            'tasks' => $request->tasks,
+            'comment' => $request->note,
+
+        ]);
+
+        session()->flash('Add', 'تم اضافة موظف بنجاح');
+        return redirect('/employees');
     }
 
     /**

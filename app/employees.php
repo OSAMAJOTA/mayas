@@ -12,6 +12,10 @@ class employees extends Model
     {
         return $this->belongsTo('App\sections');
     }
+    public function nationalities()
+    {
+        return $this->belongsTo('App\nationalities');
+    }
     public function careers()
     {
         return $this->belongsTo('App\careers');

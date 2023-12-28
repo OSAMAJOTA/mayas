@@ -48,6 +48,7 @@
 							<li><a class="slide-item" href="{{ url('/' . $page='items') }}">	أسماء وأسعار الأصناف</a></li>
 							<li><a class="slide-item" href="{{ url('/' . $page='sections') }}">	أسماء الأقسام</a></li>
 							<li><a class="slide-item" href="{{ url('/' . $page='careers') }}">	أسماء الوظائف </a></li>
+                            <li><a class="slide-item" href="{{ url('/' . $page='nationality') }}">	الجنسيات  </a></li>
                             <li class="sub-slide">
                                 <a class="sub-side-menu__item" data-toggle="sub-slide" href="{{ url('/' . $page='#') }}"><span class="sub-side-menu__label">الموظفين</span><i class="sub-angle fe fe-chevron-down"></i></a>
                                 <ul class="sub-slide-menu">

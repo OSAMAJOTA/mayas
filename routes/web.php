@@ -18,6 +18,8 @@ Route::get('/', function () {
 });
 
 Auth::routes();
+
+Route::resource('nationality', 'NationalitiesController');
 Route::resource('employees', 'EmployeesController');
 Route::resource('careers', 'CareersController');
 Route::resource('sections', 'SectionsController');

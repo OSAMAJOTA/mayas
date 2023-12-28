@@ -91,12 +91,12 @@ class ItemsController extends Controller
 
         $this->validate($request, [
 
-            'items_name' => 'required|unique:items|max:255',
+            'items_name' => 'required',
             'price' => 'required',
         ],[
 
             'items_name.required' =>'الرجاء ادخال اسم الصنف',
-            'items_name.unique' =>'اسم الصنف مسجل مسبقآ',
+
             'price.required' =>' الرجاء ادخال سعر الصنف ',
 
         ]);

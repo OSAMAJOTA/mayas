@@ -18,7 +18,7 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-
+Route::get('/edit_employees/{id}', 'EmployeesController@edit');
 Route::resource('nationality', 'NationalitiesController');
 Route::resource('employees', 'EmployeesController');
 Route::resource('careers', 'CareersController');

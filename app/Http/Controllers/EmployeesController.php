@@ -87,9 +87,14 @@ class EmployeesController extends Controller
      * @param  \App\employees  $employees
      * @return \Illuminate\Http\Response
      */
-    public function edit(employees $employees)
+    public function edit($id)
     {
-        //
+        $employees = employees::where('id', $id)->first();
+        $nationalities=nationalities::all();
+        $career=careers::all();
+        $sections = sections::all();
+
+        return view('employees.edit_employees', compact('sections', 'employees','nationalities','career'));
     }
 
     /**
@@ -101,7 +106,21 @@ class EmployeesController extends Controller
      */
     public function update(Request $request, employees $employees)
     {
-        //
+        $employeess = employees::findOrFail($request->employees_id);
+        $employeess->update([
+            'section_id' => $request->section_id,
+            'employees_name' => $request->employees_name,
+            'careers_id' => $request->careers_id,
+            'employees_igama' => $request->employees_igama,
+            'phone' => $request->phone,
+            'email' => $request->email,
+            'nationality' => $request->nationalities_name,
+            'tasks' => $request->tasks,
+            'comment' => $request->note,
+        ]);
+
+        session()->flash('edit', 'تم تعديل بيانات الموظف بنجاح');
+        return back();
     }
 
     /**

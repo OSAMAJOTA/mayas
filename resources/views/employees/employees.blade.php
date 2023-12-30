@@ -104,6 +104,22 @@
                                 <td>{{$x->tasks}}</td>
                                 <td>{{$x->comment}}</td>
                               <td>
+                                  <div class="dropdown">
+                                      <button aria-expanded="false" aria-haspopup="true"
+                                              class="btn ripple btn-primary btn-sm" data-toggle="dropdown"
+                                              type="button">العمليات<i class="fas fa-caret-down ml-1"></i></button>
+                                      <div class="dropdown-menu tx-13">
+
+                                          <a class="dropdown-item"
+                                             href=" {{ url('edit_employees') }}/{{ $x->id }}">تعديل
+                                              </a>
+
+
+
+                                          <a class="dropdown-item" href="#" data-invoice_id="{{ $x->id }}"
+                                             data-toggle="modal" data-target="#delete_invoice"><i
+                                                  class="text-danger fas fa-trash-alt"></i>&nbsp;&nbsp;حذف
+                                          </a>
 
 
                               </td>
@@ -126,6 +142,32 @@
     </div>
     <!-- main-content closed -->
     </div>
+    <div class="modal fade" id="delete_invoice" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">حذف الفاتورة</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <form action="{{ route('employees.destroy', 'test') }}" method="post">
+                    {{ method_field('delete') }}
+                    {{ csrf_field() }}
+                </div>
+                <div class="modal-body">
+                    هل انت متاكد من عملية الحذف ؟
+                    <input type="hidden" name="invoice_id" id="invoice_id" value="">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">الغاء</button>
+                    <button type="submit" class="btn btn-danger">تاكيد</button>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
 @endsection
 @section('js')
     <!-- Internal Data tables -->

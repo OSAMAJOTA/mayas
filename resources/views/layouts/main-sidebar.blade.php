@@ -57,7 +57,7 @@
 
                                 </ul>
                             </li>
-                            <li><a class="slide-item" href="{{ url('/' . $page='rangeslider') }}">	أسماء والفروع والشركات   </a></li>
+                            <li><a class="slide-item" href="{{ url('/' . $page='companys') }}">	أسماء الفروع والشركات   </a></li>
                             <li><a class="slide-item" href="{{ url('/' . $page='rangeslider') }}">عملاء فروع الشركة </a></li>
 						</ul>
 					</li>

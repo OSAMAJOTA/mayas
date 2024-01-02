@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\companys;
+use App\companys_attachments;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CompanysController extends Controller
 {
@@ -13,8 +15,8 @@ class CompanysController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        return view('companys.companys');
+    { $companys = companys::all();
+        return view('companys.companys',compact('companys'));
     }
 
     /**
@@ -35,10 +37,53 @@ class CompanysController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        companys::create([
+            'companys_name' => $request->companys_name,
+            'registration_num' => $request->registration_num,
+            'vat_num' => $request->vat_num,
+            'city' => $request->city,
+            'build_num' => $request->build_num,
+            'postal_code' => $request->postal_code,
+            'extra_num' => $request->extra_num,
+            'road_nam' => $request->road_nam,
+            'neigh_nam' => $request->neigh_nam,
+            'branch_num' => $request->branch_num,
+            'com_phone' => $request->com_phone,
+            'Status' => 'نشط',
+            'com_email' => $request->com_email,
+            'authorized_nam' => $request->authorized_nam,
+            'authorized_phone' => $request->authorized_phone,
+
+            'authorized_email' => $request->authorized_email,
+            'note' => $request->note,
+
+        ]);
+        if ($request->hasFile('pic')) {
+
+            $companys_id = companys::latest()->first()->id;
+            $image = $request->file('pic');
+            $file_name = $image->getClientOriginalName();
+            $company_number = companys::latest()->first()->id;
+
+            $attachments = new companys_attachments();
+            $attachments->file_name = $file_name;
+            $attachments->companys_number = companys::latest()->first()->id;
+            $attachments->Created_by = Auth::user()->name;
+            $attachments->company_id = $companys_id;
+            $attachments->save();
+
+            // move pic
+            $imageName = $request->pic->getClientOriginalName();
+            $request->pic->move(public_path('Attachments/' . $company_number), $imageName);
+        }
+        session()->flash('Add', 'تم  اضافة البيانات بنجاح  ');
+        return redirect('/companys');
+
     }
 
     /**
+     *
+     *
      * Display the specified resource.
      *
      * @param  \App\companys  $companys

@@ -86,7 +86,7 @@
                         <div class="row">
                             <div class="col">
                                 <label for="inputName" class="control-label">   المدينه</label>
-                                <select name="city" id="Rate_VAT" class="form-control" >
+                                <select name="city" id="Rate_VAT" class="form-control"  required>
                                     <!--placeholder-->
                                     <option value="" selected disabled>حدد  المدينه</option>
                                     <option value="5%">الرياض</option>
@@ -112,7 +112,7 @@
                             <div class="col">
                                 <label for="inputName" class="control-label"> الرقم الاضافي</label>
                                 <input type="text" class="form-control" id="extra_num" name="extra_num"
-                                       title="يرجي ادخال  الرقم الاضافي" required>
+                                       title="يرجي ادخال  الرقم الاضافي" >
                             </div>
 
                             <div class="col">
@@ -138,13 +138,12 @@
                             <div class="col">
                                 <label>   الهاتف</label>
                                 <input type="text" class="form-control" id="com_phone" name="com_phone"
-                                       title="يرجي ادخال رقم الهاتف" >
+                                       title="يرجي ادخال رقم الهاتف" required>
                             </div>
 
                             <div class="col">
                                 <label>  البريدالاكتروني </label>
-                                <input type="email" class="form-control" id="com_email" name="com_email"
-                                >
+                                <input type="email" class="form-control" id="com_email" name="com_email" required>
                             </div>
 
                         </div>

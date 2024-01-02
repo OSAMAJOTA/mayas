@@ -90,26 +90,36 @@
                             </tr>
                             </thead>
                             <tbody>
-
+                        @foreach($companys as $x)
 
                             <tr>
-                                <td> </td>
-                                <td> </td>
-                                <td> </td>
-                                <td> </td>
-                                <td> </td>
-                                <td> </td>
-                                <td> </td>
-                                <td> </td>
-                                <td> </td>
-                                <td> </td>
+                                <td>{{$x->id}} </td>
+                                <td> {{$x->companys_name}}</td>
+                                <td> {{$x->registration_num}}</td>
+                                <td>{{$x->vat_num}} </td>
+                                <td>{{$x->city}} </td>
+                                <td>{{$x->com_phone}} </td>
+                                <td> {{$x->com_email}}</td>
+                                <td>
+                                @if ($x->Status == 'نشط')
+                                    <span class="text-success">{{ $x->Status }}</span>
+                                @elseif($x->Status == 'غير نشط')
+                                    <span class="text-danger">{{ $x->Status }}</span>
+                                @else
+                                    <span class="text-warning">{{ $x->Status }}</span>
+                                @endif
+                                </td>
+                                <td>{{$x->authorized_nam}} </td>
+                                <td>{{$x->note}} </td>
                               <td>
                                   <div class="dropdown">
                                       <button aria-expanded="false" aria-haspopup="true"
                                               class="btn ripple btn-primary btn-sm" data-toggle="dropdown"
                                               type="button">العمليات<i class="fas fa-caret-down ml-1"></i></button>
                                       <div class="dropdown-menu tx-13">
-
+                                          <a class="dropdown-item"
+                                             href=" ">عرض التفاصيل
+                                          </a>
                                           <a class="dropdown-item"
                                              href=" ">تعديل
                                               </a>
@@ -126,7 +136,7 @@
 
 
                             </tr>
-
+@endforeach
                             </tbody>
 
                         </table>

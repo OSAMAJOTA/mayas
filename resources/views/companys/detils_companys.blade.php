@@ -8,7 +8,7 @@
     <link href="{{ URL::asset('assets/plugins/custom-scroll/jquery.mCustomScrollbar.css') }}" rel="stylesheet">
 @endsection
 @section('title')
-    تفاصيل فاتورة
+    تفاصيل الفرع
 @stop
 @section('page-header')
     <!-- breadcrumb -->
@@ -157,15 +157,15 @@
                                                 <div class="card-body">
                                                     <p class="text-danger">* صيغة المرفق pdf, jpeg ,.jpg , png </p>
                                                     <h5 class="card-title">اضافة مرفقات</h5>
-                                                    <form method="post" action="{{ url('/InvoiceAttachments') }}"
+                                                    <form method="post" action="{{ url('/CompanysAttachments') }}"
                                                           enctype="multipart/form-data">
                                                         {{ csrf_field() }}
                                                         <div class="custom-file">
                                                             <input type="file" class="custom-file-input" id="customFile"
                                                                    name="file_name" required>
-                                                            <input type="hidden" id="customFile" name="invoice_number"
+                                                            <input type="hidden" id="customFile" name="company_number"
                                                                    value="{{ $companys-> id}}">
-                                                            <input type="hidden" id="invoice_id" name="invoice_id"
+                                                            <input type="hidden" id="invoice_id" name="company_id"
                                                                    value="{{ $companys->id }}">
                                                             <label class="custom-file-label" for="customFile">حدد
                                                                 المرفق</label>

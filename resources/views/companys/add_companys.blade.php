@@ -89,8 +89,24 @@
                                 <select name="city" id="Rate_VAT" class="form-control"  required>
                                     <!--placeholder-->
                                     <option value="" selected disabled>حدد  المدينه</option>
-                                    <option value="5%">الرياض</option>
-                                    <option value="10%">نجران</option>
+                                    <option value="الرياض">الرياض</option>
+                                    <option value="العلا">العلا</option>
+                                    <option value="رفحاء">رفحاء</option>
+                                    <option value="نجران">نجران</option>
+                                    <option value="مكه">مكه </option>
+                                    <option value="حفرالباطن">حفر الباطن</option>
+                                    <option value="وادي الدواسر">وادى الدواسر</option>
+                                    <option value="ينبع">ينبع</option>
+                                    <option value="الطائف">الطائف</option>
+                                    <option value="الوجه">الوجه</option>
+                                    <option value="عفيف">عفيف</option>
+                                    <option value="جازان">جازان</option>
+                                    <option value="الدمام">الدمام</option>
+                                    <option value="الخرج">الخرج</option>
+                                    <option value="الاحساء">الاحساء</option>
+                                    <option value="الخبر">الخبر</option>
+                                    <option value="أبها">أبها</option>
+                                    <option value="جدة">جدة</option>
                                 </select>
                             </div>
 

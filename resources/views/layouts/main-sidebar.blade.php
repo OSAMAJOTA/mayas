@@ -63,7 +63,7 @@
                                 <a class="sub-side-menu__item" data-toggle="sub-slide" href="{{ url('/' . $page='#') }}"><span class="sub-side-menu__label">الموظفين</span><i class="sub-angle fe fe-chevron-down"></i></a>
                                 <ul class="sub-slide-menu">
                                     <li><a class="sub-slide-item" href="{{ url('/' . $page='employees') }}">أسماء الموظفين</a></li>
-                                    <li><a class="sub-slide-item" href="{{ url('/' . $page='#') }}">مجموعة الخياطين</a></li>
+                                    <li><a class="sub-slide-item" href="{{ url('/' . $page='emp_groups') }}">مجموعة الخياطين</a></li>
 
                                 </ul>
                             </li>

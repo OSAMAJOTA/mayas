@@ -94,7 +94,9 @@
 
                             <tr>
                                 <td>{{$x->id}} </td>
-                                <td> {{$x->companys_name}}</td>
+                                <td><a title="عرض الفاصيل"
+                                        href="{{ url('companysDetails') }}/{{ $x->id }}">{{ $x->companys_name }}</a>
+                                </td>
                                 <td> {{$x->registration_num}}</td>
                                 <td>{{$x->vat_num}} </td>
                                 <td>{{$x->city}} </td>
@@ -118,7 +120,7 @@
                                               type="button">العمليات<i class="fas fa-caret-down ml-1"></i></button>
                                       <div class="dropdown-menu tx-13">
                                           <a class="dropdown-item"
-                                             href=" ">عرض التفاصيل
+                                             href="{{ url('companysDetails') }}/{{ $x->id }} ">عرض التفاصيل
                                           </a>
                                           <a class="dropdown-item"
                                              href=" ">تعديل

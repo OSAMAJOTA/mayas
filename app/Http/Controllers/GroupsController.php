@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\employees;
 use App\groups;
 use Illuminate\Http\Request;
 
@@ -12,9 +12,13 @@ class GroupsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id,$groups_name)
     {
-        //
+
+        $employees=employees::all();
+        $groups = groups::where('groups_id', $id)->get();
+        $groups_id=$id;
+        return view('emp_groups.detils_groups',compact('groups','groups_name','employees','groups_id'));
     }
 
     /**
@@ -24,7 +28,7 @@ class GroupsController extends Controller
      */
     public function create()
     {
-        //
+
     }
 
     /**
@@ -35,7 +39,24 @@ class GroupsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'emp_name' => 'required|unique:groups|max:255',
+
+        ],[
+            'emp_name.required' =>'الرجاء ادخال اسم الموظف',
+            'emp_name.unique' =>' اسم الموظف مسجل مسبقآ في الجموعة او موجود في مجموعة اخرى',
+
+
+        ]);
+
+        groups::create([
+            'emp_name' => $request->emp_name,
+            'groups_id' => $request->groups_id,
+
+
+        ]);
+        session()->flash('Add', 'تم الموظف للمجموعة بنجاح ');
+        return redirect()->back();
     }
 
     /**

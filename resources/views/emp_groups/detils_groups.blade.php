@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('title')
-    مجموعة الخياطين
+    {{$groups_name}}
 @stop
 @section('css')
     <!-- Internal Data table css -->
@@ -16,7 +16,7 @@
     <div class="breadcrumb-header justify-content-between">
         <div class="my-auto">
             <div class="d-flex">
-                <h4 class="content-title mb-0 my-auto">مدخلات النظام</h4><span class="text-muted mt-1 tx-13 mr-2 mb-0">/    مجموعة الخياطين</span>
+                <h4 class="content-title mb-0 my-auto">مدخلات النظام</h4><span class="text-muted mt-1 tx-13 mr-2 mb-0">مجموعة الخياطين / {{$groups_name}}    </span>
             </div>
         </div>
 
@@ -68,7 +68,7 @@
             <div class="col-sm-6 col-md-3">
 
                 <a class="modal-effect btn btn-outline-primary btn-block" data-effect="effect-scale" data-toggle="modal" href="#modaldemo1"> <i
-                        class="fas fa-plus"></i>&nbsp; اضافة مجموعة</a>
+                        class="fas fa-plus"></i>&nbsp; اضافة موظف الي {{$groups_name}}  </a>
             </div>
           <br>   <br>   <br>
 
@@ -87,7 +87,7 @@
                             <thead>
                             <tr>
                                 <th class="border-bottom-0">#</th>
-                                <th class="border-bottom-0">اسم المجموعة</th>
+                                <th class="border-bottom-0">اسم الموظف</th>
 
                                 <th class="border-bottom-0">العمليات</th>
 
@@ -100,16 +100,11 @@
 
                                 <tr>
                                     <td>{{$x->id}}</td>
-                                    <td><a title="عرض الفاصيل"
-                                           href="{{ url('Details_groups') }}/{{ $x->id }} /{{ $x->groups_name }}">{{$x->groups_name}}</a>
-                                    </td>
 
+                                    <td>{{$x->emp_name}}</td>
 
                                     <td>
-                                        <a class="modal-effect btn btn-sm btn-info" data-effect="effect-scale"
-                                           data-id="{{ $x->id }}" data-groups_name="{{ $x->groups_name }}"
-                                           data-toggle="modal"
-                                           href="#exampleModal2" title="تعديل"><i class="las la-pen"></i></a>
+
 
 
 
@@ -118,10 +113,6 @@
                                            data-toggle="modal" href="#modaldemo9" title="حذف"><i
                                                 class="las la-trash"></i></a>
 
-                                        <a class="btn btn-outline-success btn-sm"
-                                           href="{{ url('Details_groups') }}/{{ $x->id }} /{{ $x->groups_name }}"
-                                           role="button"><i class="fas fa-eye"></i>&nbsp;
-                                            </a>
 
 
 
@@ -149,16 +140,23 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content modal-content-demo">
                 <div class="modal-header">
-                    <h6 class="modal-title">اضافة مجموعة</h6><button aria-label="Close" class="close" data-dismiss="modal"
+                    <h6 class="modal-title">اضافة موظف للمجموعة</h6><button aria-label="Close" class="close" data-dismiss="modal"
                                                                   type="button"><span aria-hidden="true">&times;</span></button>
                 </div>
                 <div class="modal-body">
-                    <form action="{{ route('emp_groups.store') }}" method="post">
+                    <form action="{{ route('groups.store') }}" method="post">
                         {{ csrf_field() }}
 
                         <div class="form-group">
-                            <label for="exampleInputEmail1">اسم المجموعة</label>
-                            <input type="text" class="form-control" id="groups_name" name="groups_name">
+                            <select name="emp_name" class="form-control SlectBox" onclick="console.log($(this).val())" required
+                                    onchange="console.log('change is firing')">
+                                <!--placeholder-->
+                                <option value="" selected disabled>حدد الموظف</option>
+                                @foreach ($employees as $y)
+                                    <option value="{{ $y->employees_name }}"> {{ $y->employees_name }}</option>
+                                @endforeach
+                            </select>
+                            <input type="text" value="{{ $groups_id }}" name="groups_id">
                         </div>
 
 

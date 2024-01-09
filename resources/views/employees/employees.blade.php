@@ -90,10 +90,15 @@
                             </tr>
                             </thead>
                             <tbody>
+                            @php
+                                $i = 0;
+                            @endphp
                             @foreach($employees as $x)
-
+                                @php
+                                    $i++
+                                @endphp
                             <tr>
-                                <td>{{$x->id}}</td>
+                                <td>{{$i}}</td>
                                 <td>{{$x->employees_name}}</td>
                                 <td>{{$x->section->sections_name}}</td>
                                 <td>{{$x->careers->careers_name}}</td>

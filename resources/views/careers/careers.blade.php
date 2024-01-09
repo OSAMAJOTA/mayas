@@ -95,11 +95,15 @@
                             </thead>
                             <tbody>
 
-
+                            @php
+                                $i = 0;
+                            @endphp
                             @foreach($careers as $x)
-
+                                @php
+                                    $i++
+                                @endphp
                                 <tr>
-                                    <td>{{$x->id}}</td>
+                                    <td>{{$i}}</td>
                                     <td>{{$x->careers_name}}</td>
 
                                     <td>

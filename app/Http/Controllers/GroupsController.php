@@ -99,8 +99,11 @@ class GroupsController extends Controller
      * @param  \App\groups  $groups
      * @return \Illuminate\Http\Response
      */
-    public function destroy(groups $groups)
+    public function destroy(Request $request,groups $groups)
     {
-        //
+        $id = $request->id;
+        groups::find($id)->delete();
+        session()->flash('delete','تم حذف الموظف من المجموعة بنجاح');
+        return redirect()->back();
     }
 }

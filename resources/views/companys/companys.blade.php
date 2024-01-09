@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('title')
-     عملا الفروع
+      الفروع
 @stop
 @section('css')
     <!-- Internal Data table css -->
@@ -69,7 +69,7 @@
 
                 <div class="card-header pb-0">
                     <a class=" btn btn-outline-primary "   href="companys/create"> <i
-                            class="fas fa-plus"></i>&nbsp; اضافة عميل</a>
+                            class="fas fa-plus"></i>&nbsp; اضافة فرع</a>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -90,10 +90,15 @@
                             </tr>
                             </thead>
                             <tbody>
+                            @php
+                                $i = 0;
+                            @endphp
                         @foreach($companys as $x)
-
+                            @php
+                                $i++
+                            @endphp
                             <tr>
-                                <td>{{$x->id}} </td>
+                                <td>{{$i}} </td>
                                 <td><a title="عرض الفاصيل"
                                         href="{{ url('companysDetails') }}/{{ $x->id }}">{{ $x->companys_name }}</a>
                                 </td>
@@ -170,6 +175,8 @@
                 <div class="modal-body">
                     هل انت متاكد من عملية الحذف ؟
                     <input type="hidden" name="invoice_id" id="invoice_id" value="">
+                    <br>
+                    <p class="text-danger">*عند حذف الفرع سيتم حذف جميع عملاء الفرع</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">الغاء</button>

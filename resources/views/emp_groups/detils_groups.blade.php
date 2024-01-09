@@ -94,12 +94,17 @@
                             </tr>
                             </thead>
                             <tbody>
+                            @php
+                                $i = 0;
+                            @endphp
 
 
                             @foreach($groups as $x)
-
+                                @php
+                                    $i++
+                                @endphp
                                 <tr>
-                                    <td>{{$x->id}}</td>
+                                    <td>{{$i}}</td>
 
                                     <td>{{$x->emp_name}}</td>
 
@@ -109,7 +114,7 @@
 
 
                                         <a class="modal-effect btn btn-sm btn-danger" data-effect="effect-scale"
-                                           data-id="{{ $x->id }}" data-groups_name="{{ $x->groups_name }}"
+                                           data-id="{{ $x->id }}" data-emp_name="{{ $x->emp_name }}"
                                            data-toggle="modal" href="#modaldemo9" title="حذف"><i
                                                 class="las la-trash"></i></a>
 
@@ -156,7 +161,7 @@
                                     <option value="{{ $y->employees_name }}"> {{ $y->employees_name }}</option>
                                 @endforeach
                             </select>
-                            <input type="text" value="{{ $groups_id }}" name="groups_id">
+                            <input type="hidden" value="{{ $groups_id }}" name="groups_id">
                         </div>
 
 
@@ -213,16 +218,16 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content modal-content-demo">
                 <div class="modal-header">
-                    <h6 class="modal-title">حذف المجموعة</h6><button aria-label="Close" class="close" data-dismiss="modal"
+                    <h6 class="modal-title">حذف الموظف من المجموعة</h6><button aria-label="Close" class="close" data-dismiss="modal"
                                                                   type="button"><span aria-hidden="true">&times;</span></button>
                 </div>
-                <form action="emp_groups/destroy" method="post">
+                <form action="{{ route('groups.destroy', 'test') }}" method="post">
                     {{ method_field('delete') }}
                     {{ csrf_field() }}
                     <div class="modal-body">
                         <p>هل انت متاكد من عملية الحذف ؟</p><br>
                         <input type="hidden" name="id" id="id" value="">
-                        <input class="form-control" name="groups_name" id="groups_name" type="text" readonly>
+                        <input class="form-control" name="emp_name" id="emp_name" type="text" readonly>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">الغاء</button>
@@ -279,10 +284,10 @@
         $('#modaldemo9').on('show.bs.modal', function(event) {
             var button = $(event.relatedTarget)
             var id = button.data('id')
-            var groups_name = button.data('groups_name')
+            var emp_name = button.data('emp_name')
             var modal = $(this)
             modal.find('.modal-body #id').val(id);
-            modal.find('.modal-body #groups_name').val(groups_name);
+            modal.find('.modal-body #emp_name').val(emp_name);
         })
 
     </script>

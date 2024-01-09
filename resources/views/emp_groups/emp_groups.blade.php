@@ -94,12 +94,16 @@
                             </tr>
                             </thead>
                             <tbody>
-
+                            @php
+                                $i = 0;
+                            @endphp
 
                             @foreach($groups as $x)
-
+                                @php
+                                    $i++
+                                @endphp
                                 <tr>
-                                    <td>{{$x->id}}</td>
+                                    <td>{{$i}}</td>
                                     <td><a title="عرض الفاصيل"
                                            href="{{ url('Details_groups') }}/{{ $x->id }} /{{ $x->groups_name }}">{{$x->groups_name}}</a>
                                     </td>
@@ -179,7 +183,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">تعديل القسم</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">تعديل المجموعة</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -191,7 +195,7 @@
                         {{ csrf_field() }}
                         <div class="form-group">
                             <input type="hidden" name="id" id="id" value="">
-                            <label for="recipient-name" class="col-form-label">اسم القسم:</label>
+                            <label for="recipient-name" class="col-form-label">اسم المجموعة:</label>
                             <input class="form-control" name="groups_name" id="groups_name" type="text">
                         </div>
 

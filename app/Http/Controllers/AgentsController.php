@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\agents;
 use App\companys;
-
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class AgentsController extends Controller
@@ -39,7 +39,24 @@ class AgentsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        agents::create([
+
+            'agents_name' => $request->agents_name,
+            'companys_id' => $request->companys_id,
+            'agents_phone' => $request->agents_phone,
+            'tailor_num' => $request->tailor_num,
+            'first_tailor' => $request->first_tailor,
+            'end_tailor' => $request->end_tailor,
+            'rset' => $request->rset,
+            'Status' => 'بانتظارالتوجيه',
+            'Status_id' =>1,
+            'man_note' => $request->man_note,
+            'Created_by' => Auth::user()->name,
+
+        ]);
+
+        session()->flash('Add', 'تم اضافة عميل بنجاح');
+        return redirect('/agents');
     }
 
     /**

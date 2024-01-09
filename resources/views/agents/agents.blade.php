@@ -139,6 +139,9 @@
                                               type="button">العمليات<i class="fas fa-caret-down ml-1"></i></button>
                                       <div class="dropdown-menu tx-13">
                                           <a class="dropdown-item"
+                                             href="{{ url('companysDetails') }}/"> توجيه
+                                          </a>
+                                          <a class="dropdown-item"
                                              href="{{ url('companysDetails') }}/">عرض التفاصيل
                                           </a>
                                           <a class="dropdown-item"
@@ -177,7 +180,7 @@
 
 
 
-                            <form action="{{ route('companys.store') }}" method="post" enctype="multipart/form-data"
+                            <form action="{{ route('agents.store') }}" method="post" enctype="multipart/form-data"
                                   autocomplete="off">
                                 {{ csrf_field() }}
                                 {{-- 1 --}}
@@ -188,7 +191,7 @@
                                 <div class="row">
                                     <div class="col">
 
-                                        <select name="section_id" class="form-control SlectBox" onclick="console.log($(this).val())" required
+                                        <select name="companys_id" class="form-control SlectBox" onclick="console.log($(this).val())" required
                                                 onchange="console.log('change is firing')">
                                             <!--placeholder-->
                                             <option value="" selected disabled>حدد الفرع</option>
@@ -205,19 +208,19 @@
                                 <div class="row">
                                     <div class="col">
                                         <label for="inputName" class="control-label"> اسم العميل</label>
-                                        <input type="text" class="form-control" id="companys_name" name="companys_name"
+                                        <input type="text" class="form-control" id="agents_name" name="agents_name"
                                                title="يرجي ادخال  اسم الشركه" required>
                                     </div>
 
                                     <div class="col">
                                         <label> رقم الجوال</label>
-                                        <input type="text" class="form-control" id="registration_num" name="registration_num"
+                                        <input type="text" class="form-control" id="agents_phone" name="agents_phone"
                                                title="يرجي ادخال رقم السجل" required>
                                     </div>
 
                                     <div class="col">
                                         <label>  تاريخ الاضافة</label>
-                                        <input type="text" class="form-control" id="vat_num" name="vat_num" value="{{ date('Y-m-d') }}" disabled required>
+                                        <input type="text" class="form-control" id="created_at" name="created_at" value="{{ date('Y-m-d') }}" disabled required>
                                     </div>
 
                                 </div>
@@ -231,19 +234,19 @@
                                 <div class="row">
                                     <div class="col">
                                         <label for="inputName" class="control-label">   عدد مرات التفصيل</label>
-                                        <input type="number" class="form-control" id="authorized_nam" name="authorized_nam"
+                                        <input type="number" class="form-control" id="tailor_num" name="tailor_num"
                                                title="يرجي اسم الشخص المفوض  " required>
                                     </div>
 
                                     <div class="col">
                                         <label>  تاريخ اول تفصيل</label>
-                                        <input type="date" class="form-control" id="build_num" name="build_num"
+                                        <input type="date" class="form-control" id="first_tailor" name="first_tailor"
                                                title="يرجي ادخال رقم المبني" required>
                                     </div>
 
                                     <div class="col">
                                         <label>  تاريخ اخر تفصيل</label>
-                                        <input type="date" class="form-control" id="postal_code" name="postal_code"
+                                        <input type="date" class="form-control" id="end_tailor" name="end_tailor"
                                         >
                                     </div>
 
@@ -264,7 +267,7 @@
 
                                     <div class="col">
                                         <label for="inputName" class="control-label">  المبلغ المتبقي</label>
-                                        <input type="number" class="form-control" id="authorized_nam" name="authorized_nam"
+                                        <input type="number" class="form-control" id="rset" name="rset"
                                                title="يرجي اسم الشخص المفوض  " required>
                                     </div>
 
@@ -277,7 +280,7 @@
                                 <div class="row">
                                     <div class="col">
                                         <label for="exampleTextarea">رأي الادارة</label>
-                                        <textarea class="form-control" id="exampleTextarea" name="note" rows="3"></textarea>
+                                        <textarea class="form-control" id="exampleTextarea" name="man_note" rows="3"></textarea>
                                     </div>
                                 </div>
 

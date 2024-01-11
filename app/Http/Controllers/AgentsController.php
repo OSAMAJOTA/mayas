@@ -76,9 +76,10 @@ class AgentsController extends Controller
      * @param  \App\agents  $agents
      * @return \Illuminate\Http\Response
      */
-    public function edit(agents $agents)
-    {
-        //
+    public function edit($id)
+    {   $companys=companys::all();
+        $agents = agents::where('id', $id)->first();
+        return view('agents.edit_agents', compact('agents','companys'));
     }
 
     /**
@@ -90,7 +91,21 @@ class AgentsController extends Controller
      */
     public function update(Request $request, agents $agents)
     {
-        //
+        $agents = agents::findOrFail($request->agents_id);
+        $agents->update([
+            'agents_name' => $request->agents_name,
+            'companys_id' => $request->companys_id,
+            'agents_phone' => $request->agents_phone,
+            'tailor_num' => $request->tailor_num,
+            'first_tailor' => $request->first_tailor,
+            'end_tailor' => $request->end_tailor,
+            'rset' => $request->rset,
+            'man_note' => $request->man_note,
+
+        ]);
+
+        session()->flash('edit', 'تم تعديل بيانات العميل بنجاح');
+        return redirect('/agents');
     }
 
     /**
@@ -99,8 +114,11 @@ class AgentsController extends Controller
      * @param  \App\agents  $agents
      * @return \Illuminate\Http\Response
      */
-    public function destroy(agents $agents)
+    public function destroy(Request $request,agents $agents)
     {
-        //
+        $id = $request->id;
+        agents::find($id)->delete();
+        session()->flash('delete','تم حذف العميل بنجاح');
+        return redirect('/agents');
     }
 }

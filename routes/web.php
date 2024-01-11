@@ -32,7 +32,7 @@ Route::resource('sections', 'SectionsController');
 Route::resource('items', 'ItemsController');
 
 Route::get('/Details_groups/{id}/{groups_name}', 'GroupsController@index');
-
+Route::get('/agents_edit/{id}', 'AgentsController@edit');
 Route::resource('CompanysAttachments', 'CompanysAttachmentsController');
 Route::get('/companysDetails/{id}', 'CompanysDetailsController@edit');
 Route::get('/edit_employees/{id}', 'EmployeesController@edit');

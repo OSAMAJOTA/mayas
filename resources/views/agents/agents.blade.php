@@ -145,15 +145,17 @@
                                              href="{{ url('companysDetails') }}/">عرض التفاصيل
                                           </a>
                                           <a class="dropdown-item"
-                                             href=" ">تعديل
+                                             href="{{url('agents_edit')}}/{{ $x->id }} ">تعديل
                                               </a>
 
 
 
-                                          <a class="dropdown-item" href="#" data-invoice_id=""
-                                             data-toggle="modal" data-target="#delete_invoice"><i
-                                                  class="text-danger fas fa-trash-alt"></i>&nbsp;&nbsp;حذف
-                                          </a>
+
+
+                                          <a class="modal-effect btn btn-sm btn-danger" data-effect="effect-scale"
+                                             data-id="{{ $x->id }}" data-agents_name="{{ $x->agents_name }}"
+                                             data-toggle="modal" href="#modaldemo9" title="حذف"><i
+                                                  class="las la-trash"></i> حزف</a>
 
 
                               </td>
@@ -306,29 +308,27 @@
     <!-- main-content closed -->
     </div>
 
-    <div class="modal fade" id="delete_invoice" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-         aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
+    <div class="modal" id="modaldemo9">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content modal-content-demo">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">حذف الفاتورة</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                    <form action="{{ route('companys.destroy', 'test') }}" method="post">
+                    <h6 class="modal-title">حذف العميل</h6><button aria-label="Close" class="close" data-dismiss="modal"
+                                                                    type="button"><span aria-hidden="true">&times;</span></button>
+                </div>
+                <form action="agents/destroy" method="post">
                     {{ method_field('delete') }}
                     {{ csrf_field() }}
-                </div>
-                <div class="modal-body">
-                    هل انت متاكد من عملية الحذف ؟
-                    <input type="hidden" name="invoice_id" id="invoice_id" value="">
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">الغاء</button>
-                    <button type="submit" class="btn btn-danger">تاكيد</button>
-                </div>
-                </form>
+                    <div class="modal-body">
+                        <p>هل انت متاكد من عملية الحذف ؟</p><br>
+                        <input type="hidden" name="id" id="id" value="">
+                        <input class="form-control" name="agents_name" id="agents_name" type="text" readonly>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">الغاء</button>
+                        <button type="submit" class="btn btn-danger">تاكيد</button>
+                    </div>
             </div>
+            </form>
         </div>
     </div>
 
@@ -361,4 +361,17 @@
     <script src="{{ URL::asset('assets/plugins/select2/js/select2.min.js') }}"></script>
     <!-- Internal Modal js-->
     <script src="{{ URL::asset('assets/js/modal.js') }}"></script>
+
+    <script>
+        $('#modaldemo9').on('show.bs.modal', function(event) {
+            var button = $(event.relatedTarget)
+            var id = button.data('id')
+            var agents_name = button.data('agents_name')
+            var modal = $(this)
+            modal.find('.modal-body #id').val(id);
+            modal.find('.modal-body #agents_name').val(agents_name);
+        })
+
+    </script>
+
 @endsection

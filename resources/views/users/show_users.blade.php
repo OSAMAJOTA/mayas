@@ -2,7 +2,7 @@
 @section('css')
 
 @section('title')
-    المستخدمين - مورا سوفت للادارة الفواتير
+    المستخدمين   
 @stop
 
 <!-- Internal Data table css -->

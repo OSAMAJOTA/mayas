@@ -3,7 +3,7 @@
 <!-- Internal Nice-select css  -->
 <link href="{{URL::asset('assets/plugins/jquery-nice-select/css/nice-select.css')}}" rel="stylesheet" />
 @section('title')
-اضافة مستخدم 
+اضافة مستخدم
 @stop
 
 

@@ -41,4 +41,12 @@ Route::post('delete_file', 'CompanysDetailsController@destroy')->name('delete_fi
 Route::get('View_file/{company_number}/{file_name}', 'CompanysDetailsController@open_file');
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::group(['middleware' => ['auth']], function() {
+    Route::resource('roles','RoleController');
+    Route::resource('users','UserController');
+
+});
+
+
 Route::get('/{page}', 'AdminController@index');

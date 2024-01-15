@@ -2,7 +2,7 @@
 @section('css')
 
 @section('title')
-    المستخدمين   
+    المستخدمين
 @stop
 
 <!-- Internal Data table css -->
@@ -57,7 +57,7 @@
                                 <th class="wd-15p border-bottom-0">اسم المستخدم</th>
                                 <th class="wd-20p border-bottom-0">البريد الالكتروني</th>
                                 <th class="wd-15p border-bottom-0">حالة المستخدم</th>
-                                <th class="wd-15p border-bottom-0">نوع المستخدم</th>
+                                <th class="wd-15p border-bottom-0">صلاحيات المستخدم</th>
                                 <th class="wd-10p border-bottom-0">العمليات</th>
                             </tr>
                         </thead>

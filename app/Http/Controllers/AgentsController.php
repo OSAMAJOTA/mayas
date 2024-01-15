@@ -4,11 +4,13 @@ namespace App\Http\Controllers;
 
 use App\agents;
 use App\companys;
+use App\users;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class AgentsController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -19,7 +21,48 @@ class AgentsController extends Controller
         $companys=companys::all();
         $agents=agents::all();
   return  view('agents.agents',compact('companys','agents'));
+
+
     }
+    public function forword()
+    {
+        $companys=companys::all();
+        $agents=agents::where('Status_id', 1)->get();
+        return  view('agents.agents_forword',compact('companys','agents'));
+    }
+
+
+    public function contact()
+    {
+
+
+    $res= Auth::user()->roles_name;
+    $adm=$res[0];
+
+if($adm=='owner'){
+
+    $companys=companys::all();
+    $agents=agents::where('Status_id', 2)->get();
+    return  view('agents.agents_contact',compact('companys','agents'));
+
+
+}else{
+$emp_id=Auth::user()->id;
+
+
+    $companys=companys::all();
+    $agents=agents::where('Status_id', 2)->where('employees_id', $emp_id)->get();
+    return  view('agents.agents_contact',compact('companys','agents'));
+
+
+
+}
+
+
+    }
+
+
+
 
     /**
      * Show the form for creating a new resource.
@@ -121,4 +164,11 @@ class AgentsController extends Controller
         session()->flash('delete','تم حذف العميل بنجاح');
         return redirect('/agents');
     }
+    /**
+     * Remove the specified resource from storage.
+     *
+     *
+     * @return \Illuminate\Http\Response
+     */
+
 }

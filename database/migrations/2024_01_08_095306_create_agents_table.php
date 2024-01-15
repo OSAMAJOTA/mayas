@@ -25,6 +25,8 @@ class CreateAgentsTable extends Migration
             $table->decimal('rset',8,2)->nullable();
             $table->string('Status')->nullable();
             $table->integer('Status_id')->nullable();
+            $table->integer('employees_id')->nullable();
+            $table->string('employees_name')->nullable();
             $table->string('man_note')->nullable();
 
             $table->string('Created_by', 999);

@@ -1,5 +1,6 @@
 <?php
 namespace App\Http\Controllers;
+use App\employees;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\User;
@@ -29,8 +30,8 @@ class UserController extends Controller
     public function create()
     {
         $roles = Role::pluck('name','name')->all();
-
-        return view('users.Add_user',compact('roles'));
+        $employees=employees::all();
+        return view('users.Add_user',compact('roles','employees'));
 
     }
     /**

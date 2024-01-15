@@ -52,14 +52,20 @@
                     action="{{route('users.store','test')}}" method="post">
                     {{csrf_field()}}
 
-                    <div class="">
+                    <div class="row">
 
-                        <div class="row mg-b-20">
-                            <div class="parsley-input col-md-6" id="fnWrapper">
-                                <label>اسم المستخدم: <span class="tx-danger">*</span></label>
-                                <input class="form-control form-control-sm mg-b-20"
-                                    data-parsley-class-handler="#lnWrapper" name="name" required="" type="text">
-                            </div>
+                        <div class="parsley-input col-md-6 mg-t-20 mg-md-t-0" id="lnWrapper">
+                            <label> حدد الموظف: <span class="tx-danger">*</span></label>
+                            <select name="name" class="form-control SlectBox" onclick="console.log($(this).val())" required
+                                    onchange="console.log('change is firing')">
+                                <!--placeholder-->
+                                <option value="" selected disabled>حدد الموظف</option>
+                                @foreach ($employees as $y)
+                                    <option value="{{ $y->employees_name }}"> {{ $y->employees_name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+
 
                             <div class="parsley-input col-md-6 mg-t-20 mg-md-t-0" id="lnWrapper">
                                 <label>البريد الالكتروني: <span class="tx-danger">*</span></label>

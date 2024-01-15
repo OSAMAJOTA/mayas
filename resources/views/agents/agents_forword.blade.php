@@ -89,7 +89,6 @@
                                 <th class="border-bottom-0">تاريخ اخر تفصيل</th>
                                 <th class="border-bottom-0"> المبلغ المتبقي</th>
                                 <th class="border-bottom-0">الحالة</th>
-                                <th class="border-bottom-0"> الوظف المسؤول</th>
                                 <th class="border-bottom-0"> رأي الادارة</th>
                                 <th class="border-bottom-0">العمليات</th>
                             </tr>
@@ -131,7 +130,6 @@
 
 
                                       </td>
-                                <td>{{$x->employees_name}} </td>
                                 <td>{{$x->man_note}} </td>
 
                               <td>
@@ -140,7 +138,9 @@
                                               class="btn ripple btn-primary btn-sm" data-toggle="dropdown"
                                               type="button">العمليات<i class="fas fa-caret-down ml-1"></i></button>
                                       <div class="dropdown-menu tx-13">
-
+                                          <a class="dropdown-item"
+                                             href="{{ url('companysDetails') }}/">توجيه
+                                          </a>
                                           <a class="dropdown-item"
                                              href="{{ url('companysDetails') }}/">عرض التفاصيل
                                           </a>

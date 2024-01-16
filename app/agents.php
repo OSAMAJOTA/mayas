@@ -13,6 +13,11 @@ class agents extends Model
         return $this->belongsTo('App\companys');
     }
 
+    public function User()
+    {
+        return $this->belongsTo('App\User');
+    }
+
 
 
 }

@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use App\agents;
 use App\companys;
-use App\users;
+use App\employees;
+use App\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
@@ -18,17 +19,20 @@ class AgentsController extends Controller
      */
     public function index()
     {
+        $User=User::all();
         $companys=companys::all();
         $agents=agents::all();
-  return  view('agents.agents',compact('companys','agents'));
+  return  view('agents.agents',compact('companys','agents','User'));
 
 
     }
     public function forword()
     {
+        $User=User::all();
+        $employees=employees::all();
         $companys=companys::all();
         $agents=agents::where('Status_id', 1)->get();
-        return  view('agents.agents_forword',compact('companys','agents'));
+        return  view('agents.agents_forword',compact('companys','agents','employees','User'));
     }
 
 
@@ -73,6 +77,7 @@ $emp_id=Auth::user()->id;
     {
         return view('agents.add_agents');
     }
+
 
     /**
      * Store a newly created resource in storage.

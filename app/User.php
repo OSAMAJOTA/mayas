@@ -35,8 +35,8 @@ class User extends Authenticatable
     ];
 
 
-    public function users()
+    public function agents()
     {
-        return $this->belongsTo('App\users');
+        return $this->belongsTo('App\agents');
     }
 }

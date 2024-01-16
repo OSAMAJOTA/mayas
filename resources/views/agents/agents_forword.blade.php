@@ -138,13 +138,14 @@
                                               class="btn ripple btn-primary btn-sm" data-toggle="dropdown"
                                               type="button">العمليات<i class="fas fa-caret-down ml-1"></i></button>
                                       <div class="dropdown-menu tx-13">
-                                          <a class="dropdown-item"
-                                             href="{{ url('companysDetails') }}/">توجيه
-                                          </a>
-                                          <a class="dropdown-item"
+                                          <a class="modal-effect btn btn-sm btn-dark-gradient" data-effect="effect-scale"
+                                             data-id="{{ $x->id }}" data-agents_name="{{ $x->agents_name }}"
+                                             data-toggle="modal" href="#modaldemo44" title="توجيه"><i
+                                                  class="las la-FORWORD"></i> توجيه</a>
+                                          <a class="dropdown-item "
                                              href="{{ url('companysDetails') }}/">عرض التفاصيل
                                           </a>
-                                          <a class="dropdown-item"
+                                          <a class="dropdown-item "
                                              href="{{url('agents_edit')}}/{{ $x->id }} ">تعديل
                                               </a>
 
@@ -332,6 +333,46 @@
         </div>
     </div>
 
+
+    <div class="modal" id="modaldemo44">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content modal-content-demo">
+                <div class="modal-header">
+                    <h6 class="modal-title">توجيه العميل</h6><button aria-label="Close" class="close" data-dismiss="modal"
+                                                                   type="button"><span aria-hidden="true">&times;</span></button>
+                </div>
+                <form action="{{ url('forword/update') }}" method="post">
+                    {{ method_field('patch') }}
+                    {{ method_field('patch') }}
+                    {{ csrf_field() }}
+                    <div class="modal-body">
+                        <p>اسم العميل</p><br>
+
+                        <input class="form-control" name="agents_name" id="agents_name" type="text" readonly>
+                        <input class="form-control" name="id" id="id" type="text" >
+                        <label> حدد الموظف: <span class="tx-danger">*</span></label>
+                        <select name="employees_id" class="form-control SlectBox" onclick="console.log($(this).val())" required
+                                onchange="console.log('change is firing')">
+                            <!--placeholder-->
+                            <option value="" selected disabled>حدد الموظف</option>
+                            @foreach ($User as $y)
+                                <option value="{{ $y->id }}"> {{ $y->name }}</option>
+                            @endforeach
+
+                        </select>
+
+                    </div>
+
+                    <div class="modal-footer">
+
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">الغاء</button>
+                        <button type="submit" class="btn btn-danger">تاكيد</button>
+                    </div>
+            </div>
+            </form>
+        </div>
+    </div>
+
 @endsection
 @section('js')
     <!-- Internal Data tables -->
@@ -364,6 +405,18 @@
 
     <script>
         $('#modaldemo9').on('show.bs.modal', function(event) {
+            var button = $(event.relatedTarget)
+            var id = button.data('id')
+            var agents_name = button.data('agents_name')
+            var modal = $(this)
+            modal.find('.modal-body #id').val(id);
+            modal.find('.modal-body #agents_name').val(agents_name);
+        })
+
+    </script>
+
+    <script>
+        $('#modaldemo44').on('show.bs.modal', function(event) {
             var button = $(event.relatedTarget)
             var id = button.data('id')
             var agents_name = button.data('agents_name')

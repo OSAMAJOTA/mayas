@@ -349,7 +349,7 @@
                         <p>اسم العميل</p><br>
 
                         <input class="form-control" name="agents_name" id="agents_name" type="text" readonly>
-                        <input class="form-control" name="id" id="id" type="text" >
+                        <input class="form-control" name="id" id="id" type="hidden" >
                         <label> حدد الموظف: <span class="tx-danger">*</span></label>
                         <select name="employees_id" class="form-control SlectBox" onclick="console.log($(this).val())" required
                                 onchange="console.log('change is firing')">

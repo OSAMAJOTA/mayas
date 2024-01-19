@@ -42,6 +42,8 @@ Route::get('download/{company_number}/{file_name}', 'CompanysDetailsController@g
 Route::post('delete_file', 'CompanysDetailsController@destroy')->name('delete_file');
 Route::get('View_file/{company_number}/{file_name}', 'CompanysDetailsController@open_file');
 
+Route::get('MarkAsRead_all','AgentsController@MarkAsRead_all')->name('MarkAsRead_all');
+
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['middleware' => ['auth']], function() {

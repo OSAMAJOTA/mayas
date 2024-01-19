@@ -157,14 +157,15 @@
 									<div class="menu-header-content bg-primary text-right">
 										<div class="d-flex">
 											<h6 class="dropdown-title mb-1 tx-15 text-white font-weight-semibold">الاشعارات</h6>
-											<span class="badge badge-pill badge-warning mr-auto my-auto float-left">تعين قراءة الكل</span>
+                                            <span class="badge badge-pill badge-warning mr-auto my-auto float-left"><a
+                                                    href="\MarkAsRead_all">تعين قراءة الكل</a></span>
 										</div>
 										<p class="dropdown-title-text subtext mb-0 text-white op-6 pb-0 tx-12 ">  عدد الاشعارات الغير مقروءة {{ auth()->user()->unreadNotifications->count() }}</p>
 									</div>
                                     @foreach (auth()->user()->unreadNotifications as $notification)
 									<div class="main-notification-list Notification-scroll">
 
-										<a class="d-flex p-3 border-bottom" href="#">
+										<a class="d-flex p-3 border-bottom"  href="{{ url('AgentsDetails') }}/ {{ $notification->data['id'] }}">
 											<div class="notifyimg bg-danger">
 												<i class="la la-user-check text-white"></i>
 											</div>
@@ -173,8 +174,10 @@
 
                                                 <h5 class="notification-label mb-1">{{ $notification->data['title'] }}
                                                     <div class="notification-subtext">
+
                                                         {{ $notification->data['user'] }}
                                                         {{ $notification->created_at }}
+
                                                     </div>
 											</div>
 

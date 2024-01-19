@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Notification;
 use App\agents;
 use App\companys;
 use App\employees;
@@ -19,13 +19,28 @@ class AgentsController extends Controller
      */
     public function index()
     {
-        $User=User::all();
-        $companys=companys::all();
-        $agents=agents::all();
-  return  view('agents.agents',compact('companys','agents','User'));
+
+        $res= Auth::user()->roles_name;
+        $adm=$res[0];
+
+        if($adm=='owner'){
+            $User=User::all();
+            $companys=companys::all();
+            $agents=agents::all();
+            return  view('agents.agents',compact('companys','agents','User'));
 
 
-    }
+        }else {
+            $emp_id = Auth::user()->id;
+
+
+            $companys = companys::all();
+            $agents = agents::where('employees_id', $emp_id)->get();
+            return view('agents.agents', compact('companys', 'agents'));
+
+        }
+
+        }
     public function forword()
     {
         $User=User::all();
@@ -102,6 +117,11 @@ $emp_id=Auth::user()->id;
             'Created_by' => Auth::user()->name,
 
         ]);
+        $user = User::get();
+        $agents_id = agents::latest()->first();
+        Notification::send($user, new \App\Notifications\add_new_agents($agents_id));
+
+
 
         session()->flash('Add', 'تم اضافة عميل بنجاح');
         return redirect('/agents');

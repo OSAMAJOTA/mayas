@@ -89,7 +89,7 @@
                                 <th class="border-bottom-0">تاريخ اخر تفصيل</th>
                                 <th class="border-bottom-0"> المبلغ المتبقي</th>
                                 <th class="border-bottom-0">الحالة</th>
-                             
+
                                 <th class="border-bottom-0"> رأي الادارة</th>
                                 <th class="border-bottom-0">العمليات</th>
                             </tr>

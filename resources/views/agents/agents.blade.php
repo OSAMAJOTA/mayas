@@ -132,7 +132,7 @@
 
                                       </td>
 
-                                <td>{{$x->User->name}} </td>
+                                <td class="text-success">{{$x->employees_name}} </td>
                                 <td>{{$x->man_note}} </td>
 
                               <td>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\agents;
 use App\agents_details;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -72,8 +73,10 @@ class forword_controller extends Controller
     public function update(Request $request)
     {
         $agents = agents::findOrFail($request->id);
+        $usernam=User::findOrFail($request->employees_id);
         $agents->update([
             'employees_id' => $request->employees_id,
+            'employees_name'=>$usernam->name,
             'Status' => 'بانتظار التواصل معه',
             'Status_id' =>2,
 
@@ -89,8 +92,7 @@ class forword_controller extends Controller
 
 
 
-        session()->flash('Add', 'تم اضافة عميل بنجاح');
-        return redirect('/agents');
+
 
 
         session()->flash('edit', 'تم توجيه العميل بنجاح');

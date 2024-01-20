@@ -116,6 +116,9 @@
                                                         <td>{{ $agents->created_at }}</td>
                                                         <th scope="row"> تم اضافة العميل بواسطة</th>
                                                         <td>{{ $agents->Created_by }}</td>
+                                                        <th scope="row"> الموظف المسؤول </th>
+                                                        <td class="text-success">{{ $agents->employees_name }}</td>
+                                                        
 
                                                     </tr>
 
@@ -134,6 +137,7 @@
                                                             @endif
 
                                                         </td>
+
                                                     </tr>
 
 

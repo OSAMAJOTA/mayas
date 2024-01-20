@@ -13,11 +13,9 @@ class agents extends Model
         return $this->belongsTo('App\companys');
     }
 
-    public function User()
+    public function user(): BelongsTo
     {
-        return $this->belongsTo('App\User');
+        return $this->belongsTo(User::class, 'foreign_key');
     }
-
-
 
 }

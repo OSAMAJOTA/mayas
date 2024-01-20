@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\agents_details;
 use App\companys;
+use App\agents;
 use App\companys_attachments;
 use App\companys_details;
 use Illuminate\Support\Facades\Storage;
@@ -60,11 +62,13 @@ class CompanysDetailsController extends Controller
      */
     public function edit($id)
     {
-        $companys = companys::where('id', $id)->first();
 
+
+        $companys = companys::where('id', $id)->first();
+        $agents = agents::where('companys_id', $id)->get();
         $attachments = companys_attachments::where('company_id', $id)->get();
 
-        return view('companys.detils_companys', compact('companys', 'attachments'));
+        return view('companys.detils_companys', compact('companys', 'attachments','agents'));
     }
 
     /**

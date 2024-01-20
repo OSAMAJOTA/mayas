@@ -138,10 +138,10 @@
                                               class="btn ripple btn-primary btn-sm" data-toggle="dropdown"
                                               type="button">العمليات<i class="fas fa-caret-down ml-1"></i></button>
                                       <div class="dropdown-menu tx-13">
-                                          <a class="modal-effect btn btn-sm btn-dark-gradient" data-effect="effect-scale"
+                                          <a class="dropdown-item  " data-effect="effect-scale"
                                              data-id="{{ $x->id }}" data-agents_name="{{ $x->agents_name }}"
-                                             data-toggle="modal" href="#modaldemo44" title="توجيه"><i
-                                                  class="las la-FORWORD"></i> توجيه</a>
+                                             data-toggle="modal" href="#modaldemo44" title="توجيه">
+                                                توجيه</a>
                                           <a class="dropdown-item "
                                              href="{{ url('companysDetails') }}/">عرض التفاصيل
                                           </a>

@@ -69,10 +69,7 @@
 
                 <div class="col-sm-4 col-md-4">
 
-                        <div class="card-body">
-
-                            <a class="btn ripple btn-info" data-target="#modaldemo3" data-toggle="modal" href="">اضافة عميل </a>
-                        </div>
+                   
 
                 </div>
                 <div class="card-body">
@@ -89,7 +86,7 @@
                                 <th class="border-bottom-0">تاريخ اخر تفصيل</th>
                                 <th class="border-bottom-0"> المبلغ المتبقي</th>
                                 <th class="border-bottom-0">الحالة</th>
-                                <th class="border-bottom-0"> الوظف المسؤول</th>
+
                                 <th class="border-bottom-0"> رأي الادارة</th>
                                 <th class="border-bottom-0">العمليات</th>
                             </tr>
@@ -137,7 +134,7 @@
 
 
 
-                                <td>{{$x->employees_name}} </td>
+
 
 
                                 <td>{{$x->man_note}} </td>
@@ -152,20 +149,9 @@
                                              href="{{ url('companysDetails') }}/">تواصل
                                           </a>
                                           <a class="dropdown-item"
-                                             href="{{ url('companysDetails') }}/">عرض التفاصيل
+                                             href="{{ url('AgentsDetails') }}/{{ $x->id }}">عرض التفاصيل
                                           </a>
-                                          <a class="dropdown-item"
-                                             href="{{url('agents_edit')}}/{{ $x->id }} ">تعديل
-                                              </a>
 
-
-
-
-
-                                          <a class="modal-effect btn btn-sm btn-danger" data-effect="effect-scale"
-                                             data-id="{{ $x->id }}" data-agents_name="{{ $x->agents_name }}"
-                                             data-toggle="modal" href="#modaldemo9" title="حذف"><i
-                                                  class="las la-trash"></i> حزف</a>
 
 
                               </td>

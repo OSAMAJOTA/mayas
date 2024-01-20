@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Notification;
 use App\agents;
 use App\companys;
 use App\employees;
+use App\agents_details;
+
 use App\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
@@ -120,6 +122,13 @@ $emp_id=Auth::user()->id;
         $user = User::get();
         $agents_id = agents::latest()->first();
         Notification::send($user, new \App\Notifications\add_new_agents($agents_id));
+
+        $agents_details = new agents_details();
+        $agents_details->type ='تم اضافة عميل';
+        $agents_details->agents_id = agents::latest()->first()->id;
+        $agents_details->Created_by = Auth::user()->name;
+
+        $agents_details->save();
 
 
 

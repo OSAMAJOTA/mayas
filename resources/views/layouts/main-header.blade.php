@@ -165,7 +165,7 @@
                                     @foreach (auth()->user()->unreadNotifications as $notification)
 									<div class="main-notification-list Notification-scroll">
 
-										<a class="d-flex p-3 border-bottom"  href="{{ url('AgentsDetails') }}/ {{ $notification->data['id'] }}">
+										<a class="d-flex p-3 border-bottom"  href="{{ url('ReadNotification') }}/{{ $notification->data['id'] }}"  data-id="{{$notification->id}}">
 											<div class="notifyimg bg-danger">
 												<i class="la la-user-check text-white"></i>
 											</div>

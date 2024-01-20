@@ -6,6 +6,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Spatie\Permission\Traits\HasRoles;
 class User extends Authenticatable
 {
+
     use Notifiable;
     use HasRoles;
     /**
@@ -13,7 +14,7 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $fillable = [
+  protected $fillable = [
         'name', 'email', 'password','roles_name','Status',
     ];
     /**
@@ -35,8 +36,5 @@ class User extends Authenticatable
     ];
 
 
-    public function agents()
-    {
-        return $this->belongsTo('App\agents');
-    }
+
 }

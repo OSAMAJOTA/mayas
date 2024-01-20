@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\agents;
+use App\agents_details;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class forword_controller extends Controller
 {
@@ -77,6 +79,19 @@ class forword_controller extends Controller
 
 
         ]);
+
+        $agents_details = new agents_details();
+        $agents_details->type ='تم توجيه العميل الي الموظف ';
+        $agents_details->agents_id =$request->id;
+        $agents_details->Created_by = Auth::user()->name;
+
+        $agents_details->save();
+
+
+
+        session()->flash('Add', 'تم اضافة عميل بنجاح');
+        return redirect('/agents');
+
 
         session()->flash('edit', 'تم توجيه العميل بنجاح');
         return redirect('/wait_forword');

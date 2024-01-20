@@ -76,6 +76,7 @@
                                             <li><a href="#tab4" class="nav-link active" data-toggle="tab">معلومات
                                                     الفرع</a></li>
                                             <li><a href="#tab6" class="nav-link" data-toggle="tab">المرفقات</a></li>
+                                            <li><a href="#tab7" class="nav-link" data-toggle="tab">عملا الفرع</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -224,17 +225,157 @@
                                                             </tr>
                                                         @endforeach
                                                         </tbody>
-                                                        </tbody>
+
                                                     </table>
 
                                                 </div>
                                             </div>
+
+
+
+
+
+
+
+
+
+                                            </div>
+
+
+
+
+
+                                        <div class="tab-pane" id="tab7">
+                                            <!--المرفقات-->
+                                            <div class="card card-statistics">
+
+
+                                                <div class="card-body">
+                                                    <div class="table-responsive">
+                                                        <table class="table text-md-nowrap" id="example1" data-page-length="50">
+                                                            <thead>
+                                                            <tr>
+                                                                <th class="border-bottom-0">#</th>
+                                                                <th class="border-bottom-0"> اسم العميل </th>
+                                                                <th class="border-bottom-0">فرع العميل</th>
+                                                                <th class="border-bottom-0"> جوال العميل</th>
+                                                                <th class="border-bottom-0"> عدد مرات التفصيل</th>
+                                                                <th class="border-bottom-0"> تاريخ اول تفصيل </th>
+                                                                <th class="border-bottom-0">تاريخ اخر تفصيل</th>
+                                                                <th class="border-bottom-0"> المبلغ المتبقي</th>
+                                                                <th class="border-bottom-0">الحالة</th>
+
+                                                                <th class="border-bottom-0"> رأي الادارة</th>
+                                                                <th class="border-bottom-0">العمليات</th>
+                                                            </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                            @php
+                                                                $i = 0;
+                                                            @endphp
+                                                            @foreach($agents as $x)
+                                                                @php
+                                                                    $i++
+                                                                @endphp
+                                                                <tr>
+                                                                    <td> {{$i}}</td>
+                                                                    <td>
+                                                                        {{$x->agents_name}}
+                                                                    </td>
+                                                                    <td>    <a title="عرض الفاصيل"
+                                                                               href="{{ url('companysDetails') }}/{{ $x->companys_id }}">{{ $x->companys->companys_name }}</a>
+                                                                    </td>
+                                                                    <td> {{$x->agents_phone}} </td>
+                                                                    <td>{{$x->tailor_num}} </td>
+                                                                    <td>{{$x->first_tailor}}</td>
+                                                                    <td>{{$x->end_tailor}}</td>
+                                                                    <td>
+                                                                        {{$x->rset}}
+                                                                    </td>
+                                                                    <td>
+
+                                                                        @if ($x->Status_id == 1)
+                                                                            <span class="text-warning">{{ $x->Status }}</span>
+                                                                        @elseif($x->Status_id == 2)
+                                                                            <span class="text-danger">{{ $x->Status }}</span>
+                                                                        @elseif($x->Status_id == 3)
+                                                                            <span class="text-success">{{ $x->Status }}</span>
+                                                                        @else
+                                                                            <span class="text-info">{{ $x->Status }}</span>
+                                                                        @endif
+
+
+                                                                    </td>
+
+
+                                                                    <td>{{$x->man_note}} </td>
+
+                                                                    <td>
+                                                                        <div class="dropdown">
+                                                                            <button aria-expanded="false" aria-haspopup="true"
+                                                                                    class="btn ripple btn-primary btn-sm" data-toggle="dropdown"
+                                                                                    type="button">العمليات<i class="fas fa-caret-down ml-1"></i></button>
+                                                                            <div class="dropdown-menu tx-13">
+
+                                                                                <a class="dropdown-item"
+                                                                                   href="{{ url('AgentsDetails') }}/{{ $x->id }}">عرض التفاصيل
+                                                                                </a>
+
+
+
+
+
+
+
+
+                                                                    </td>
+
+
+                                                                </tr>
+                                                            @endforeach
+                                                            </tbody>
+
+                                                        </table>
+                                                    </div>
+                                                </div>
+
+                                                </div>
+                                            </div>
+
+
+
+
+
+
+
+
+
+                                        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+
+
                     </div>
                 </div>
             </div>

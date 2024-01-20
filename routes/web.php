@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('auth.login');
+    return view('loglog.login');
 });
 
 Auth::routes();
@@ -37,6 +37,9 @@ Route::get('/Details_groups/{id}/{groups_name}', 'GroupsController@index');
 Route::get('/agents_edit/{id}', 'AgentsController@edit');
 Route::resource('CompanysAttachments', 'CompanysAttachmentsController');
 Route::get('/companysDetails/{id}', 'CompanysDetailsController@edit');
+Route::get('/AgentsDetails/{id}', 'AgentsDetailsController@edit');
+Route::get('ReadNotification/{id}','AgentsDetailsController@ReadNotification')->name('ReadNotification');
+
 Route::get('/edit_employees/{id}', 'EmployeesController@edit');
 Route::get('download/{company_number}/{file_name}', 'CompanysDetailsController@get_file');
 Route::post('delete_file', 'CompanysDetailsController@destroy')->name('delete_file');

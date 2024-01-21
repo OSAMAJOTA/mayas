@@ -118,7 +118,7 @@
                                                         <td>{{ $agents->Created_by }}</td>
                                                         <th scope="row"> الموظف المسؤول </th>
                                                         <td class="text-success">{{ $agents->employees_name }}</td>
-                                                        
+
 
                                                     </tr>
 
@@ -163,7 +163,11 @@
                                                         <tr>
                                                             <th class="border-bottom-0">#</th>
                                                             <th class="border-bottom-0"> نوع العملية </th>
+
                                                             <th class="border-bottom-0">بواسطة</th>
+
+                                                            <th class="border-bottom-0">الموظف المسؤول</th>
+
                                                             <th class="border-bottom-0"> التاريخ</th>
 
                                                         </tr>
@@ -183,6 +187,7 @@
                                                                 </td>
 
                                                                 <td> {{$x->Created_by}} </td>
+                                                                <td class="text-success"> {{$x->emp_name}} </td>
                                                                 <td>{{$x->created_at}} </td>
 
 

@@ -69,7 +69,7 @@
 
                 <div class="col-sm-4 col-md-4">
 
-                   
+
 
                 </div>
                 <div class="card-body">
@@ -86,7 +86,7 @@
                                 <th class="border-bottom-0">تاريخ اخر تفصيل</th>
                                 <th class="border-bottom-0"> المبلغ المتبقي</th>
                                 <th class="border-bottom-0">الحالة</th>
-
+                                <th class="border-bottom-0">الموظف المسؤول</th>
                                 <th class="border-bottom-0"> رأي الادارة</th>
                                 <th class="border-bottom-0">العمليات</th>
                             </tr>
@@ -136,7 +136,7 @@
 
 
 
-
+                                <td class="text-success">{{$x->employees_name}} </td>
                                 <td>{{$x->man_note}} </td>
 
                               <td>

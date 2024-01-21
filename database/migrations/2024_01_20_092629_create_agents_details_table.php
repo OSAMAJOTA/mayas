@@ -19,6 +19,7 @@ class CreateAgentsDetailsTable extends Migration
             $table->string('type', 999);
 
             $table->string('Created_by', 999);
+            $table->string('emp_name', 999)->nullable();
             $table->foreign('agents_id')->references('id')->on('agents')->onDelete('cascade');
             $table->timestamps();
         });

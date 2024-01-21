@@ -84,8 +84,10 @@ class forword_controller extends Controller
         ]);
 
         $agents_details = new agents_details();
-        $agents_details->type ='تم توجيه العميل الي الموظف ';
+        $agents_details->type ='تم توجيه العميل ';
         $agents_details->agents_id =$request->id;
+
+        $agents_details->emp_name =$usernam->name;
         $agents_details->Created_by = Auth::user()->name;
 
         $agents_details->save();

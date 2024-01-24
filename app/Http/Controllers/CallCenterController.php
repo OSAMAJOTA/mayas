@@ -3,9 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\agents;
+use App\agents_details;
 use App\call_center;
 use App\companys;
+use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Carbon;
 
 class CallCenterController extends Controller
 {
@@ -36,9 +40,53 @@ class CallCenterController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
+
     {
-        //
+       // return $request;
+     if($request->yes_btn=="1")
+      {
+         echo"you click yes";
     }
+      else{
+
+
+          $agents = agents::findOrFail($request->agents_id);
+          $agents->update([
+
+
+              'Status' => 'طلب  معاودة الاتصال في وقت لاحق',
+              'Status_id' =>1,
+              'employees_name' => '',
+
+
+          ]);
+
+          $agents_details = new agents_details();
+          $agents_details->type ='طلب  معاودة الاتصال في وقت لاحق';
+          $agents_details->call_later =$request->call_later;
+          $agents_details->agents_id =$request->agents_id;
+          $agents_details->emp_name =Auth::user()->name;
+          $agents_details->Created_by = Auth::user()->name;
+
+          $agents_details->save();
+
+
+
+
+
+
+          session()->flash('Add', 'تم تحويل الموظف الي اعادة التوجيه ');
+          return redirect('/contact_agent');
+
+
+
+
+
+
+
+
+     }
+   }
 
     /**
      * Display the specified resource.

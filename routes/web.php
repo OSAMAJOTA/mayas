@@ -18,6 +18,7 @@ Route::get('/', function () {
 });
 
 Auth::routes();
+Route::resource('call', 'CallCenterController');
 Route::resource('agents', 'AgentsController');
 Route::resource('forword', 'forword_controller');
 Route::get('wait_forword', 'AgentsController@forword');

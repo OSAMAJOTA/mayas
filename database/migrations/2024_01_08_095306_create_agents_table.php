@@ -29,7 +29,7 @@ class CreateAgentsTable extends Migration
             $table->foreign('employees_id')->references('id')->on('users');
             $table->string('employees_name')->nullable();
             $table->string('man_note')->nullable();
-
+            $table->date('call_later')->nullable();
             $table->string('Created_by', 999);
             $table->timestamps();
         });

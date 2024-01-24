@@ -227,10 +227,9 @@
                             </div>
                             <div id="collapseFive2" class="panel-collapse collapse" role="tabpanel" aria-expanded="false">
                                 <div class="panel-body border">
-                                    <form action="" method="post" enctype="multipart/form-data"
+                                    <form action="{{ route('call.store') }}" method="post" enctype="multipart/form-data"
                                           autocomplete="off">
-                                        {{ method_field('patch') }}
-                                        {{ method_field('patch') }}
+
                                         {{ csrf_field() }}
                                         {{-- 1 --}}
                                         <div class="row ">
@@ -277,10 +276,10 @@
 
 
                                             <div class="col-lg-3">
-                                                <label class="rdiobox"><input name="rdio"   type="radio" onclick="showElement(1)"> <span>نعم </span></label>
+                                                <label class="rdiobox"><input name="yes_btn" value="1"  type="radio" onclick="showElement(1)"> <span>نعم </span></label>
                                             </div>
                                             <div class="col-lg-3 mg-t-20 mg-lg-t-0">
-                                                <label class="rdiobox"><input  name="rdio" type="radio" onclick="showElement(2)"> <span> لا</span></label>
+                                                <label class="rdiobox"><input  name="yes_btn" value="2" type="radio" onclick="showElement(2)"> <span> لا</span></label>
                                             </div>
 
 
@@ -302,7 +301,7 @@
                                                                         <div class="input-group-text">
                                                                             <i class="typcn typcn-calendar-outline tx-24 lh--9 op-6"></i>
                                                                         </div>
-                                                                    </div><input class="form-control" id="datetimepicker2" type="text" value="{{ date('Y-m-d') }}">
+                                                                    </div><input class="form-control" id="datetimepicker2" type="text" name="call_later" value="{{ date('Y-m-d') }}">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -326,16 +325,16 @@
 
                                                             <div class="row">
                                                                 <div class="col-lg-3">
-                                                                    <label class="ckbox"><input type="checkbox"><span> طلب عدم التواصل مطلقآ</span></label>
+                                                                    <label class="ckbox"><input type="checkbox" name="dont_call_check" id="dont_call_check" value="0"><span> طلب عدم التواصل مطلقآ</span></label>
                                                                 </div>
                                                                 <div class="col-lg-3 mg-t-20 mg-lg-t-0">
-                                                                    <label class="ckbox"><input  type="checkbox"><span>الموظف </span></label>
+                                                                    <label class="ckbox"><input  type="checkbox" name="emp_check" id="emp_check" value="0" ><span>الموظف </span></label>
                                                                 </div>
                                                                 <div class="col-lg-3">
-                                                                    <label class="ckbox"><input type="checkbox"><span>الخياطه </span></label>
+                                                                    <label class="ckbox"><input type="checkbox" name="tailor_check" id="tailor_check" value="0"><span>الخياطه </span></label>
                                                                 </div>
                                                                 <div class="col-lg-3 mg-t-20 mg-lg-t-0">
-                                                                    <label class="ckbox"><input  type="checkbox"><span>المواعيد </span></label>
+                                                                    <label class="ckbox"><input  type="checkbox" name="time_check" id="time_check" value="0"><span>المواعيد </span></label>
                                                                 </div>
 
                                                             </div>

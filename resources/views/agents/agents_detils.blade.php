@@ -168,7 +168,9 @@
 
                                                             <th class="border-bottom-0">الموظف المسؤول</th>
 
-                                                            <th class="border-bottom-0"> التاريخ</th>
+                                                            <th class="border-bottom-0"> تاريخ التواصل</th>
+
+                                                            <th class="border-bottom-0"> تاريخ إعادة التواصل </th>
 
                                                         </tr>
                                                         </thead>
@@ -189,6 +191,7 @@
                                                                 <td> {{$x->Created_by}} </td>
                                                                 <td class="text-success"> {{$x->emp_name}} </td>
                                                                 <td>{{$x->created_at}} </td>
+                                                                <td>{{$x->call_later}} </td>
 
 
 

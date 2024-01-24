@@ -349,7 +349,6 @@ iframe {
     color: #fff;
     line-height: 1.2;
     text-transform: uppercase;
-
     display: -webkit-box;
     display: -webkit-flex;
     display: -moz-box;
@@ -361,15 +360,13 @@ iframe {
     min-width: 160px;
     height: 42px;
     border-radius: 21px;
-
     background: #d41872;
-    background: -webkit-linear-gradient(left, #a445b2, #d41872, #fa4299);
+    background: -webkit-linear-gradient(left, #111, #060606, #0c0c0c);
     background: -o-linear-gradient(left, #a445b2, #d41872, #fa4299);
     background: -moz-linear-gradient(left, #a445b2, #d41872, #fa4299);
     background: linear-gradient(left, #a445b2, #d41872, #fa4299);
     position: relative;
     z-index: 1;
-
     -webkit-transition: all 0.4s;
     -o-transition: all 0.4s;
     -moz-transition: all 0.4s;

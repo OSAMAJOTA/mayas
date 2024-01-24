@@ -22,7 +22,7 @@ Route::resource('agents', 'AgentsController');
 Route::resource('forword', 'forword_controller');
 Route::get('wait_forword', 'AgentsController@forword');
 Route::get('contact_agent', 'AgentsController@contact');
-
+Route::get('/call_center/{id}', 'CallCenterController@edit');
 Route::resource('nationality', 'NationalitiesController');
 Route::resource('employees', 'EmployeesController');
 Route::resource('emp_groups', 'EmpGroupsController');

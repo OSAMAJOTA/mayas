@@ -93,8 +93,17 @@ class AgentsDetailsController extends Controller
 
     public function ReadNotification($id)
     {
+$aa=auth()->user()->id;
 
 
+        $userUnreadNotification = auth()->user()
+            ->unreadNotifications
+            ->wherein('notifiable_id',$aa)
+            ->first();
+
+        if($userUnreadNotification) {
+            $userUnreadNotification->markAsRead();
+        }
 
 
 

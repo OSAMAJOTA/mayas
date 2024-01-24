@@ -146,7 +146,7 @@
                                               type="button">العمليات<i class="fas fa-caret-down ml-1"></i></button>
                                       <div class="dropdown-menu tx-13">
                                           <a class="dropdown-item"
-                                             href="{{ url('companysDetails') }}/">تواصل
+                                             href="{{ url('call_center') }}/{{ $x->id }}">تواصل
                                           </a>
                                           <a class="dropdown-item"
                                              href="{{ url('AgentsDetails') }}/{{ $x->id }}">عرض التفاصيل

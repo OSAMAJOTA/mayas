@@ -16,7 +16,7 @@
     <div class="breadcrumb-header justify-content-between">
         <div class="my-auto">
             <div class="d-flex">
-                <h4 class="content-title mb-0 my-auto">مدخلات النظام</h4><span class="text-muted mt-1 tx-13 mr-2 mb-0">/ العملاء   </span>
+                <h4 class="content-title mb-0 my-auto"> العملاء</h4><span class="text-muted mt-1 tx-13 mr-2 mb-0">/ العملاء المحظورين   </span>
             </div>
         </div>
     </div>
@@ -69,10 +69,7 @@
 
                 <div class="col-sm-4 col-md-4">
 
-                        <div class="card-body">
 
-                            <a class="btn ripple btn-info" data-target="#modaldemo3" data-toggle="modal" href="">اضافة عميل </a>
-                        </div>
 
                 </div>
                 <div class="card-body">
@@ -89,11 +86,13 @@
                                 <th class="border-bottom-0">تاريخ اخر تفصيل</th>
                                 <th class="border-bottom-0"> المبلغ المتبقي</th>
                                 <th class="border-bottom-0">الحالة</th>
+
                                 <th class="border-bottom-0"> رأي الادارة</th>
                                 <th class="border-bottom-0">العمليات</th>
                             </tr>
                             </thead>
                             <tbody>
+
                             @php
                                 $i = 0;
                             @endphp
@@ -124,12 +123,23 @@
                                         <span class="text-danger">{{ $x->Status }}</span>
                                     @elseif($x->Status_id == 3)
                                         <span class="text-success">{{ $x->Status }}</span>
+                                    @elseif($x->Status_id == 5)
+                                        <span class="btn-danger-gradient">{{ $x->Status }}</span>
                                     @else
                                         <span class="text-info">{{ $x->Status }}</span>
-                                    @endif
+
+
 
 
                                       </td>
+                                @endif
+
+
+
+
+
+
+
                                 <td>{{$x->man_note}} </td>
 
                               <td>
@@ -138,28 +148,14 @@
                                               class="btn ripple btn-primary btn-sm" data-toggle="dropdown"
                                               type="button">العمليات<i class="fas fa-caret-down ml-1"></i></button>
                                       <div class="dropdown-menu tx-13">
-                                          <a class="dropdown-item  " data-effect="effect-scale"
-                                             data-id="{{ $x->id }}" data-agents_name="{{ $x->agents_name }}"
-                                             data-toggle="modal" href="#modaldemo44" title="توجيه">
-                                                توجيه</a>
+
                                           <a class="dropdown-item"
                                              href="{{ url('AgentsDetails') }}/{{ $x->id }}">عرض التفاصيل
                                           </a>
-                                          <a class="dropdown-item "
-                                             href="{{url('agents_edit')}}/{{ $x->id }} ">تعديل
-                                              </a>
+                                          <a class="dropdown-item btn-danger-gradient"
+                                             href="{{ url('#') }}/{{ $x->id }}">إلغاء الحظر
+                                          </a>
 
-
-
-                                          <a class="modal-effect btn btn-sm btn-dark" data-effect="effect-scale"
-                                             data-id="{{ $x->id }}" data-agents_name="{{ $x->agents_name }}"
-                                             data-toggle="modal" href="#modaldemo9" title="حظر"><i
-                                                  class="las"></i> حظر</a>
-
-                                          <a class="modal-effect btn btn-sm btn-danger" data-effect="effect-scale"
-                                             data-id="{{ $x->id }}" data-agents_name="{{ $x->agents_name }}"
-                                             data-toggle="modal" href="#modaldemo9" title="حذف"><i
-                                                  class="las la-trash"></i> حزف</a>
 
 
                               </td>
@@ -336,46 +332,6 @@
         </div>
     </div>
 
-
-    <div class="modal" id="modaldemo44">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content modal-content-demo">
-                <div class="modal-header">
-                    <h6 class="modal-title">توجيه العميل</h6><button aria-label="Close" class="close" data-dismiss="modal"
-                                                                   type="button"><span aria-hidden="true">&times;</span></button>
-                </div>
-                <form action="{{ url('forword/update') }}" method="post">
-                    {{ method_field('patch') }}
-                    {{ method_field('patch') }}
-                    {{ csrf_field() }}
-                    <div class="modal-body">
-                        <p>اسم العميل</p><br>
-
-                        <input class="form-control" name="agents_name" id="agents_name" type="text" readonly>
-                        <input class="form-control" name="id" id="id" type="hidden" >
-                        <label> حدد الموظف: <span class="tx-danger">*</span></label>
-                        <select name="employees_id" class="form-control SlectBox" onclick="console.log($(this).val())" required
-                                onchange="console.log('change is firing')">
-                            <!--placeholder-->
-                            <option value="" selected disabled>حدد الموظف</option>
-                            @foreach ($User as $y)
-                                <option value="{{ $y->id }}"> {{ $y->name }}</option>
-                            @endforeach
-
-                        </select>
-
-                    </div>
-
-                    <div class="modal-footer">
-
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">الغاء</button>
-                        <button type="submit" class="btn btn-danger">تاكيد</button>
-                    </div>
-            </div>
-            </form>
-        </div>
-    </div>
-
 @endsection
 @section('js')
     <!-- Internal Data tables -->
@@ -408,18 +364,6 @@
 
     <script>
         $('#modaldemo9').on('show.bs.modal', function(event) {
-            var button = $(event.relatedTarget)
-            var id = button.data('id')
-            var agents_name = button.data('agents_name')
-            var modal = $(this)
-            modal.find('.modal-body #id').val(id);
-            modal.find('.modal-body #agents_name').val(agents_name);
-        })
-
-    </script>
-
-    <script>
-        $('#modaldemo44').on('show.bs.modal', function(event) {
             var button = $(event.relatedTarget)
             var id = button.data('id')
             var agents_name = button.data('agents_name')

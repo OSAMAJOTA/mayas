@@ -121,7 +121,7 @@
                             <li><a class="slide-item" href="{{ url('/' . $page='#') }}">	عملاء طلبوا زيارة منزلية  </a></li>
                                 @endcan
                                             @can('عملاء محظورين')
-                            <li><a class="slide-item" href="{{ url('/' . $page='#') }}">	عملاء محظورين </a></li>
+                            <li><a class="slide-item" href="{{ url('/' . $page='agents_block') }}">	عملاء محظورين </a></li>
                                 @endcan
                                                 @can('التقارير')
                             <li><a class="slide-item" href="{{ url('/' . $page='#') }}">	التقارير  </a></li>

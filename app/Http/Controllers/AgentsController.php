@@ -34,10 +34,10 @@ class AgentsController extends Controller
 
         }else {
             $emp_id = Auth::user()->id;
-
+            $emp_nam=Auth::user()->name;
 
             $companys = companys::all();
-            $agents = agents::where('employees_id', $emp_id)->get();
+            $agents = agents::where('employees_id', $emp_id)->where('employees_name', $emp_nam)->get();
             return view('agents.agents', compact('companys', 'agents'));
 
         }
@@ -45,11 +45,40 @@ class AgentsController extends Controller
         }
     public function forword()
     {
-        $User=User::all();
-        $employees=employees::all();
-        $companys=companys::all();
-        $agents=agents::where('Status_id', 1)->get();
-        return  view('agents.agents_forword',compact('companys','agents','employees','User'));
+        $res= Auth::user()->roles_name;
+        $adm=$res[0];
+
+        if($adm=='owner'){
+            $User=User::all();
+            $employees=employees::all();
+            $companys=companys::all();
+            $agents=agents::where('Status_id', 1)->get();
+            return  view('agents.agents_forword',compact('companys','agents','employees','User'));
+
+
+        }else{
+            $emp_id=Auth::user()->id;
+            $emp_nam=Auth::user()->name;
+            $User=User::all();
+            $employees=employees::all();
+            $companys=companys::all();
+            $agents=agents::where('Status_id', 1)->where('employees_name', $emp_nam)->get();
+            return  view('agents.agents_forword',compact('companys','agents','employees','User'));
+
+
+
+        }
+
+
+
+
+
+
+
+
+
+
+
     }
 
 
@@ -81,6 +110,46 @@ $emp_id=Auth::user()->id;
 
 
     }
+
+
+    public function block()
+    {
+
+
+        $res= Auth::user()->roles_name;
+        $adm=$res[0];
+
+        if($adm=='owner'){
+            $User=User::all();
+            $employees=employees::all();
+            $companys=companys::all();
+            $agents=agents::where('Status_id', 5)->get();
+            return  view('agents.agents_block',compact('companys','agents','employees','User'));
+
+
+        }else{
+            $emp_id=Auth::user()->id;
+            $emp_nam=Auth::user()->name;
+            $User=User::all();
+            $employees=employees::all();
+            $companys=companys::all();
+            $agents=agents::where('Status_id', 5)->where('employees_name', $emp_nam)->get();
+            return  view('agents.agents_block',compact('companys','agents','employees','User'));
+
+
+
+        }
+
+
+
+    }
+
+
+
+
+
+
+
 
 
 

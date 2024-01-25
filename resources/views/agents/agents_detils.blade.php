@@ -132,6 +132,9 @@
                                                                 <span class="text-danger">{{ $agents->Status }}</span>
                                                             @elseif($agents->Status_id == 3)
                                                                 <span class="text-success">{{ $agents->Status }}</span>
+                                                            @elseif($agents->Status_id == 5)
+                                                                <span class="btn-danger-gradient">{{ $agents->Status }}</span>
+
                                                             @else
                                                                 <span class="text-info">{{ $agents->Status }}</span>
                                                             @endif

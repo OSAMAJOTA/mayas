@@ -60,6 +60,6 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('users','UserController');
 
 });
-
+Route::get('Export_agents', 'AgentsController@export');
 
 Route::get('/{page}', 'AdminController@index');

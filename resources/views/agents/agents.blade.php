@@ -73,6 +73,8 @@
 
                             <a class="btn ripple btn-info" data-target="#modaldemo3" data-toggle="modal" href="">اضافة عميل </a>
                         </div>
+                    <a class=" btn btn-sm btn-primary" href="{{ url('Export_agents') }}"
+                       style="color:white"><i class="fas fa-file-download"></i>&nbsp;تصدير اكسيل</a>
 
                 </div>
                 <div class="card-body">

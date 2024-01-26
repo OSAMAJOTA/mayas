@@ -6,14 +6,19 @@ use App\agents;
 use App\companys;
 use App\employees;
 use App\agents_details;
-
+use App\Exports\AgentsExport;
+use Maatwebsite\Excel\Facades\Excel;
 use App\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class AgentsController extends Controller
 {
+    public function export()
+    {
+        return Excel::download(new AgentsExport, 'العملاء.xlsx');
 
+    }
     /**
      * Display a listing of the resource.
      *

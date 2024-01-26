@@ -153,7 +153,7 @@
 
                                           <a class="modal-effect btn btn-sm btn-dark" data-effect="effect-scale"
                                              data-id="{{ $x->id }}" data-agents_name="{{ $x->agents_name }}"
-                                             data-toggle="modal" href="#modaldemo9" title="حظر"><i
+                                             data-toggle="modal" href="#block" title="حظر"><i
                                                   class="las"></i> حظر</a>
 
                                           <a class="modal-effect btn btn-sm btn-danger" data-effect="effect-scale"
@@ -337,6 +337,32 @@
     </div>
 
 
+    <div class="modal" id="block">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content modal-content-demo">
+                <div class="modal-header">
+                    <h6 class="modal-title">حظر العميل</h6><button aria-label="Close" class="close" data-dismiss="modal"
+                                                                   type="button"><span aria-hidden="true">&times;</span></button>
+                </div>
+                <form action="{{ url('block/update') }}" method="post">
+                    {{ method_field('patch') }}
+                    {{ method_field('patch') }}
+                    {{ csrf_field() }}
+                    <div class="modal-body">
+                        <p>هل انت متاكد من حظر العميل ؟</p><br>
+                        <input type="hidden" name="id" id="id" value="">
+                        <input class="form-control" name="agents_name" id="agents_name" type="text" readonly>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">الغاء</button>
+                        <button type="submit" class="btn btn-danger">تاكيد</button>
+                    </div>
+            </div>
+            </form>
+        </div>
+    </div>
+
+
     <div class="modal" id="modaldemo44">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content modal-content-demo">
@@ -369,7 +395,7 @@
                     <div class="modal-footer">
 
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">الغاء</button>
-                        <button type="submit" class="btn btn-danger">تاكيد</button>
+                        <button type="submit" class="btn btn-success">تاكيد</button>
                     </div>
             </div>
             </form>
@@ -408,6 +434,18 @@
 
     <script>
         $('#modaldemo9').on('show.bs.modal', function(event) {
+            var button = $(event.relatedTarget)
+            var id = button.data('id')
+            var agents_name = button.data('agents_name')
+            var modal = $(this)
+            modal.find('.modal-body #id').val(id);
+            modal.find('.modal-body #agents_name').val(agents_name);
+        })
+
+    </script>
+
+    <script>
+        $('#block').on('show.bs.modal', function(event) {
             var button = $(event.relatedTarget)
             var id = button.data('id')
             var agents_name = button.data('agents_name')

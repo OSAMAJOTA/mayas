@@ -352,16 +352,16 @@
                                                         <div class="main-content-label mg-b-5">
                                                             <div class="row">
                                                                 <div class="col-lg-3">
-                                                                    <label class="ckbox"><input type="checkbox"><span>الموقع </span></label>
+                                                                    <label class="ckbox"><input type="checkbox" name="loc_check" id="loc_check" value="0" ><span>الموقع </span></label>
                                                                 </div>
                                                                 <div class="col-lg-3 mg-t-20 mg-lg-t-0">
-                                                                    <label class="ckbox"><input  type="checkbox"><span>الاسعار </span></label>
+                                                                    <label class="ckbox"><input  type="checkbox" name="price_check" id="price_check" value="0"><span>الاسعار </span></label>
                                                                 </div>
                                                                 <div class="col-lg-3">
-                                                                    <label class="ckbox"><input type="checkbox"><span>اخرى </span></label>
+                                                                    <label class="ckbox"><input type="checkbox" name="other_check" id="other_check" value="0"><span>اخرى </span></label>
                                                                 </div>
                                                                 <div class="col-lg-3 mg-t-20 mg-lg-t-0">
-                                                                    <label class="ckbox"><input  type="checkBox" id="myCheck" onclick="myFunction()"><span>طلب زيارة منزلية </span></label>
+                                                                    <label class="ckbox"><input  type="checkBox" name="vist_check" id="myCheck" onclick="myFunction()" value="0"><span>طلب زيارة منزلية </span></label>
                                                                 </div>
 
 
@@ -391,7 +391,7 @@
                                                                     <div class="input-group-text">
                                                                         <i class="typcn typcn-calendar-outline tx-24 lh--9 op-6"></i>
                                                                     </div>
-                                                                </div><input class="form-control" id="datetimepicker" type="text" value="2018-12-20 21:05">
+                                                                </div><input class="form-control" id="datetimepicker" name="vist_time" type="text" value="2018-12-20 21:05">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -405,7 +405,7 @@
                                         <div class="row" id="call"  style="display:none">
                                             <div class="col">
                                                 <label for="exampleTextarea"> ملخص الاتصال</label>
-                                                <textarea class="form-control" id="exampleTextarea" name="man_note" rows="3"  > {{ $agents->man_note}}</textarea>
+                                                <textarea class="form-control" id="exampleTextarea" name="call_comment" rows="3" required ></textarea>
                                             </div>
                                         </div>
                                         <div class="modal-footer">

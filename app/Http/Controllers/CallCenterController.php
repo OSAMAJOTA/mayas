@@ -44,8 +44,120 @@ class CallCenterController extends Controller
     {
        // return $request;
      if($request->yes_btn=="1")
-      {
-         echo"you click yes";
+     {
+
+         $call_center =  new call_center();
+
+        $call_center->call_id = $request->agents_id;
+
+        if($request->dont_call_check=="0"){
+            $call_center->dont_call_check ="1";
+        }else
+        {
+            $call_center->dont_call_check ="0";
+        }
+
+
+
+
+        if($request->emp_check=="0") {
+            $call_center->emp_check ="1";
+        }else
+        {
+            $call_center->emp_check ="0";
+        }
+
+
+
+
+        if($request->tailor_check=="0") {
+            $call_center->tailor_check ="1";
+        }else
+        {
+            $call_center->tailor_check ="0";
+        }
+
+
+
+
+
+
+        if($request->time_check=="0") {
+            $call_center->time_check ="1";
+        }else
+        {
+            $call_center->time_check ="0";
+        }
+
+
+
+
+
+        if($request->loc_check=="0") {
+            $call_center->loc_check ="1";
+        }else
+        {
+            $call_center->loc_check ="0";
+        }
+
+
+
+
+        if($request->price_check=="0") {
+            $call_center->price_check ="1";
+        }else
+        {
+            $call_center->price_check ="0";
+        }
+
+
+
+
+
+
+        if($request->other_check=="0") {
+            $call_center->other_check ="1";
+        }else
+        {
+            $call_center->other_check ="0";
+        }
+
+        if($request->vist_check=="0") {
+            $call_center->vist_check ="1";
+            $call_center->vist_time = $request->vist_time;
+        }else
+        {
+            $call_center->vist_check ="0";
+        }
+
+
+        $call_center->call_comment = $request->call_comment;
+
+        $call_center->Created_by = Auth::user()->name;
+        $call_center->save();
+
+         $agents = agents::findOrFail($request->agents_id);
+         $agents->update([
+
+
+             'Status' => 'تم التواصل معه',
+             'Status_id' =>3,
+             'employees_name' =>Auth::user()->name,
+
+
+         ]);
+
+         $agents_details = new agents_details();
+         $agents_details->type ='تم التواصل معه';
+         $agents_details->agents_id =$request->agents_id;
+         $agents_details->emp_name =Auth::user()->name;
+         $agents_details->Created_by = Auth::user()->name;
+
+         $agents_details->save();
+
+
+          session()->flash('Add', 'تم ارسال نتيجة الاتصال بنجاح');
+          return redirect('/contact_agent');
     }
       else{
 

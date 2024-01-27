@@ -76,6 +76,12 @@
                                             <li><a href="#tab4" class="nav-link active" data-toggle="tab">بيانات
                                                     العميل</a></li>
                                             <li><a href="#tab6" class="nav-link" data-toggle="tab">حركات العميل</a></li>
+
+                                            @if ($agents->Status_id == 3)
+                                                <li><a href="#tab55" class="nav-link" data-toggle="tab">نتيجة الاتصال</a></li>
+
+                                            @endif
+
                                         </ul>
                                     </div>
                                 </div>
@@ -156,6 +162,9 @@
 
 
 
+
+
+
                                         <div class="tab-pane" id="tab6">
                                             <!--المرفقات-->
                                             <div class="card-body">
@@ -171,7 +180,7 @@
 
                                                             <th class="border-bottom-0">الموظف المسؤول</th>
 
-                                                            <th class="border-bottom-0"> تاريخ التواصل</th>
+                                                            <th class="border-bottom-0"> تاريخ العملية</th>
 
                                                             <th class="border-bottom-0"> تاريخ إعادة التواصل </th>
 
@@ -209,11 +218,164 @@
                                                 </div>
 
 
+                                            </div>
 
-
-                    </div>
                 </div>
-            </div>
+                                        @if ($agents->Status_id == 3)
+
+                                        <div class="tab-pane" id="tab55">
+                                            <!--المرفقات-->
+
+                                            <div class="card-body">
+
+                                                <div class="card">
+                                                    <div class="card-body">
+                                                        <div class="main-content-label mg-b-5">
+
+                                                            <div class="row">
+                                                                <div class="col-lg-3">
+                                                                    @if($call_center->dont_call_check==1)
+                                                                        <label class="ckbox"><input type="checkbox" name="dont_call_check" checked id="dont_call_check" value="0" disabled><span> طلب عدم التواصل مطلقآ</span></label>
+
+                                                                    @else
+                                                                        <label class="ckbox"><input type="checkbox" name="dont_call_check"  id="dont_call_check" value="0" disabled><span> طلب عدم التواصل مطلقآ</span></label>
+
+                                                                    @endif
+
+                                                                </div>
+                                                                <div class="col-lg-3 mg-t-20 mg-lg-t-0">
+                                                                    @if($call_center->emp_check==1)
+                                                                        <label class="ckbox"><input type="checkbox" name="dont_call_check" checked id="dont_call_check" value="0" disabled><span> الموظف </span></label>
+
+                                                                    @else
+                                                                        <label class="ckbox"><input type="checkbox" name="dont_call_check"  id="dont_call_check" value="0" disabled><span> الموظف </span></label>
+
+                                                                    @endif
+                                                                </div>
+                                                                <div class="col-lg-3">
+                                                                    @if($call_center->tailor_check==1)
+                                                                        <label class="ckbox"><input type="checkbox" name="dont_call_check" checked id="dont_call_check" value="0" disabled><span>الخياطه</span></label>
+
+                                                                    @else
+                                                                        <label class="ckbox"><input type="checkbox" name="dont_call_check"  id="dont_call_check" value="0" disabled><span> الخياطه</span></label>
+
+                                                                    @endif
+                                                                </div>
+                                                                <div class="col-lg-3 mg-t-20 mg-lg-t-0">
+                                                                    @if($call_center->time_check==1)
+                                                                        <label class="ckbox"><input type="checkbox" name="dont_call_check" checked id="dont_call_check" value="0" disabled><span> المواعيد  </span></label>
+
+                                                                    @else
+                                                                        <label class="ckbox"><input type="checkbox" name="dont_call_check"  id="dont_call_check" value="0" disabled><span> المواعيد</span></label>
+
+                                                                    @endif
+                                                                </div>
+
+                                                            </div>
+
+
+                                                        </div>
+
+
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12 col-xl-12 col-xs-12 col-sm-12">
+                                                    <div class="card">
+                                                        <div class="card-body">
+                                                            <div class="main-content-label mg-b-5">
+                                                                <div class="row">
+                                                                    <div class="col-lg-3">
+                                                                        @if($call_center->loc_check==1)
+                                                                            <label class="ckbox"><input type="checkbox" name="dont_call_check" checked id="dont_call_check" value="0" disabled><span> الموقع  </span></label>
+
+                                                                        @else
+                                                                            <label class="ckbox"><input type="checkbox" name="dont_call_check"  id="dont_call_check" value="0" disabled><span> الموقع</span></label>
+
+                                                                        @endif
+
+                                                                    </div>
+                                                                    <div class="col-lg-3 mg-t-20 mg-lg-t-0">
+                                                                        @if($call_center->price_check==1)
+                                                                            <label class="ckbox"><input type="checkbox" name="dont_call_check" checked id="dont_call_check" value="0" disabled><span> الاسعار  </span></label>
+
+                                                                        @else
+                                                                            <label class="ckbox"><input type="checkbox" name="dont_call_check"  id="dont_call_check" value="0" disabled><span> الاسعار</span></label>
+
+                                                                        @endif
+
+                                                                    </div>
+                                                                    <div class="col-lg-3">
+                                                                        @if($call_center->other_check==1)
+                                                                            <label class="ckbox"><input type="checkbox" name="dont_call_check" checked id="dont_call_check" value="0" disabled><span> اخرى  </span></label>
+
+                                                                        @else
+                                                                            <label class="ckbox"><input type="checkbox" name="dont_call_check"  id="dont_call_check" value="0" disabled><span> اخري </span></label>
+
+                                                                        @endif
+                                                                    </div>
+                                                                    <div class="col-lg-3 mg-t-20 mg-lg-t-0">
+                                                                        @if($call_center->vist_time==1)
+                                                                            <label class="ckbox"><input type="checkbox" name="dont_call_check" checked id="dont_call_check" value="0" disabled><span> طلب زيارة منزلية   </span></label>
+
+                                                                        @else
+                                                                            <label class="ckbox"><input type="checkbox" name="dont_call_check"  id="dont_call_check" value="0" disabled><span> طلب زيارة منزلية  </span></label>
+
+                                                                        @endif
+                                                                    </div>
+
+
+
+                                                                </div>
+
+
+                                                            </div>
+
+
+
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+
+                                                <table class="table table-striped" style="text-align:center">
+                                                    <tbody>
+                                                    <tr>
+                                                        <th scope="row">هل العميل طلب زيارة منزلية ؟</th>
+                                                        @if($call_center->vist_check==1)
+                                                            <td class="btn btn-success">نعم</td>
+                                                            <th scope="row">تاريخ الزيارة</th>
+                                                            <td>{{$call_center->vist_time}}</td>
+                                                        @else
+                                                            <td class="btn btn-danger">لا</td>
+                                                        @endif
+
+
+                                                    </tr>
+
+
+
+
+
+
+                                                    </tbody>
+                                                </table>
+                                                <div class="row" id="call"  style="display:block">
+                                                    <div class="col">
+                                                        <label for="exampleTextarea"> ملخص الاتصال</label>
+                                                        <textarea class="form-control" id="exampleTextarea" name="call_comment" rows="3" disabled  >{{$call_center->call_comment}}</textarea>
+                                                    </div>
+                                                </div>
+
+
+                                            </div>
+
+                                        </div>
+
+
+
+                                    </div>
+                                    @endif
+
             <!-- /div -->
         </div>
 

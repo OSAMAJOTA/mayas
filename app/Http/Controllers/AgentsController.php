@@ -33,7 +33,7 @@ class AgentsController extends Controller
         if($adm=='owner'){
             $User=User::all();
             $companys=companys::all();
-            $agents=agents::all();
+            $agents=agents::all()->sortByDesc("id");
             return  view('agents.agents',compact('companys','agents','User'));
 
 
@@ -42,7 +42,7 @@ class AgentsController extends Controller
             $emp_nam=Auth::user()->name;
 
             $companys = companys::all();
-            $agents = agents::where('employees_id', $emp_id)->where('employees_name', $emp_nam)->get();
+            $agents = agents::where('employees_id', $emp_id)->where('employees_name', $emp_nam)->get()->sortByDesc("id");
             return view('agents.agents', compact('companys', 'agents'));
 
         }
@@ -57,7 +57,7 @@ class AgentsController extends Controller
             $User=User::all();
             $employees=employees::all();
             $companys=companys::all();
-            $agents=agents::where('Status_id', 1)->get();
+            $agents=agents::where('Status_id', 1)->get()->sortByDesc("id");
             return  view('agents.agents_forword',compact('companys','agents','employees','User'));
 
 
@@ -67,7 +67,7 @@ class AgentsController extends Controller
             $User=User::all();
             $employees=employees::all();
             $companys=companys::all();
-            $agents=agents::where('Status_id', 1)->where('employees_name', $emp_nam)->get();
+            $agents=agents::where('Status_id', 1)->where('employees_name', $emp_nam)->get()->sortByDesc("id");
             return  view('agents.agents_forword',compact('companys','agents','employees','User'));
 
 
@@ -97,7 +97,7 @@ class AgentsController extends Controller
 if($adm=='owner'){
 
     $companys=companys::all();
-    $agents=agents::where('Status_id', 2)->get();
+    $agents=agents::where('Status_id', 2)->get()->sortByDesc("id");
     return  view('agents.agents_contact',compact('companys','agents'));
 
 
@@ -106,7 +106,7 @@ $emp_id=Auth::user()->id;
 
 
     $companys=companys::all();
-    $agents=agents::where('Status_id', 2)->where('employees_id', $emp_id)->get();
+    $agents=agents::where('Status_id', 2)->where('employees_id', $emp_id)->get()->sortByDesc("id");
     return  view('agents.agents_contact',compact('companys','agents'));
 
 
@@ -128,7 +128,7 @@ $emp_id=Auth::user()->id;
             $User=User::all();
             $employees=employees::all();
             $companys=companys::all();
-            $agents=agents::where('Status_id', 5)->get();
+            $agents=agents::where('Status_id', 5)->get()->sortByDesc("id");
             return  view('agents.agents_block',compact('companys','agents','employees','User'));
 
 
@@ -138,7 +138,7 @@ $emp_id=Auth::user()->id;
             $User=User::all();
             $employees=employees::all();
             $companys=companys::all();
-            $agents=agents::where('Status_id', 5)->where('employees_name', $emp_nam)->get();
+            $agents=agents::where('Status_id', 5)->where('employees_name', $emp_nam)->get()->sortByDesc("id");
             return  view('agents.agents_block',compact('companys','agents','employees','User'));
 
 

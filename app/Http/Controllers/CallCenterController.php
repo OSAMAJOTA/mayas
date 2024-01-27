@@ -147,6 +147,22 @@ class CallCenterController extends Controller
 
          ]);
 
+         if($request->vist_check=="0")
+             {
+                 $agents = agents::findOrFail($request->agents_id);
+                 $agents->update([
+
+
+                     'Status' => 'طلب زيارة منزلية',
+                     'Status_id' =>4,
+
+
+
+                 ]);
+             }
+
+
+
          $agents_details = new agents_details();
          $agents_details->type ='تم التواصل معه';
          $agents_details->agents_id =$request->agents_id;

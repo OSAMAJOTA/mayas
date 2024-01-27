@@ -73,8 +73,7 @@
 
                             <a class="btn ripple btn-info" data-target="#modaldemo3" data-toggle="modal" href="">اضافة عميل </a>
                         </div>
-                    <a class=" btn btn-sm btn-primary" href="{{ url('Export_agents') }}"
-                       style="color:white"><i class="fas fa-file-download"></i>&nbsp;تصدير اكسيل</a>
+
 
                 </div>
                 <div class="card-body">
@@ -122,15 +121,15 @@
                                 <td>
 
                                     @if ($x->Status_id == 1)
-                                        <span class="text-warning">{{ $x->Status }}</span>
+                                        <span class="btn-sm disabled btn-warning">{{ $x->Status }}</span>
                                     @elseif($x->Status_id == 2)
-                                        <span class="text-danger">{{ $x->Status }}</span>
+                                        <span class="btn-sm disabled btn-danger">{{ $x->Status }}</span>
                                     @elseif($x->Status_id == 3)
-                                        <span class="text-success">{{ $x->Status }}</span>
+                                        <span class="btn-sm disabled btn-success">{{ $x->Status }}</span>
                                     @elseif($x->Status_id == 5)
-                                        <span class="btn-danger-gradient">{{ $x->Status }}</span>
+                                        <span class="btn-sm disabled btn-danger-gradient">{{ $x->Status }}</span>
                                     @else
-                                        <span class="text-info">{{ $x->Status }}</span>
+                                        <span class="btn-sm disabled btn-info">{{ $x->Status }}</span>
                                     @endif
 
 

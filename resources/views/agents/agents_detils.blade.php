@@ -77,7 +77,7 @@
                                                     العميل</a></li>
                                             <li><a href="#tab6" class="nav-link" data-toggle="tab">حركات العميل</a></li>
 
-                                            @if ($agents->Status_id == 3)
+                                            @if ($agents->Status_id == 3 or $agents->Status_id == 4)
                                                 <li><a href="#tab55" class="nav-link" data-toggle="tab">نتيجة الاتصال</a></li>
 
                                             @endif
@@ -221,7 +221,7 @@
                                             </div>
 
                 </div>
-                                        @if ($agents->Status_id == 3)
+                                        @if ($agents->Status_id == 3 or $agents->Status_id == 4)
 
                                         <div class="tab-pane" id="tab55">
                                             <!--المرفقات-->
@@ -314,9 +314,8 @@
                                                                         @endif
                                                                     </div>
                                                                     <div class="col-lg-3 mg-t-20 mg-lg-t-0">
-                                                                        @if($call_center->vist_time==1)
+                                                                        @if($call_center->vist_check==1)
                                                                             <label class="ckbox"><input type="checkbox" name="dont_call_check" checked id="dont_call_check" value="0" disabled><span> طلب زيارة منزلية   </span></label>
-
                                                                         @else
                                                                             <label class="ckbox"><input type="checkbox" name="dont_call_check"  id="dont_call_check" value="0" disabled><span> طلب زيارة منزلية  </span></label>
 

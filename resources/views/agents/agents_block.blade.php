@@ -152,9 +152,11 @@
                                           <a class="dropdown-item"
                                              href="{{ url('AgentsDetails') }}/{{ $x->id }}">عرض التفاصيل
                                           </a>
-                                          <a class="dropdown-item btn-danger-gradient"
-                                             href="{{ url('#') }}/{{ $x->id }}">إلغاء الحظر
-                                          </a>
+
+                                          <a class="dropdown-item btn-danger-gradient" data-effect="effect-scale"
+                                             data-id="{{ $x->id }}" data-agents_name="{{ $x->agents_name }}"
+                                             data-toggle="modal" href="#modaldemo9" title="حذف">
+                                              إلغاء الحظر</a>
 
 
 
@@ -312,20 +314,20 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content modal-content-demo">
                 <div class="modal-header">
-                    <h6 class="modal-title">حذف العميل</h6><button aria-label="Close" class="close" data-dismiss="modal"
+                    <h6 class="modal-title">إلغاء الحظر العميل</h6><button aria-label="Close" class="close" data-dismiss="modal"
                                                                     type="button"><span aria-hidden="true">&times;</span></button>
                 </div>
-                <form action="agents/destroy" method="post">
-                    {{ method_field('delete') }}
+                <form action="#" method="post">
+
                     {{ csrf_field() }}
                     <div class="modal-body">
-                        <p>هل انت متاكد من عملية الحذف ؟</p><br>
+                        <p>هل انت متاكد من عملية إلغاء الحظر ؟</p><br>
                         <input type="hidden" name="id" id="id" value="">
                         <input class="form-control" name="agents_name" id="agents_name" type="text" readonly>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">الغاء</button>
-                        <button type="submit" class="btn btn-danger">تاكيد</button>
+                        <button type="submit" class="btn btn-success">تاكيد</button>
                     </div>
             </div>
             </form>

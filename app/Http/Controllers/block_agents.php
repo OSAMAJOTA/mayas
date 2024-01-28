@@ -10,12 +10,18 @@ use Illuminate\Support\Facades\Auth;
 
 class block_agents extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
+    {
+        //
+    }
+
+    public function unblock()
     {
         //
     }
@@ -60,7 +66,7 @@ class block_agents extends Controller
      */
     public function edit($id)
     {
-        //
+   echo "osama";
     }
 
     /**
@@ -69,7 +75,13 @@ class block_agents extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
+     *
+     *
      */
+
+
+
+
     public function update(Request $request, $id)
     {
         $agents = agents::findOrFail($request->id);

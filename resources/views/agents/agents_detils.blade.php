@@ -133,16 +133,16 @@
                                                         <td>
 
                                                             @if ($agents->Status_id == 1)
-                                                                <span class="text-warning">{{ $agents->Status }}</span>
+                                                                <span class="btn-sm disabled btn-warning">{{ $agents->Status }}</span>
                                                             @elseif($agents->Status_id == 2)
-                                                                <span class="text-danger">{{ $agents->Status }}</span>
+                                                                <span class="btn-sm disabled btn-danger">{{ $agents->Status }}</span>
                                                             @elseif($agents->Status_id == 3)
-                                                                <span class="text-success">{{ $agents->Status }}</span>
+                                                                <span class="btn-sm disabled btn-success">{{ $agents->Status }}</span>
                                                             @elseif($agents->Status_id == 5)
-                                                                <span class="btn-danger-gradient">{{ $agents->Status }}</span>
+                                                                <span class="btn-sm btn-danger-gradient">{{ $agents->Status }}</span>
 
                                                             @else
-                                                                <span class="text-info">{{ $agents->Status }}</span>
+                                                                <span class="btn-sm disabled btn-info">{{ $agents->Status }}</span>
                                                             @endif
 
                                                         </td>
@@ -341,11 +341,11 @@
                                                     <tr>
                                                         <th scope="row">هل العميل طلب زيارة منزلية ؟</th>
                                                         @if($call_center->vist_check==1)
-                                                            <td class="btn btn-success">نعم</td>
+                                                            <td class="btn-sm disabled btn-success">نعم</td>
                                                             <th scope="row">تاريخ الزيارة</th>
                                                             <td>{{$call_center->vist_time}}</td>
                                                         @else
-                                                            <td class="btn btn-danger">لا</td>
+                                                            <td class="btn-sm disabled btn-danger">لا</td>
                                                         @endif
 
 

@@ -119,13 +119,13 @@
                                 <td>
 
                                     @if ($x->Status_id == 1)
-                                        <span class="text-warning">{{ $x->Status }}</span>
+                                        <span class="btn-sm disabled btn-warning">{{ $x->Status }}</span>
                                     @elseif($x->Status_id == 2)
-                                        <span class="text-danger">{{ $x->Status }}</span>
+                                        <span class="btn-sm disabled btn-danger">{{ $x->Status }}</span>
                                     @elseif($x->Status_id == 3)
-                                        <span class="text-success">{{ $x->Status }}</span>
+                                        <span class="btn-sm disabled btn-success">{{ $x->Status }}</span>
                                     @else
-                                        <span class="text-info">{{ $x->Status }}</span>
+                                        <span class="btn-sm disabled btn-info">{{ $x->Status }}</span>
                                     @endif
 
 

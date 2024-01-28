@@ -56,7 +56,9 @@
                                 <th class="wd-10p border-bottom-0">#</th>
                                 <th class="wd-15p border-bottom-0">اسم المستخدم</th>
                                 <th class="wd-20p border-bottom-0">البريد الالكتروني</th>
+                                <th class="wd-15p border-bottom-0">حالة الحساب</th>
                                 <th class="wd-15p border-bottom-0">حالة المستخدم</th>
+                                <th class="wd-15p border-bottom-0">اخر ظهور</th>
                                 <th class="wd-15p border-bottom-0">صلاحيات المستخدم</th>
                                 <th class="wd-10p border-bottom-0">العمليات</th>
                             </tr>
@@ -77,6 +79,21 @@
                                                 <div class="dot-label bg-danger ml-1"></div>{{ $user->Status }}
                                             </span>
                                         @endif
+                                    </td>
+
+                                    <td>
+                                        @if(Cache::has('user-is-online-' . $user->id))
+                                            <span class="label text-success d-flex">
+                                                <div class="dot-label bg-success ml-1"></div>متصل الان
+                                            </span>
+                                        @else
+                                            <span class="label text-danger d-flex">
+                                                <div class="dot-label bg-danger ml-1"></div>غير متصل
+                                            </span>
+                                        @endif
+                                    </td>
+                                    <td>
+                                        {{ Carbon\Carbon::parse($user->last_seen)->diffForHumans() }}
                                     </td>
 
                                     <td>

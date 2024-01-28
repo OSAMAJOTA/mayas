@@ -16,10 +16,18 @@ class UserController extends Controller
      */
     public function index(Request $request)
     {
+
+        $users = User::select("*")
+            ->whereNotNull('last_seen')
+            ->orderBy('last_seen', 'DESC')
+            ->paginate(10);
         $data = User::orderBy('id','DESC')->paginate(5);
-        return view('users.show_users',compact('data'))
+        return view('users.show_users',compact('data','users'))
             ->with('i', ($request->input('page', 1) - 1) * 5);
+
+        return view('sidebar',compact('users'));
     }
+
 
 
     /**

@@ -16,7 +16,7 @@
     <div class="breadcrumb-header justify-content-between">
         <div class="my-auto">
             <div class="d-flex">
-                <h4 class="content-title mb-0 my-auto"> العملاء</h4><span class="text-muted mt-1 tx-13 mr-2 mb-0">/ العملاء المحظورين   </span>
+                <h4 class="content-title mb-0 my-auto"> العملاء</h4><span class="text-muted mt-1 tx-13 mr-2 mb-0">/ العملاء طلبوا زيارة منزلية   </span>
             </div>
         </div>
     </div>
@@ -118,15 +118,15 @@
                                 <td>
 
                                     @if ($x->Status_id == 1)
-                                        <span class="text-warning">{{ $x->Status }}</span>
+                                        <span class="btn-sm disabled btn-warning">{{ $x->Status }}</span>
                                     @elseif($x->Status_id == 2)
-                                        <span class="text-danger">{{ $x->Status }}</span>
+                                        <span class="btn-sm disabled btn-danger">{{ $x->Status }}</span>
                                     @elseif($x->Status_id == 3)
-                                        <span class="text-success">{{ $x->Status }}</span>
+                                        <span class="btn-sm disabled btn-success">{{ $x->Status }}</span>
                                     @elseif($x->Status_id == 5)
                                         <span class="btn-danger-gradient">{{ $x->Status }}</span>
                                     @else
-                                        <span class="text-info">{{ $x->Status }}</span>
+                                        <span class="btn-sm disabled btn-info">{{ $x->Status }}</span>
 
 
 
@@ -153,10 +153,7 @@
                                              href="{{ url('AgentsDetails') }}/{{ $x->id }}">عرض التفاصيل
                                           </a>
 
-                                          <a class="dropdown-item btn-danger-gradient" data-effect="effect-scale"
-                                             data-id="{{ $x->id }}" data-agents_name="{{ $x->agents_name }}"
-                                             data-toggle="modal" href="#modaldemo9" title="حذف">
-                                              إلغاء الحظر</a>
+
 
 
 

@@ -22,6 +22,8 @@ Route::resource('call', 'CallCenterController');
 Route::resource('agents', 'AgentsController');
 Route::resource('forword', 'forword_controller');
 Route::resource('block', 'block_agents');
+Route::resource('unbloock', 'unblock');
+Route::resource('vist', 'vist_controller');
 
 Route::get('wait_forword', 'AgentsController@forword');
 Route::get('agents_block', 'AgentsController@block');
@@ -60,6 +62,8 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('users','UserController');
 
 });
+
+Route::get('online-user', [UserController::class, 'online']);
 Route::get('Export_agents', 'AgentsController@export');
 
 Route::get('/{page}', 'AdminController@index');

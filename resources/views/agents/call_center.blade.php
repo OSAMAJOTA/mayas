@@ -405,7 +405,7 @@
                                         <div class="row" id="call"  style="display:none">
                                             <div class="col">
                                                 <label for="exampleTextarea"> ملخص الاتصال</label>
-                                                <textarea class="form-control" id="exampleTextarea" name="call_comment" rows="3" required ></textarea>
+                                                <textarea class="form-control" id="exampleTextarea" name="call_comment" rows="3"  ></textarea>
                                             </div>
                                         </div>
                                         <div class="modal-footer">

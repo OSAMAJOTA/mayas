@@ -124,7 +124,7 @@
                             <li><a class="slide-item" href="{{ url('/' . $page='agents_block') }}">	عملاء محظورين </a></li>
                                 @endcan
                                                 @can('التقارير')
-                            <li><a class="slide-item" href="{{ url('/' . $page='#') }}">	التقارير  </a></li>
+                            <li><a class="slide-item" href="{{ url('/' . $page='report_agents') }}">	التقارير  </a></li>
                                 @endcan
                         </ul>
                     </li>

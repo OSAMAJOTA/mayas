@@ -36,6 +36,10 @@ Route::resource('employees', 'EmployeesController');
 Route::resource('emp_groups', 'EmpGroupsController');
 Route::resource('companys', 'CompanysController');
 
+
+Route::resource('report_agents', 'AgentsReportController');
+Route::post('Search_report', 'AgentsReportController@Search_report');
+
 Route::resource('groups', 'GroupsController');
 Route::resource('careers', 'CareersController');
 Route::resource('sections', 'SectionsController');

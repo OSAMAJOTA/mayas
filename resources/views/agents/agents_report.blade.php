@@ -15,7 +15,12 @@
     <link href="{{ URL::asset('assets/plugins/select2/css/select2.min.css') }}" rel="stylesheet">
 
     @section('title')
-        التقارير
+        @if (isset($details))
+            {{ $status_id}}
+        @else
+            التقارير
+        @endif
+
     @stop
 @endsection
 @section('page-header')
@@ -32,6 +37,7 @@
 @endsection
 @section('content')
 
+
     @if (count($errors) > 0)
         <div class="alert alert-danger">
             <button aria-label="Close" class="close" data-dismiss="alert" type="button">
@@ -45,11 +51,12 @@
             </ul>
         </div>
     @endif
+
 				<!-- row -->
 				<div class="row">
 
                     <div class="col-xl-12">
-                        <div class="card mg-b-20">
+                        <div class="card mg-b-20" id="invoice">
 
 
                             <div class="card-header pb-0">
@@ -66,7 +73,7 @@
 
 
                                     <div class="col-lg-3 mg-t-20 mg-lg-t-0">
-                                        <label class="rdiobox"><input name="rdio" value="2" type="radio"><span>بحث برقم العميل
+                                        <label class="rdiobox"><input name="rdio" value="2" type="radio"><span>بحث بالموظف
                             </span></label>
                                     </div><br><br>
 
@@ -79,7 +86,7 @@
                                                 <option value="{{ $status_id ?? 'حدد حالة العميل' }}" selected>
                                                     {{ $status_id ?? 'حدد حالة العميل' }}
                                                 </option>
-                                                <option value="1"> الكل </option>
+                                                <option value="الكل"> الكل </option>
                                                 <option value="بانتظارالتوجيه">بانتظار  التوجيه </option>
                                                 <option value="بانتظار التواصل معه"> بانتظار التواصل معه</option>
                                                 <option value="تم التواصل معه"> تم التواصل معه</option>
@@ -91,9 +98,18 @@
                                         </div><!-- col-4 -->
 
 
-                                        <div class="col-lg-3 mg-t-20 mg-lg-t-0" id="invoice_number">
-                                            <p class="mg-b-10">البحث برقم الفاتورة</p>
-                                            <input type="text" class="form-control" id="invoice_number" name="invoice_number">
+                                        <div class="col-lg-3 " id="invoice_number">
+                                            <div class="parsley-input col-md-6 mg-t-20 mg-md-t-0" id="lnWrapper">
+                                                <label> حدد الموظف: <span class="tx-danger">*</span></label>
+                                                <select name="employees_name" class="form-control SlectBox" onclick="console.log($(this).val())"
+                                                        onchange="console.log('change is firing')">
+                                                    <!--placeholder-->
+                                                    <option value="" selected disabled>حدد الموظف</option>
+                                                    @foreach ($employees as $y)
+                                                        <option value="{{ $y->employees_name }}"> {{ $y->employees_name }}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
 
                                         </div><!-- col-4 -->
 
@@ -146,6 +162,8 @@
                                                 <th class="border-bottom-0"> المبلغ المتبقي</th>
                                                 <th class="border-bottom-0">الحالة</th>
                                                 <th class="border-bottom-0">الموظف المسؤول</th>
+                                                <th class="border-bottom-0"> تاريخ الاضافة</th>
+
                                                 <th class="border-bottom-0"> رأي الادارة</th>
                                                 <th class="border-bottom-0">العمليات</th>
 
@@ -192,6 +210,8 @@
                                                     </td>
 
                                                     <td class="text-success">{{$x->employees_name}} </td>
+                                                    <td>{{$x->agents_date}} </td>
+
                                                     <td>{{$x->man_note}} </td>
 
                                                     <td>
@@ -284,8 +304,13 @@
 
     <script>
         $(document).ready(function() {
-
+            var appBanners = document.getElementsByClassName('btn btn-primary buttons-pdf buttons-html5');
+            for (var i = 0; i < appBanners.length; i ++) {
+                appBanners[i].style.display = 'none';
+            }
             $('#invoice_number').hide();
+
+
 
             $('input[type="radio"]').click(function() {
                 if ($(this).attr('id') == 'type_div') {
@@ -303,6 +328,7 @@
         });
 
     </script>
+
 
 
 @endsection

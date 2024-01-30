@@ -69,10 +69,7 @@
 
                 <div class="col-sm-4 col-md-4">
 
-                        <div class="card-body">
 
-                            <a class="btn ripple btn-info" data-target="#modaldemo3" data-toggle="modal" href="">اضافة عميل </a>
-                        </div>
 
                 </div>
                 <div class="card-body">

@@ -22,6 +22,7 @@ class CreateAgentsTable extends Migration
             $table->string('tailor_num')->nullable();
             $table->date('first_tailor')->nullable();
             $table->date('end_tailor')->nullable();
+            $table->date('agents_date');
             $table->decimal('rset',8,2)->nullable();
             $table->string('Status')->nullable();
             $table->integer('Status_id')->nullable();

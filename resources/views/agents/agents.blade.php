@@ -226,7 +226,7 @@
 
                                     <div class="col">
                                         <label>  تاريخ الاضافة</label>
-                                        <input type="text" class="form-control" id="created_at" name="created_at" value="{{ date('Y-m-d') }}" disabled required>
+                                        <input type="text" class="form-control" id="agents_date" name="agents_date" value="{{ date('Y-m-d') }}" disabled required>
                                     </div>
 
                                 </div>

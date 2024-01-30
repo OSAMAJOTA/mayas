@@ -186,6 +186,8 @@ $emp_id=Auth::user()->id;
             'tailor_num' => $request->tailor_num,
             'first_tailor' => $request->first_tailor,
             'end_tailor' => $request->end_tailor,
+            'agents_date' => $request->agents_date,
+
             'rset' => $request->rset,
             'Status' => 'بانتظارالتوجيه',
             'Status_id' =>1,

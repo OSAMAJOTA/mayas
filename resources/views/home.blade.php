@@ -48,12 +48,18 @@
                     <div class="pb-0 mt-0">
                         <div class="d-flex">
                             <div class="">
-                                <h4 class="tx-20 font-weight-bold mb-1 text-white">552</h4>
+                                <h4 class="tx-20 font-weight-bold mb-1 text-white">
+
+                                {{\App\agents::count()}}
+
+
+
+                                </h4>
                                 <p class="mb-0 tx-12 text-white op-7">Compared to last week</p>
                             </div>
                             <span class="float-right my-auto mr-auto">
 											<i class="fas fa-arrow-circle-up text-white"></i>
-											<span class="text-white op-7"> +427</span>
+											<span class="text-white op-7"> 100%</span>
 										</span>
                         </div>
                     </div>
@@ -70,12 +76,21 @@
                     <div class="pb-0 mt-0">
                         <div class="d-flex">
                             <div class="">
-                                <h4 class="tx-20 font-weight-bold mb-1 text-white">400</h4>
+                                <h4 class="tx-20 font-weight-bold mb-1 text-white">
+
+
+                                    {{\App\agents::where('Status_id',2)->count()}}
+                                </h4>
                                 <p class="mb-0 tx-12 text-white op-7">Compared to last week</p>
                             </div>
                             <span class="float-right my-auto mr-auto">
 											<i class="fas fa-arrow-circle-down text-white"></i>
-											<span class="text-white op-7"> -23.09%</span>
+											<span class="text-white op-7">
+
+                                               %  {{round(\App\agents::where('Status_id',2)->count()/\App\agents::count() *100,2)}}
+
+
+                                            </span>
 										</span>
                         </div>
                     </div>
@@ -92,12 +107,17 @@
                     <div class="pb-0 mt-0">
                         <div class="d-flex">
                             <div class="">
-                                <h4 class="tx-20 font-weight-bold mb-1 text-white">70</h4>
+                                <h4 class="tx-20 font-weight-bold mb-1 text-white">
+
+                                    {{\App\agents::where('Status_id',3)->count()}}
+                                </h4>
                                 <p class="mb-0 tx-12 text-white op-7">Compared to last week</p>
                             </div>
                             <span class="float-right my-auto mr-auto">
 											<i class="fas fa-arrow-circle-up text-white"></i>
-											<span class="text-white op-7"> 52.09%</span>
+											<span class="text-white op-7">
+                                                %  {{round(\App\agents::where('Status_id',3)->count()/\App\agents::count() *100,2)}}
+                                            </span>
 										</span>
                         </div>
                     </div>
@@ -114,12 +134,12 @@
                     <div class="pb-0 mt-0">
                         <div class="d-flex">
                             <div class="">
-                                <h4 class="tx-20 font-weight-bold mb-1 text-white">5000</h4>
+                                <h4 class="tx-20 font-weight-bold mb-1 text-white">     {{\App\agents::where('Status_id',4)->count()}}</h4>
                                 <p class="mb-0 tx-12 text-white op-7">Compared to last week</p>
                             </div>
                             <span class="float-right my-auto mr-auto">
 											<i class="fas fa-arrow-circle-down text-white"></i>
-											<span class="text-white op-7"> -152.3</span>
+											<span class="text-white op-7">         %  {{round(\App\agents::where('Status_id',4)->count()/\App\agents::count() *100,2)}}</span>
 										</span>
                         </div>
                     </div>
@@ -127,6 +147,8 @@
                 <span id="compositeline4" class="pt-1">5,9,5,6,4,12,18,14,10,15,12,5,8,5,12,5,12,10,16,12</span>
             </div>
         </div>
+
+
     </div>
     <!-- row closed -->
 

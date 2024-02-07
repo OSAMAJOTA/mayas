@@ -163,9 +163,8 @@
                                                 <th class="border-bottom-0">الحالة</th>
                                                 <th class="border-bottom-0">الموظف المسؤول</th>
                                                 <th class="border-bottom-0"> تاريخ الاضافة</th>
-
                                                 <th class="border-bottom-0"> رأي الادارة</th>
-                                                <th class="border-bottom-0">العمليات</th>
+
 
                                             </tr>
                                             </thead>
@@ -213,33 +212,6 @@
                                                     <td>{{$x->agents_date}} </td>
 
                                                     <td>{{$x->man_note}} </td>
-
-                                                    <td>
-                                                        <div class="dropdown">
-                                                            <button aria-expanded="false" aria-haspopup="true"
-                                                                    class="btn ripple btn-primary btn-sm" data-toggle="dropdown"
-                                                                    type="button">العمليات<i class="fas fa-caret-down ml-1"></i></button>
-                                                            <div class="dropdown-menu tx-13">
-
-                                                                <a class="dropdown-item"
-                                                                   href="{{ url('AgentsDetails') }}/{{ $x->id }}">عرض التفاصيل
-                                                                </a>
-                                                                <a class="dropdown-item"
-                                                                   href="{{url('agents_edit')}}/{{ $x->id }} ">تعديل
-                                                                </a>
-
-
-
-
-
-                                                                <a class="modal-effect btn btn-sm btn-danger" data-effect="effect-scale"
-                                                                   data-id="{{ $x->id }}" data-agents_name="{{ $x->agents_name }}"
-                                                                   data-toggle="modal" href="#modaldemo9" title="حذف"><i
-                                                                        class="las la-trash"></i> حزف</a>
-
-
-                                                    </td>
-
 
                                                 </tr>
                                             @endforeach

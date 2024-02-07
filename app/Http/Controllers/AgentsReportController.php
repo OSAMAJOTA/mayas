@@ -92,10 +92,10 @@ if($request->status_id=='الكل'){
 
 // في البحث برقم العميل
         else {
-
+$status_id=$request->employees_name;
             $employees=employees::all();
              $agents = agents::select('*')->where('employees_name','=',$request->employees_name)->get();
-                return view('agents.agents_report',compact('employees'))->withDetails($agents);
+                return view('agents.agents_report',compact('employees','status_id'))->withDetails($agents);
 
         }
 

@@ -226,7 +226,7 @@
 
                                     <div class="col">
                                         <label>  تاريخ الاضافة</label>
-                                        <input type="text" class="form-control" id="agents_date" name="agents_date" value="{{ date('Y-m-d') }}" disabled required>
+                                        <input type="text" class="form-control" id="agents_date" name="agents_date" value="{{ date('Y-m-d') }}"  readonly required>
                                     </div>
 
                                 </div>
@@ -273,7 +273,7 @@
 
                                     <div class="col">
                                         <label for="inputName" class="control-label">  المبلغ المتبقي</label>
-                                        <input type="number" class="form-control" id="rset" name="rset"
+                                        <input type="number" class="form-control" id="rset" name="rset" value="0"
                                                title="يرجي اسم الشخص المفوض  " required>
                                     </div>
 

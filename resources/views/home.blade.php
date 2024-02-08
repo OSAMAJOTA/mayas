@@ -151,7 +151,118 @@
 
     </div>
     <!-- row closed -->
+    <div class="row row-sm">
+        <div class="col-xl-3 col-lg-6 col-md-6 col-xm-12">
+            <div class="card overflow-hidden sales-card bg-primary-gradient">
+                <div class="pl-3 pt-3 pr-3 pb-2 pt-0">
+                    <div class="">
+                        <h6 class="mb-3 tx-12 text-white">الفروع والشركات</h6>
+                    </div>
+                    <div class="pb-0 mt-0">
+                        <div class="d-flex">
+                            <div class="">
+                                <h4 class="tx-20 font-weight-bold mb-1 text-white">
 
+                                    {{\App\companys::count()}}
+
+
+
+                                </h4>
+
+                            </div>
+                            <span class="float-right my-auto mr-auto">
+
+
+										</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-xl-3 col-lg-6 col-md-6 col-xm-12">
+            <div class="card overflow-hidden sales-card bg-danger-gradient">
+                <div class="pl-3 pt-3 pr-3 pb-2 pt-0">
+                    <div class="">
+                        <h6 class="mb-3 tx-12 text-white">الموظفين</h6>
+                    </div>
+                    <div class="pb-0 mt-0">
+                        <div class="d-flex">
+                            <div class="">
+                                <h4 class="tx-20 font-weight-bold mb-1 text-white">
+
+
+                                    {{\App\employees::count()}}
+                                </h4>
+
+                            </div>
+                            <span class="float-right my-auto mr-auto">
+
+											<span class="text-white op-7">
+
+
+
+
+                                            </span>
+										</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-xl-3 col-lg-6 col-md-6 col-xm-12">
+            <div class="card overflow-hidden sales-card bg-success-gradient">
+                <div class="pl-3 pt-3 pr-3 pb-2 pt-0">
+                    <div class="">
+                        <h6 class="mb-3 tx-12 text-white"> الاقسام </h6>
+                    </div>
+                    <div class="pb-0 mt-0">
+                        <div class="d-flex">
+                            <div class="">
+                                <h4 class="tx-20 font-weight-bold mb-1 text-white">
+
+                                    {{\App\sections::count()}}
+                                </h4>
+
+                            </div>
+                            <span class="float-right my-auto mr-auto">
+
+											<span class="text-white op-7">
+
+                                            </span>
+										</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-xl-3 col-lg-6 col-md-6 col-xm-12">
+            <div class="card overflow-hidden sales-card bg-warning-gradient">
+                <div class="pl-3 pt-3 pr-3 pb-2 pt-0">
+                    <div class="">
+                        <h6 class="mb-3 tx-12 text-white">الاصناف</h6>
+                    </div>
+                    <div class="pb-0 mt-0">
+                        <div class="d-flex">
+                            <div class="">
+                                <h4 class="tx-20 font-weight-bold mb-1 text-white">     {{\App\items::count()}}</h4>
+
+                            </div>
+                            <span class="float-right my-auto mr-auto">
+
+											<span class="text-white op-7">        </span>
+										</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+    </div>
     <!-- row opened -->
     <div class="row row-sm">
         <div class="col-md-12 col-lg-12 col-xl-7">
@@ -173,10 +284,11 @@
         </div>
         <div class="col-lg-12 col-xl-5">
             <div class="card card-dashboard-map-one">
-                <label class="main-content-label">Sales Revenue by Customers in USA</label>
-                <span class="d-block mg-b-20 text-muted tx-12">Sales Performance of all states in the United States</span>
+
                 <div class="">
-                    <div class="vmap-wrapper ht-180" id="vmap2"></div>
+                    <div style="width:75%;">
+                        {!! $chartjs1->render() !!}
+                    </div>
                 </div>
             </div>
         </div>

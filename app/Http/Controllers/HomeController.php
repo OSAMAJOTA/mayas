@@ -33,6 +33,29 @@ class HomeController extends Controller
         $agents4=agents::where('Status_id',4)->count();
         $agents5=agents::where('Status_id',5)->count();
 
+
+        $chartjs1 = app()->chartjs
+            ->name('pieChartTest')
+            ->type('pie')
+            ->size(['width' => 400, 'height' => 200])
+            ->labels(['عملاء بنتظار التوجيه','عملاء بانتظار التواصل معهم','عملاء تم التواصل معهم','عملاء طلبو زيارة منزلية ','عملاء محظورين '])
+            ->datasets([
+                [
+                    'backgroundColor' => ['rgba(218, 170, 46)', 'rgba(228, 104, 104 )','rgba(85, 123, 66  )','rgba(64, 182, 196 )','rgba(68, 70, 70  )'],
+                    'hoverBackgroundColor' => ['rgba(218, 170, 46)', 'rgba(228, 104, 104 )','rgba(85, 123, 66  )','rgba(64, 182, 196 )','rgba(68, 70, 70  )'],
+                    'data' => [$agents1, $agents2,$agents3,$agents4,$agents5]
+                ]
+            ])
+            ->options([]);
+
+
+
+
+
+
+
+
+
         $chartjs = app()->chartjs
             ->name('barChartTest')
             ->type('bar')
@@ -71,9 +94,10 @@ class HomeController extends Controller
                     "label" => " عملاء محظورين",
                     'backgroundColor' => ['rgba(68, 70, 70  )'],
                     'data' => [$agents5]
-                ]
+                ],
 
-            ])
+
+                ])
             ->options([]);
 
 
@@ -84,7 +108,7 @@ class HomeController extends Controller
             ->paginate(10);
 
 
-        return view('home',compact('users','chartjs'));
+        return view('home',compact('users','chartjs','chartjs1'));
 
     }
 }

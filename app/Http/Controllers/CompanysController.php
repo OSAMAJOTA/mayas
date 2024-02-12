@@ -100,9 +100,10 @@ class CompanysController extends Controller
      * @param  \App\companys  $companys
      * @return \Illuminate\Http\Response
      */
-    public function edit(companys $companys)
+    public function edit($id )
     {
-        //
+        $companys = companys::where('id', $id)->first();
+        return view('companys.edit_companys', compact('companys'));
     }
 
     /**
@@ -114,7 +115,29 @@ class CompanysController extends Controller
      */
     public function update(Request $request, companys $companys)
     {
-        //
+        $companys = companys::findOrFail($request->companys_id);
+        $companys->update([
+            'companys_name' => $request->companys_name,
+            'registration_num' => $request->registration_num,
+            'vat_num' => $request->vat_num,
+            'city' => $request->city,
+            'build_num' => $request->build_num,
+            'postal_code' => $request->postal_code,
+            'extra_num' => $request->extra_num,
+            'road_nam' => $request->road_nam,
+            'neigh_nam' => $request->neigh_nam,
+            'branch_num' => $request->branch_num,
+            'com_phone' => $request->com_phone,
+            'com_email' => $request->com_email,
+            'authorized_nam' => $request->authorized_nam,
+            'authorized_phone' => $request->authorized_phone,
+            'authorized_email' => $request->authorized_email,
+            'note' => $request->note,
+            'Status' => $request->Status,
+        ]);
+
+        session()->flash('edit', 'تم تعديل بيانات الفرع بنجاح');
+        return redirect('/companys');
     }
 
     /**
@@ -123,8 +146,12 @@ class CompanysController extends Controller
      * @param  \App\companys  $companys
      * @return \Illuminate\Http\Response
      */
-    public function destroy(companys $companys)
+
+    public function destroy(Request $request,companys $companys)
     {
-        //
+        $id = $request->id;
+        companys::find($id)->delete();
+        session()->flash('delete','تم حذف الفرع بنجاح');
+        return redirect('/companys');
     }
 }

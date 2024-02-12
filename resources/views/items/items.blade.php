@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('title')
-    الاقسام
+    الاصناف
 @stop
 @section('css')
     <!-- Internal Data table css -->

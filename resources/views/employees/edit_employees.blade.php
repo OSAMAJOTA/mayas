@@ -160,6 +160,7 @@
                                 <label for="exampleTextarea">ملاحظات</label>
                                 <textarea class="form-control" id="exampleTextarea" name="note" rows="3" value="{{$employees->comment}}"  ></textarea>
                             </div>
+
                         </div><br>
 
 

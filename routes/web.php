@@ -52,6 +52,7 @@ Route::get('/companysDetails/{id}', 'CompanysDetailsController@edit');
 Route::get('/AgentsDetails/{id}', 'AgentsDetailsController@edit');
 Route::get('ReadNotification/{id}','AgentsDetailsController@ReadNotification')->name('ReadNotification');
 
+Route::get('/edit_companys/{id}', 'CompanysController@edit');
 Route::get('/edit_employees/{id}', 'EmployeesController@edit');
 Route::get('download/{company_number}/{file_name}', 'CompanysDetailsController@get_file');
 Route::post('delete_file', 'CompanysDetailsController@destroy')->name('delete_file');

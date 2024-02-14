@@ -25,6 +25,7 @@ class CreateAgentsTable extends Migration
             $table->date('agents_date');
             $table->decimal('rset',8,2)->nullable();
             $table->string('Status')->nullable();
+
             $table->integer('Status_id')->nullable();
             $table->unsignedBigInteger('employees_id')->nullable();
             $table->foreign('employees_id')->references('id')->on('users');

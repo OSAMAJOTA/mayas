@@ -173,8 +173,53 @@
                     </div>
                 </div>
             </div>
+            <!--
+            @foreach($agents as $x)
+            <div class="col-12  col-lg-12">
+                <div class="card card-primary">
+                    <div class="card-header pb-0">
+                        <h5 class="card-title mb-0 pb-0">    {{$x->agents_name}} </h5>
+                    </div>
+                    <div class="card-body text-primary">
+
+                            <div class="row">
+                                <div class="col">
+                                   <img src="http://localhost:8000/assets/img/6.jpg" width="250" height="250" >
+                                    <p class="text-justify"  style="color: black">تاريخ الاضافة</p>
+                                    <p class="text-justify">{{ $x->first_tailor }}</p>
+                                </div>
+                                <div class="col-sm"  style="color: black">
+
+                                    <label>فرع العميل</label>
+                                    <p class="text-justify"><a title="عرض الفاصيل"
+                                                               href="{{ url('companysDetails') }}/{{ $x->companys_id }}">{{ $x->companys->companys_name }}</a></p>
+                                        <label>جوال العميل </label>
+                                        <p class="text-justify">{{ $x->agents_phone }}</p>
+                                    </div>
+
+                                <div class="col-sm " style="color: black">
+                                    One of three columns
+                                </div>
+                                <div class="col-sm">
+                                    One of three columns
+                                </div>
+                                <div class="col-sm">
+                                    One of three columns
+                                </div>
+                            </div>
+
+
+
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn-success"> عرض التفاصيل </button>
+                    </div>
+                </div>
+            </div>
         </div>
 
+            @endforeach
+            -->
             <!-- Large Modal -->
             <div class="modal" id="modaldemo3">
                 <div class="modal-dialog modal-lg" role="document">

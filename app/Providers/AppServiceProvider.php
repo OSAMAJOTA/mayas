@@ -26,12 +26,12 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        Schema::defaultStringLength(191);
-       $users1 = User::select("*")
-       ->whereNotNull('last_seen')
-      ->orderBy('last_seen', 'DESC')
-        ->paginate(10);
-       View::share(compact('users1'));
+     Schema::defaultStringLength(191);
+ $users1 = User::select("*")
+  ->whereNotNull('last_seen')
+   ->orderBy('last_seen', 'DESC')
+     ->paginate(10);
+    View::share(compact('users1'));
 
     }
 }

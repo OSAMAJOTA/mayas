@@ -10,6 +10,12 @@
     <link href="{{URL::asset('assets/plugins/datatable/css/jquery.dataTables.min.css')}}" rel="stylesheet">
     <link href="{{URL::asset('assets/plugins/datatable/css/responsive.dataTables.min.css')}}" rel="stylesheet">
     <link href="{{URL::asset('assets/plugins/select2/css/select2.min.css')}}" rel="stylesheet">
+    <!---Internal  Prism css-->
+    <link href="{{URL::asset('assets/plugins/prism/prism.css')}}" rel="stylesheet">
+    <!---Internal Input tags css-->
+    <link href="{{URL::asset('assets/plugins/inputtags/inputtags.css')}}" rel="stylesheet">
+    <!--- Custom-scroll -->
+    <link href="{{URL::asset('assets/plugins/custom-scroll/jquery.mCustomScrollbar.css')}}" rel="stylesheet">
 @endsection
 @section('page-header')
     <!-- breadcrumb -->

@@ -88,9 +88,21 @@ if($request->status_id=='الكل'){
 
         }
 
+        elseif($rdio == 3){
+
+            $status_id=$request->employees_name;
+            $employees=employees::all();
+            $agents = agents::select('*')->where('agents_phone','=',$request->employees_phone)->get();
+            return view('agents.agents_report',compact('employees','status_id'))->withDetails($agents);
+
+        }
+
 //====================================================================
 
 // في البحث برقم العميل
+
+
+
         else {
 $status_id=$request->employees_name;
             $employees=employees::all();

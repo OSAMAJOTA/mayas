@@ -71,11 +71,15 @@
                                 العميل</span></label>
                                     </div>
 
-
+                                    <br>
                                     <div class="col-lg-3 mg-t-20 mg-lg-t-0">
                                         <label class="rdiobox"><input name="rdio" value="2" type="radio"><span>بحث بالموظف
                             </span></label>
-                                    </div><br><br>
+                                    </div><br>
+                                    <div class="col-lg-3 mg-t-20 mg-lg-t-0">
+                                        <label class="rdiobox"><input name="rdio" value="3" type="radio" id="type_phone"><span>بحث برقم الجوال
+                            </span></label>
+                                    </div><br>
 
                                     <div class="row">
 
@@ -98,7 +102,7 @@
                                         </div><!-- col-4 -->
 
 
-                                        <div class="col-lg-3 " id="invoice_number">
+                                        <div class="col-lg-6 " id="invoice_number">
                                             <div class="parsley-input col-md-6 mg-t-20 mg-md-t-0" id="lnWrapper">
                                                 <label> حدد الموظف: <span class="tx-danger">*</span></label>
                                                 <select name="employees_name" class="form-control SlectBox" onclick="console.log($(this).val())"
@@ -111,7 +115,23 @@
                                                 </select>
                                             </div>
 
-                                        </div><!-- col-4 -->
+                                        </div>
+
+
+
+                                        <div class="col-lg-6 " id="phone">
+                                            <div class="parsley-input col-md-6 mg-t-20 mg-md-t-0" id="lnWrapper">
+                                                <label> ادخل رقم الجوال : <span class="tx-danger">*</span></label>
+                                             <INPUT type="text" class="form-control" id="employees_phone" name="employees_phone" >
+
+
+                                            </div>
+
+                                        </div>
+
+
+
+                                        <!-- col-4 -->
 
                                         <div class="col-lg-3" id="start_at">
                                             <label for="exampleFormControlSelect1">من تاريخ</label>
@@ -281,20 +301,30 @@
                 appBanners[i].style.display = 'none';
             }
             $('#invoice_number').hide();
-
+            $('#phone').hide();
 
 
             $('input[type="radio"]').click(function() {
                 if ($(this).attr('id') == 'type_div') {
                     $('#invoice_number').hide();
+                    $('#phone').hide();
                     $('#type').show();
                     $('#start_at').show();
                     $('#end_at').show();
-                } else {
+                } else if ($(this).attr('id') == 'type_phone') {
+                    $('#invoice_number').hide();
+                    $('#phone').show();
+                    $('#type').hide();
+                    $('#start_at').hide();
+                    $('#end_at').hide();
+                }
+
+                else {
                     $('#invoice_number').show();
                     $('#type').hide();
                     $('#start_at').hide();
                     $('#end_at').hide();
+                    $('#phone').hide();
                 }
             });
         });

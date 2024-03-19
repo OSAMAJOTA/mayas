@@ -16,22 +16,25 @@ class CreateAgentsTable extends Migration
         Schema::create('agents', function (Blueprint $table) {
             $table->id();
             $table->string('agents_name');
-            $table->unsignedBigInteger('companys_id');
-            $table->foreign('companys_id')->references('id')->on('companys')->onDelete('cascade');
-            $table->string('agents_phone');
-            $table->string('tailor_num')->nullable();
-            $table->date('first_tailor')->nullable();
-            $table->date('end_tailor')->nullable();
-            $table->date('agents_date');
-            $table->decimal('rset',8,2)->nullable();
-            $table->string('Status')->nullable();
+            $table->string('agents_name_en');
+            $table->string('login_name');
+            $table->string('nash');
+            $table->string('id_tybe');
+            $table->string('id_num');
+            $table->date('birth_date');
+            $table->string('marital_status');
+            $table->string('Accommodation_type');
 
-            $table->integer('Status_id')->nullable();
-            $table->unsignedBigInteger('employees_id')->nullable();
-            $table->foreign('employees_id')->references('id')->on('users');
-            $table->string('employees_name')->nullable();
-            $table->string('man_note')->nullable();
-            $table->dateTime('call_later')->nullable();
+            $table->integer('agent_phone1');
+            $table->integer('agent_phone2');
+            $table->integer('home_phone');
+
+            $table->string('hood_ar');
+            $table->string('hood_en');
+            $table->string('add_ar');
+            $table->string('add_en');
+            $table->string('city_ar');
+            $table->string('city_en');
             $table->string('Created_by', 999);
             $table->timestamps();
         });

@@ -20,8 +20,8 @@
     <div class="breadcrumb-header justify-content-between">
         <div class="my-auto">
             <div class="d-flex">
-                <h4 class="content-title mb-0 my-auto">مدخلات النظام</h4><span class="text-muted mt-1 tx-13 mr-2 mb-0">/
-                     اسماء الفروع والشركات/ اضافة عميل </span>
+                <h4 class="content-title mb-0 my-auto"> الرئسية</h4><span class="text-muted mt-1 tx-13 mr-2 mb-0">/
+                       العملاء/ اضافة عميل </span>
             </div>
         </div>
     </div>
@@ -45,186 +45,435 @@
             </button>
         </div>
     @endif
-
-    <!-- row -->
     <div class="row">
-
         <div class="col-lg-12 col-md-12">
             <div class="card">
                 <div class="card-body">
-                    <form action="{{ route('companys.store') }}" method="post" enctype="multipart/form-data"
+                    <form action="{{ route('agents.store') }}" method="post" enctype="multipart/form-data"
                           autocomplete="off">
                         {{ csrf_field() }}
                         {{-- 1 --}}
-
+                        {{-- الصف الاول --}}
                         <div class="row">
-                            <div class="col">
-                                <label for="inputName" class="control-label"> اسم الشركة</label>
-                                <input type="text" class="form-control" id="companys_name" name="companys_name"
-                                       title="يرجي ادخال  اسم الشركه" required>
+                            <div class="col-sm">
+
+                                <label for="inputName" class="control-label"> <span class="text-danger font-bold">*</span> اسم العميل عربى</label>
+                                <input type="text" class="form-control" id="agents_name" name="agents_name"
+                                       title="يرجي ادخال  اسم العميل" required>
                             </div>
 
-                            <div class="col">
-                                <label> رقم السجل</label>
-                                <input type="text" class="form-control" id="registration_num" name="registration_num"
-                                       title="يرجي ادخال رقم السجل" required>
+                            <div class="col-sm">
+                                <label for="inputName" class="control-label"> <span class="text-danger font-bold">*</span> اسم العميل انجليزي</label>
+                                <input type="text" class="form-control" id="agents_name_en" name="agents_name_en"
+                                       title="يرجي ادخال  اسم العميل" required>
                             </div>
 
-                            <div class="col">
-                                <label>  الرقم الضريبي</label>
-                                <input type="text" class="form-control" id="vat_num" name="vat_num" required>
+                            <div class="col-sm">
+                                <label for="inputName" class="control-label"> <span class="text-danger font-bold">*</span> اسم تسجيل الدخول</label>
+                                <input type="text" class="form-control" id="login_name" name="login_name" required>
                             </div>
-
-                        </div>
-                        <br>
-                        <div class="row">
-                            <label class="text-success" >   بيانات العنوان</label>
-                        </div>
-                        <br>
-
-                        {{-- 2 --}}
-                        <div class="row">
-                            <div class="col">
-                                <label for="inputName" class="control-label">   المدينه</label>
-                                <select name="city" id="Rate_VAT" class="form-control"  required>
+                            <div class="col-sm">
+                                <label for="inputName" class="control-label">   الجنسية</label>
+                                <select name="nash" id="nash" class="form-control"  required>
                                     <!--placeholder-->
-                                    <option value="" selected disabled>حدد  المدينه</option>
-                                    <option value="الرياض">الرياض</option>
-                                    <option value="العلا">العلا</option>
-                                    <option value="رفحاء">رفحاء</option>
-                                    <option value="نجران">نجران</option>
-                                    <option value="مكه">مكه </option>
-                                    <option value="حفرالباطن">حفر الباطن</option>
-                                    <option value="وادي الدواسر">وادى الدواسر</option>
-                                    <option value="ينبع">ينبع</option>
-                                    <option value="الطائف">الطائف</option>
-                                    <option value="الوجه">الوجه</option>
-                                    <option value="عفيف">عفيف</option>
-                                    <option value="جازان">جازان</option>
-                                    <option value="الدمام">الدمام</option>
-                                    <option value="الخرج">الخرج</option>
-                                    <option value="الاحساء">الاحساء</option>
-                                    <option value="الخبر">الخبر</option>
-                                    <option value="أبها">أبها</option>
-                                    <option value="جدة">جدة</option>
+                                    <option value="السعودية" selected disabled>السعودية</option>
+
+                                    <option value="الامارات">الامارات</option>
+                                    <option value="السعودية">السعودية</option>
+                                    <option value="الهند">الهند</option>
+
                                 </select>
                             </div>
 
-                            <div class="col">
-                                <label> رقم المبني</label>
-                                <input type="text" class="form-control" id="build_num" name="build_num"
-                                       title="يرجي ادخال رقم المبني" required>
-                            </div>
-
-                            <div class="col">
-                                <label>   الرمز البريدي</label>
-                                <input type="text" class="form-control" id="postal_code" name="postal_code"
-                                >
-                            </div>
-
                         </div>
+                        {{-- الصف الاول --}}
 
+                        {{-- الصف الثاني --}}
                         <div class="row">
-                            <div class="col">
-                                <label for="inputName" class="control-label"> الرقم الاضافي</label>
-                                <input type="text" class="form-control" id="extra_num" name="extra_num"
-                                       title="يرجي ادخال  الرقم الاضافي" >
+                            <div class="col-sm">
+                                <label for="inputName" class="control-label"> <span class="text-danger font-bold">*</span> نوع الهوية </label>
+                                <select name="id_tybe" id="id_tybe" class="form-control"  required>
+                                    <!--placeholder-->
+                                    <option value="" selected disabled>حدد  الهوية</option>
+                                    <option value="بطاقة الاحوال">بطافة الاحوال</option>
+                                    <option value="اقامه">اقامه</option>
+                                    <option value="كرت العائلة">كرت العائلة</option>
+
+                                </select>
                             </div>
 
-                            <div class="col">
-                                <label>  اسم الشارع</label>
-                                <input type="text" class="form-control" id="road_nam" name="road_nam"
-                                       title="يرجي ادخال اسم الشارع" >
+                            <div class="col-sm">
+                                <label for="inputName" class="control-label"> <span class="text-danger font-bold">*</span>  رقم الهوية </label>
+                                <input type="text" class="form-control" id="id_num" name="id_num"
+                                       title="يرجي ادخال رقم السجل" required>
                             </div>
 
-                            <div class="col">
-                                <label>    اسم الحي</label>
-                                <input type="text" class="form-control" id="neigh_nam" name="neigh_nam"
-                                >
+                            <div class="col-sm">
+                                <label for="inputName" class="control-label"> <span class="text-danger font-bold">*</span>   تاريخ الميلاد </label>
+                                <input type="date" class="form-control" id="birth_date" name="birth_date" required>
+                            </div>
+                            <div class="col-sm">
+                                <label for="inputName" class="control-label"> <span class="text-danger font-bold">*</span>   الحالة الاجتماعية </label>
+                                <select name="marital_status" id="marital_status" class="form-control"  required>
+                                    <!--placeholder-->
+                                    <option value="" selected disabled>حدد  الحالة</option>
+                                    <option value="متزوج">متزوج</option>
+                                    <option value="اعزب">اعزب</option>
+                                    <option value="مطلق">مطلق</option>
+                                    <option value="ارملة">ارملة</option>
+                                    <option value="منفصلة">منفصلة </option>
+
+                                </select>
                             </div>
 
                         </div>
+                        {{-- الصف الثاني --}}
+                        {{-- الصف الثالث --}}
                         <div class="row">
-                            <div class="col">
-                                <label for="inputName" class="control-label"> عدد الفروع</label>
-                                <input type="number" class="form-control" id="branch_num" name="branch_num"
-                                       title="يرجي ادخال عدد الفروع" required>
+                            <div class="col-sm">
+                                <label for="inputName" class="control-label"> <span class="text-danger font-bold">*</span>   نوع السكن  </label>
+                                <select name="Accommodation_type" id="Accommodation_type" class="form-control"  required>
+                                    <!--placeholder-->
+                                    <option value="" selected disabled>حدد  </option>
+                                    <option value="فيلا">فيلا</option>
+                                    <option value="شقه">شقة</option>
+                                    <option value="قصر">قصر</option>
+                                    <option value="مزرعه">مزرعة</option>
+                                    <option value="دور كامل">دور كامل </option>
+
+                                </select>
                             </div>
 
-                            <div class="col">
-                                <label>   الهاتف</label>
-                                <input type="text" class="form-control" id="com_phone" name="com_phone"
-                                       title="يرجي ادخال رقم الهاتف" required>
+                            <div class="col-sm">
+                                <label for="inputName" class="control-label"> <span class="text-danger font-bold">*</span>  جوال/هاتف </label>
+                                <input type="number" class="form-control" id="agent_phone1" name="agent_phone1"
+                                       title="يرجي ادخال رقم السجل" required>
                             </div>
 
-                            <div class="col">
-                                <label>  البريدالاكتروني </label>
-                                <input type="email" class="form-control" id="com_email" name="com_email" required>
+                            <div class="col-sm">
+                                <label for="inputName" class="control-label"> <span class="text-danger font-bold">*</span> جوال 2 </label>
+                                <input type="number" class="form-control" id="agent_phone2" name="agent_phone2" required>
                             </div>
+                            <div class="col-sm">
+                                <label for="inputName" class="control-label"> <span class="text-danger font-bold">*</span>  هاتف المنزل </label>
+                                <input type="number" class="form-control" id="home_phone" name="home_phone" required>
+                            </div>
+
 
                         </div>
-                        <br>
+                        {{-- الصف الثالث --}}
+                        {{-- الصف الرابع --}}
                         <div class="row">
-                            <label class="text-success"   >   بيانات الشخص المفوض</label>
+                            <div class="col-sm">
+
+                                <label for="inputName" class="control-label"> <span class="text-danger font-bold">*</span>  الحي عربي</label>
+                                <input type="text" class="form-control" id="hood_ar" name="hood_ar"
+                                       title="يرجي ادخال  اسم الشركه" required>
+                            </div>
+
+                            <div class="col-sm">
+                                <label for="inputName" class="control-label"> <span class="text-danger font-bold">*</span> الحي انجليزي </label>
+                                <input type="text" class="form-control" id="hood_en" name="hood_en"
+                                       title="يرجي ادخال رقم السجل" required>
+                            </div>
+
+                            <div class="col-sm">
+                                <label for="inputName" class="control-label"> <span class="text-danger font-bold">*</span> العنوان عربي </label>
+                                <input type="text" class="form-control" id="add_ar" name="add_ar" required>
+                            </div>
+                            <div class="col-sm">
+                                <label for="inputName" class="control-label"> <span class="text-danger font-bold">*</span> العنوان انجليزي</label>
+                                <input type="text" class="form-control" id="add_en" name="add_en" required>
+                            </div>
+
                         </div>
-<br>
+                        {{-- الصف الرابع --}}
+                        {{-- الصف الخامس --}}
+                        <div class="row">
+                            <div class="col-sm-3">
+
+                                <label for="inputName" class="control-label"> <span class="text-danger font-bold">*</span>  اسم المدينة عربي</label>
+                                <input type="text" class="form-control" id="city_ar" name="city_ar"
+                                       title="يرجي ادخال  اسم الشركه" required>
+                            </div>
+
+                            <div class="col-sm-3">
+                                <label for="inputName" class="control-label"> <span class="text-danger font-bold">*</span> اسم المدينة انجليزي </label>
+                                <input type="text" class="form-control" id="city_en" name="city_en"
+                                       title="يرجي ادخال رقم السجل" required>
+                            </div>
+
+
+
+
+                        </div>
+                        {{-- الصف الخامس --}}
+
+
+            </div>
+        </div>
+        <div class="col-lg-12 col-md-12">
+            <div class="card">
+                <div class="card-body">
+
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12">
+                            <div class="card overflow-hidden">
+
+                                <div class="card-body">
+                                    <div class="panel-group1" id="accordion11">
+                                        <div class="panel panel-default  mb-4">
+                                            <div class="panel-heading1 bg-primary ">
+                                                <h4 class="panel-title1">
+                                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion11" href="#collapseFour1" aria-expanded="false">معلومات اضافية<i class="fe fe-arrow-left ml-2"></i></a>
+                                                </h4>
+                                            </div>
+                                            <div id="collapseFour1" class="panel-collapse collapse" role="tabpanel" aria-expanded="false">
+                                                <div class="panel-body border">
+                                                    {{-- الصف الاول 2--}}
+                                                    <div class="row">
+                                                        <div class="col-sm">
+
+                                                            <label for="inputName" class="control-label"> تاريخ الهوية</label>
+                                                            <input type="text" class="form-control" id="companys_name" name="companys_name"
+                                                                   title="يرجي ادخال  اسم الشركه" >
+                                                        </div>
+
+                                                        <div class="col-sm">
+                                                            <label for="inputName" class="control-label"> عدد افراد الاسرة  </label>
+                                                            <input type="text" class="form-control" id="registration_num" name="registration_num"
+                                                                   title="يرجي ادخال رقم السجل" >
+                                                        </div>
+
+                                                        <div class="col-sm">
+                                                            <label for="inputName" class="control-label"> عدد الاطفال </label>
+                                                            <input type="text" class="form-control" id="vat_num" name="vat_num" >
+                                                        </div>
+                                                        <div class="col-sm">
+                                                            <label for="inputName" class="control-label"> عدد العمالة المنزلية </label>
+                                                            <input type="text" class="form-control" id="vat_num" name="vat_num" >
+                                                        </div>
+
+
+                                                    </div>
+                                                    {{-- الصف الاول --}}
+
+                                                    {{-- الصف الثاني 2--}}
+                                                    <div class="row">
+                                                        <div class="col-sm-3">
+
+                                                            <label for="inputName" class="control-label">عدد الادوار</label>
+                                                            <input type="text" class="form-control" id="companys_name" name="companys_name"
+                                                                   title="يرجي ادخال  اسم الشركه" >
+                                                        </div>
+
+                                                        <div class="col-sm-3">
+                                                            <label for="inputName" class="control-label"> عدد  الغرف في كل دور  </label>
+                                                            <input type="text" class="form-control" id="registration_num" name="registration_num"
+                                                                   title="يرجي ادخال رقم السجل" >
+                                                        </div>
+
+                                                        <div class="col-sm-3">
+                                                            <label for="inputName" class="control-label"> عدد دورات المياه </label>
+                                                            <input type="text" class="form-control" id="vat_num" name="vat_num" >
+                                                        </div>
+
+
+
+                                                    </div>
+                                                    {{-- الصف الثاني --}}
+                                                    {{-- الصف الثالث2 --}}
+                                                    <div class="row">
+                                                        <div class="col-sm">
+
+                                                            <label for="inputName" class="control-label"> هاتف العميل</label>
+                                                            <input type="number" class="form-control" id="companys_name" name="companys_name"
+                                                                   title="يرجي ادخال  اسم الشركه" >
+                                                        </div>
+
+                                                        <div class="col-sm">
+                                                            <label for="inputName" class="control-label">  البريد الالكتروني  </label>
+                                                            <input type="text" class="form-control" id="registration_num" name="registration_num"
+                                                                   title="يرجي ادخال رقم السجل" >
+                                                        </div>
+
+                                                        <div class="col-sm">
+                                                            <label for="inputName" class="control-label"> صندوق بريد </label>
+                                                            <input type="text" class="form-control" id="vat_num" name="vat_num" >
+                                                        </div>
+                                                        <div class="col-sm">
+                                                            <label for="inputName" class="control-label"> فاكس </label>
+                                                            <input type="text" class="form-control" id="vat_num" name="vat_num" >
+                                                        </div>
+
+
+                                                    </div>
+                                                    {{-- الصف الثالث --}}
+                                                    {{-- الصف الرابع2 --}}
+                                                    <div class="row">
+                                                        <div class="col-sm-3">
+
+                                                            <label for="inputName" class="control-label">اسم الشارع عربي</label>
+                                                            <input type="text" class="form-control" id="companys_name" name="companys_name"
+                                                                   title="يرجي ادخال  اسم الشركه" >
+                                                        </div>
+
+                                                        <div class="col-sm-3">
+                                                            <label for="inputName" class="control-label">   اسم الشارع انجليزي  </label>
+                                                            <input type="text" class="form-control" id="registration_num" name="registration_num"
+                                                                   title="يرجي ادخال رقم السجل" >
+                                                        </div>
+
+
+
+
+
+                                                    </div>
+                                                    {{-- الصف الرابع --}}
+                                                    {{-- الصف الخامس 2--}}
+                                                    <div class="row">
+                                                        <div class="col-sm-3">
+
+                                                            <label for="inputName" class="control-label"> رقم المبني</label>
+                                                            <input type="text" class="form-control" id="companys_name" name="companys_name"
+                                                                   title="يرجي ادخال  اسم الشركه" >
+                                                        </div>
+
+                                                        <div class="col-sm-3">
+                                                            <label for="inputName" class="control-label">  الرقم الاضافي  </label>
+                                                            <input type="text" class="form-control" id="registration_num" name="registration_num"
+                                                                   title="يرجي ادخال رقم السجل" >
+                                                        </div>
+
+                                                        <div class="col-sm-3">
+                                                            <label for="inputName" class="control-label"> الرمز البريدي  </label>
+                                                            <input type="text" class="form-control" id="vat_num" name="vat_num" >
+                                                        </div>
+
+
+
+                                                    </div>
+                                                    {{-- الصف الخامس --}}
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="panel panel-default mb-0">
+                                            <div class="panel-heading1  bg-primary">
+                                                <h4 class="panel-title1">
+                                                    <a class="accordion-toggle mb-0 collapsed" data-toggle="collapse" data-parent="#accordion11" href="#collapseFive2" aria-expanded="false"> معلومات النشاة <i class="fe fe-arrow-left ml-2"></i></a>
+                                                </h4>
+                                            </div>
+                                            <div id="collapseFive2" class="panel-collapse collapse" role="tabpanel" aria-expanded="false">
+                                                <div class="panel-body border">
+                                                    {{-- الصف الاول 3--}}
+                                                    <div class="row">
+                                                        <div class="col-sm">
+
+                                                            <label for="inputName" class="control-label">  عميل مهم</label>
+                                                            <div class="main-toggle main-toggle-success">
+                                                                <span></span>
+                                                            </div>
+                                                        </div>
+
+
+                                                    </div>
+                                                    {{-- الصف الاول --}}
+
+                                                    {{-- الصف الثاني 3--}}
+                                                    <div class="row">
+                                                        <div class="col-sm-6">
+                                                            <label for="inputName" class="control-label">     مستوى التقيم  </label>
+                                                            <select name="city" id="Rate_VAT" class="form-control"  >
+                                                                <!--placeholder-->
+                                                                <option value="" selected disabled>حدد  </option>
+                                                                <option value="الرياض">الرياض</option>
+                                                                <option value="العلا">العلا</option>
+                                                                <option value="رفحاء">رفحاء</option>
+                                                                <option value="نجران">نجران</option>
+                                                                <option value="مكه">مكه </option>
+                                                                <option value="حفرالباطن">حفر الباطن</option>
+                                                                <option value="وادي الدواسر">وادى الدواسر</option>
+                                                                <option value="ينبع">ينبع</option>
+                                                                <option value="الطائف">الطائف</option>
+                                                                <option value="الوجه">الوجه</option>
+                                                                <option value="عفيف">عفيف</option>
+                                                                <option value="جازان">جازان</option>
+                                                                <option value="الدمام">الدمام</option>
+                                                                <option value="الخرج">الخرج</option>
+                                                                <option value="الاحساء">الاحساء</option>
+                                                                <option value="الخبر">الخبر</option>
+                                                                <option value="أبها">أبها</option>
+                                                                <option value="جدة">جدة</option>
+                                                            </select>
+                                                        </div>
+
+                                                        <div class="col-md-6">
+
+                                                            <div class="col">
+                                                                <label for="exampleTextarea">ملاحظات</label>
+                                                                <textarea class="form-control" id="exampleTextarea" name="note" rows="3"></textarea>
+                                                            </div>
+
+                                                        </div>
+
+
+
+
+
+                                                    </div>
+                                                    {{-- الصف الثاني --}}
+                                                    {{-- الصف الثالث3 --}}
+                                                    <div class="row">
+
+
+                                                        <div class="col-md-6">
+
+
+                                                                <label for="exampleTextarea">ملاحظات التقيم</label>
+                                                                <textarea class="form-control" id="exampleTextarea" name="note" rows="3"></textarea>
+
+
+                                                        </div>
+
+
+                                                    </div>
+                                                    {{-- الصف الثالث --}}
+
+
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-center">
+                                    <button type="submit" class="btn btn-primary">حفظ البيانات</button>
+                                    &nbsp;&nbsp;&nbsp;
+                                    <button type="submit" class="btn btn-danger"> رجوع</button>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- row closed -->
 
                         {{-- 3 --}}
 
-                        <div class="row">
-
-                            <div class="col">
-                                <label for="inputName" class="control-label">  الاسم</label>
-                                <input type="text" class="form-control" id="authorized_nam" name="authorized_nam"
-                                       title="يرجي اسم الشخص المفوض  " required>
-                            </div>
-
-                            <div class="col">
-                                <label>   الجوال</label>
-                                <input type="text" class="form-control" id="authorized_phone" name="authorized_phone"
-                                       title="يرجي ادخال رقم الجوال" required>
-                            </div>
-                            <div class="col">
-                                <label>   البريد الالكتروني</label>
-                                <input type="email" class="form-control" id="authorized_email" name="authorized_email"
-                                       title="يرجي ادخال  البريد الالكتروني" required>
-                            </div>
-
-                        </div>
-                            {{-- 4 --}}
 
 
-                        {{-- 5 --}}
-<div class="row">
-    <div class="col">
-        <label for="exampleTextarea">ملاحظات</label>
-        <textarea class="form-control" id="exampleTextarea" name="note" rows="3"></textarea>
-    </div>
-</div>
-                        <br>
-
-                        <p class="text-danger">* صيغة العقد يجب ان تكون pdf </p>
-                        <h5 class="card-title">المرفقات</h5>
-
-                        <div class="col-sm-12 col-md-12">
-                            <input type="file" name="pic" class="dropify" accept=".pdf,.jpg, .png, image/jpeg, image/png"
-                                   data-height="70" />
-                        </div><br>
-
-
-
-
-
-                        <div class="d-flex justify-content-center">
-                            <button type="submit" class="btn btn-primary">حفظ البيانات</button>
-                        </div>
-
-
-                    </form>
-                </div>
-            </div>
         </div>
     </div>
+    </div>
+    </div>
+
+    </div>
+    </form>
+    </div>
+    <!-- row -->
+
 
     </div>
 
@@ -259,6 +508,13 @@
     <script src="{{ URL::asset('assets/plugins/spectrum-colorpicker/spectrum.js') }}"></script>
     <!-- Internal form-elements js -->
     <script src="{{ URL::asset('assets/js/form-elements.js') }}"></script>
+    <!--Internal  Datepicker js -->
+    <script src="{{URL::asset('assets/plugins/jquery-ui/ui/widgets/datepicker.js')}}"></script>
+    <!-- Internal Select2 js-->
+    <script src="{{URL::asset('assets/plugins/select2/js/select2.min.js')}}"></script>
+    <!--- Internal Accordion Js -->
+    <script src="{{URL::asset('assets/plugins/accordion/accordion.min.js')}}"></script>
+    <script src="{{URL::asset('assets/js/accordion.js')}}"></script>
 
     <script>
         var date = $('.fc-datepicker').datepicker({

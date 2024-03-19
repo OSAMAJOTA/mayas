@@ -25,6 +25,11 @@ Route::resource('block', 'block_agents');
 Route::resource('unbloock', 'unblock');
 Route::resource('vist', 'vist_controller');
 
+Route::get('/rent_cont/{id}/{agent_name}/{agent_id}/{agent_phone}', 'RentControllerController@index');
+Route::get('/contract/{id}/{agent_name}/{agent_id}/{agent_phone}', 'ContractController@index');
+
+
+
 Route::get('wait_forword', 'AgentsController@forword');
 Route::get('agents_block', 'AgentsController@block');
 

@@ -19,7 +19,8 @@ class AgentsReportController extends Controller
         return  view('agents.agents_report',compact('employees'));
     }
 
-    public function Search_report(Request $request){
+    public function Search_report(Request $request)
+    {
 
         $rdio = $request->rdio;
 
@@ -28,72 +29,77 @@ class AgentsReportController extends Controller
 
         if ($rdio == 1) {
 
-            if ($request->status_id && $request->start_at =='' && $request->end_at =='') {
+            if ($request->status_id && $request->start_at == '' && $request->end_at == '') {
 
-                if($request->status_id=='الكل'){
-                    $employees=employees::all();
+                if ($request->status_id == 'الكل') {
+                    $employees = employees::all();
                     $agents = agents::all();
                     $status_id = $request->status_id;
-                    return view('agents.agents_report',compact('status_id','employees'))->withDetails($agents);
-                }else
-                    $employees=employees::all();
-                $agents = agents::select('*')->where('Status','=',$request->status_id)->get();
+                    return view('agents.agents_report', compact('status_id', 'employees'))->withDetails($agents);
+                } else
+                    $employees = employees::all();
+                $agents = agents::select('*')->where('Status', '=', $request->status_id)->get();
                 $status_id = $request->status_id;
-                return view('agents.agents_report',compact('status_id','employees'))->withDetails($agents);
-            }
+                return view('agents.agents_report', compact('status_id', 'employees'))->withDetails($agents);
+            } // في حالة تحديد تاريخ استحقاق
+            elseif ($request->status_id && $request->start_at && $request->end_at == '') {
+                if ($request->status_id == 'الكل') {
+                    $employees = employees::all();
+                    $start_at = date($request->start_at);
 
-            // في حالة تحديد تاريخ استحقاق
-            elseif ($request->status_id && $request->start_at && $request->end_at ==''){
-if($request->status_id=='الكل'){
-    $employees=employees::all();
-    $start_at = date($request->start_at);
+                    $status_id = $request->status_id;
 
-    $status_id = $request->status_id;
-
-    $agents = agents::select('*')->where('agents_date','=',$request->start_at)->get();
-    return view('agents.agents_report',compact('status_id','start_at','employees'))->withDetails($agents);
+                    $agents = agents::select('*')->where('agents_date', '=', $request->start_at)->get();
+                    return view('agents.agents_report', compact('status_id', 'start_at', 'employees'))->withDetails($agents);
 
 
-}else
-                $employees=employees::all();
+                } else
+                    $employees = employees::all();
                 $start_at = date($request->start_at);
 
                 $status_id = $request->status_id;
 
-                $agents = agents::select('*')->where('agents_date','=',$request->start_at)->where('Status','=',$request->status_id)->get();
-                return view('agents.agents_report',compact('status_id','start_at','employees'))->withDetails($agents);
+                $agents = agents::select('*')->where('agents_date', '=', $request->start_at)->where('Status', '=', $request->status_id)->get();
+                return view('agents.agents_report', compact('status_id', 'start_at', 'employees'))->withDetails($agents);
 
-            }
-            elseif($request->status_id && $request->start_at && $request->end_at){
-                if($request->status_id=='الكل'){
+            } elseif ($request->status_id && $request->start_at && $request->end_at) {
+                if ($request->status_id == 'الكل') {
                     $start_at = date($request->start_at);
                     $end_at = date($request->end_at);
                     $status_id = $request->status_id;
-                    $employees=employees::all();
-                    $agents = agents::select('*')->whereBetween('created_at',[$start_at,$end_at])->get();
-                    return view('agents.agents_report',compact('status_id','start_at','end_at','employees'))->withDetails($agents);
+                    $employees = employees::all();
+                    $agents = agents::select('*')->whereBetween('created_at', [$start_at, $end_at])->get();
+                    return view('agents.agents_report', compact('status_id', 'start_at', 'end_at', 'employees'))->withDetails($agents);
 
-                }else
+                } else
 
 
 
-                $start_at = date($request->start_at);
+                    $start_at = date($request->start_at);
                 $end_at = date($request->end_at);
                 $status_id = $request->status_id;
-                $employees=employees::all();
-                $agents = agents::whereBetween('created_at',[$start_at,$end_at])->where('Status','=',$request->status_id)->get();
-                return view('agents.agents_report',compact('status_id','start_at','end_at','employees'))->withDetails($agents);
+                $employees = employees::all();
+                $agents = agents::whereBetween('created_at', [$start_at, $end_at])->where('Status', '=', $request->status_id)->get();
+                return view('agents.agents_report', compact('status_id', 'start_at', 'end_at', 'employees'))->withDetails($agents);
             }
 
 
-        }
+        } elseif ($rdio == 3) {
+            if( $request->employees_phone && $request->employees_id == ''){
+                $status_id = $request->employees_name;
+                $employees = employees::all();
+                $agents = agents::select('*')->where('agents_phone', '=', $request->employees_phone)->get();
+                return view('agents.agents_report', compact('employees', 'status_id'))->withDetails($agents);
+            }
+            else{
+                $status = $request->id;
+                $status_id = $request->employees_name;
+                $employees = employees::all();
+                $agents = agents::select('*')->where('id', '=', $request->employees_id)->get();
+                return view('agents.agents_report', compact('employees', 'status_id','status'))->withDetails($agents);
+            }
 
-        elseif($rdio == 3){
 
-            $status_id=$request->employees_name;
-            $employees=employees::all();
-            $agents = agents::select('*')->where('agents_phone','=',$request->employees_phone)->get();
-            return view('agents.agents_report',compact('employees','status_id'))->withDetails($agents);
 
         }
 
@@ -102,15 +108,14 @@ if($request->status_id=='الكل'){
 // في البحث برقم العميل
 
 
-
         else {
-$status_id=$request->employees_name;
-            $employees=employees::all();
-             $agents = agents::select('*')->where('employees_name','=',$request->employees_name)->get();
-                return view('agents.agents_report',compact('employees','status_id'))->withDetails($agents);
 
+
+            $status_id = $request->employees_name;
+            $employees = employees::all();
+            $agents = agents::select('*')->where('employees_name', '=', $request->employees_name)->get();
+            return view('agents.agents_report', compact('employees', 'status_id'))->withDetails($agents);
         }
-
 
 
     }

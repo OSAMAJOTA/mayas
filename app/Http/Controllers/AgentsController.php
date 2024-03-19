@@ -30,22 +30,13 @@ class AgentsController extends Controller
         $res= Auth::user()->roles_name;
         $adm=$res[0];
 
-        if($adm=='owner'){
-            $User=User::all();
-            $companys=companys::all();
-            $agents=agents::all()->sortByDesc("id");
-            return  view('agents.agents',compact('companys','agents','User'));
+        $agents=agents::all()->sortByDesc("id");
 
 
-        }else {
-            $emp_id = Auth::user()->id;
-            $emp_nam=Auth::user()->name;
 
-            $companys = companys::all();
-            $agents = agents::where('employees_id', $emp_id)->where('employees_name', $emp_nam)->get()->sortByDesc("id");
-            return view('agents.agents', compact('companys', 'agents'));
+            return  view('agents.agents',compact('agents'));
 
-        }
+
 
         }
     public function forword()
@@ -177,34 +168,54 @@ $emp_id=Auth::user()->id;
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
+
+
     {
-        agents::create([
+        $validatedData = $request->validate([
+            'id_num' => 'required|unique:agents|max:255',
+
+        ],[
+
+            'id_num.unique' =>'هوية العميل مسجل مسبقآ',
+            'id_num.required' =>'رقم الهوية مطلوب ',
+
+        ]);
+
+
+            agents::create([
 
             'agents_name' => $request->agents_name,
-            'companys_id' => $request->companys_id,
-            'agents_phone' => $request->agents_phone,
-            'tailor_num' => $request->tailor_num,
-            'first_tailor' => $request->first_tailor,
-            'end_tailor' => $request->end_tailor,
-            'agents_date' => $request->agents_date,
+            'agents_name_en' => $request->agents_name_en,
+            'login_name' => $request->login_name,
+            'nash' => $request->nash,
+            'id_tybe' => $request->id_tybe,
+            'id_num' => $request->id_num,
+            'birth_date' => $request->birth_date,
 
-            'rset' => $request->rset,
-            'Status' => 'بانتظارالتوجيه',
-            'Status_id' =>1,
-            'man_note' => $request->man_note,
+            'marital_status' => $request->marital_status,
+
+            'Accommodation_type' => $request->Accommodation_type,
+
+
+            'agent_phone1' => $request->agent_phone1,
+            'agent_phone2' => $request->agent_phone2,
+            'home_phone' => $request->home_phone,
+
+                'hood_ar' => $request->hood_ar,
+                'hood_en' => $request->hood_en,
+
+                'add_ar' => $request->add_ar,
+
+                'add_en' => $request->add_en,
+                'city_ar' => $request->city_ar,
+
+                'city_en' => $request->city_en,
+
+
             'Created_by' => Auth::user()->name,
 
         ]);
-        $user = User::get();
-        $agents_id = agents::latest()->first();
-        Notification::send($user, new \App\Notifications\add_new_agents($agents_id));
 
-        $agents_details = new agents_details();
-        $agents_details->type ='تم اضافة عميل';
-        $agents_details->agents_id = agents::latest()->first()->id;
-        $agents_details->Created_by = Auth::user()->name;
-
-        $agents_details->save();
 
 
 

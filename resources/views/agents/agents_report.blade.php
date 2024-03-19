@@ -77,8 +77,12 @@
                             </span></label>
                                     </div><br>
                                     <div class="col-lg-3 mg-t-20 mg-lg-t-0">
-                                        <label class="rdiobox"><input name="rdio" value="3" type="radio" id="type_phone"><span>بحث برقم الجوال
+
+                                        <label class="rdiobox"><input  name="rdio" value="3" type="radio" id="type_phone"><span>بحث برقم الجوال او رقم العميل
                             </span></label>
+
+
+
                                     </div><br>
 
                                     <div class="row">
@@ -120,9 +124,17 @@
 
 
                                         <div class="col-lg-6 " id="phone">
+
                                             <div class="parsley-input col-md-6 mg-t-20 mg-md-t-0" id="lnWrapper">
                                                 <label> ادخل رقم الجوال : <span class="tx-danger">*</span></label>
                                              <INPUT type="text" class="form-control" id="employees_phone" name="employees_phone" >
+
+
+                                            </div>
+                                            <label>او</label>
+                                            <div class="parsley-input col-md-6 mg-t-20 mg-md-t-0" id="lnWrapper">
+                                                <label> ادخل رقم العميل : <span class="tx-danger">*</span></label>
+                                                <INPUT type="text" class="form-control" id="employees_id" name="employees_id"  value="">
 
 
                                             </div>
@@ -172,7 +184,7 @@
                                         <table id="example" class="table key-buttons text-md-nowrap" style=" text-align: center">
                                             <thead>
                                             <tr>
-                                                <th class="border-bottom-0">#</th>
+                                                <th class="border-bottom-0">رقم العميل</th>
                                                 <th class="border-bottom-0"> اسم العميل </th>
                                                 <th class="border-bottom-0">فرع العميل</th>
                                                 <th class="border-bottom-0"> جوال العميل</th>
@@ -189,15 +201,11 @@
                                             </tr>
                                             </thead>
                                             <tbody>
-                                            @php
-                                                $i = 0;
-                                            @endphp
+
                                             @foreach($details  as $x)
-                                                @php
-                                                    $i++
-                                                @endphp
+
                                                 <tr>
-                                                    <td> {{$i}}</td>
+                                                    <td>   {{$x->id}}</td>
                                                     <td>
                                                         {{$x->agents_name}}
                                                     </td>

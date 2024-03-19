@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="{{ URL::asset('assets/plugins/sumoselect/sumoselect-rtl.css') }}">
     <!--Internal  TelephoneInput css-->
     <link rel="stylesheet" href="{{ URL::asset('assets/plugins/telephoneinput/telephoneinput-rtl.css') }}">
+    <link href="{{URL::asset('assets/plugins/accordion/accordion.css')}}" rel="stylesheet" />
 @endsection
 @section('title')
     اضافة عميل

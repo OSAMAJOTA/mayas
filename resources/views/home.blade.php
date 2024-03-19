@@ -14,7 +14,7 @@
         <div class="left-content">
             <div>
                 <h2 class="main-content-title tx-24 mg-b-1 mg-b-lg-1">لوحة التحكم</h2>
-                <p class="mg-b-0">ميـــــــاس للخياطة الرجالية</p>
+                <p class="mg-b-0">الانـــجاز المــعتمد للاستقــدام</p>
             </div>
         </div>
         <div class="main-dashboard-header-right">
@@ -25,11 +25,11 @@
                 </div>
             </div>
             <div>
-                <label class="tx-13">المبيعات الداخلية </label>
+                <label class="tx-13"> الايرادات اليومية </label>
                 <h5>563,275</h5>
             </div>
             <div>
-                <label class="tx-13">المبيعات الخارجية </label>
+                <label class="tx-13"> الايرادات الشهرية </label>
                 <h5>783,675</h5>
             </div>
         </div>
@@ -44,7 +44,7 @@
             <div class="card overflow-hidden sales-card bg-primary-gradient">
                 <div class="pl-3 pt-3 pr-3 pb-2 pt-0">
                     <div class="">
-                        <h6 class="mb-3 tx-12 text-white">عملاء الفروع</h6>
+                        <h6 class="mb-3 tx-12 text-white">العملاء </h6>
                     </div>
                     <div class="pb-0 mt-0">
                         <div class="d-flex">
@@ -74,7 +74,7 @@
             <div class="card overflow-hidden sales-card bg-danger-gradient">
                 <div class="pl-3 pt-3 pr-3 pb-2 pt-0">
                     <div class="">
-                        <h6 class="mb-3 tx-12 text-white">عملاء بانتظار التواصل معهم</h6>
+                        <h6 class="mb-3 tx-12 text-white">عقود التوسط </h6>
                     </div>
                     <div class="pb-0 mt-0">
                         <div class="d-flex">
@@ -82,20 +82,15 @@
                                 <h4 class="tx-20 font-weight-bold mb-1 text-white">
 
 
-                                    {{\App\agents::where('Status_id',2)->count()}}
+
                                 </h4>
                                 <p class="mb-0 tx-12 text-white op-7">Compared to last week</p>
                             </div>
                             <span class="float-right my-auto mr-auto">
 											<i class="fas fa-arrow-circle-down text-white"></i>
 											<span class="text-white op-7">
-                                                <span style="display: none">{{$x=\App\agents::where('Status_id',2)->count()}}</span>
 
-                                                @if($x >=1)
-                                               %  {{round(\App\agents::where('Status_id',2)->count()/\App\agents::count() *100,2)}}
-                                                @else
-                                                0
-                                                @endif
+
 
                                             </span>
 										</span>
@@ -111,14 +106,14 @@
             <div class="card overflow-hidden sales-card bg-success-gradient">
                 <div class="pl-3 pt-3 pr-3 pb-2 pt-0">
                     <div class="">
-                        <h6 class="mb-3 tx-12 text-white">عملاء تم التواصل معهم </h6>
+                        <h6 class="mb-3 tx-12 text-white"> عقود التشغيل </h6>
                     </div>
                     <div class="pb-0 mt-0">
                         <div class="d-flex">
                             <div class="">
                                 <h4 class="tx-20 font-weight-bold mb-1 text-white">
 
-                                    {{\App\agents::where('Status_id',3)->count()}}
+
                                 </h4>
                                 <p class="mb-0 tx-12 text-white op-7">Compared to last week</p>
                             </div>
@@ -127,13 +122,8 @@
 											<span class="text-white op-7">
 
  <span style="display: none">
-                                                {{$x=\App\agents::where('Status_id',3)->count()}}
+
  </span>
-                                                @if($x>=1)
-                                                    %  {{round(\App\agents::where('Status_id',3)->count()/\App\agents::count() *100,2)}}
-                                                @else
-                                                    0
-                                                @endif
 
 
                                             </span>
@@ -150,12 +140,12 @@
             <div class="card overflow-hidden sales-card bg-warning-gradient">
                 <div class="pl-3 pt-3 pr-3 pb-2 pt-0">
                     <div class="">
-                        <h6 class="mb-3 tx-12 text-white">عملاء طلبوا زيارة منزلية</h6>
+                        <h6 class="mb-3 tx-12 text-white"> عملاء طلبو زيارة منزلية</h6>
                     </div>
                     <div class="pb-0 mt-0">
                         <div class="d-flex">
                             <div class="">
-                                <h4 class="tx-20 font-weight-bold mb-1 text-white">     {{\App\agents::where('Status_id',4)->count()}}</h4>
+                                <h4 class="tx-20 font-weight-bold mb-1 text-white">    </h4>
                                 <p class="mb-0 tx-12 text-white op-7">Compared to last week</p>
                             </div>
                             <span class="float-right my-auto mr-auto">
@@ -165,13 +155,9 @@
 
 
  <span style="display: none">
-                                                {{$x=\App\agents::where('Status_id',4)->count()}}
+
  </span>
-                                                @if($x >=1)
-                                                    %  {{round(\App\agents::where('Status_id',4)->count()/\App\agents::count() *100,2)}}
-                                                @else
-                                                    0
-                                                @endif
+
 
 
                                             </span>
@@ -285,7 +271,7 @@
             <div class="card overflow-hidden sales-card bg-warning-gradient">
                 <div class="pl-3 pt-3 pr-3 pb-2 pt-0">
                     <div class="">
-                        <h6 class="mb-3 tx-12 text-white">الاصناف</h6>
+                        <h6 class="mb-3 tx-12 text-white">العروض</h6>
                     </div>
                     <div class="pb-0 mt-0">
                         <div class="d-flex">
@@ -319,9 +305,7 @@
                     <p class="tx-12 text-muted mb-0"></p>
                 </div>
                 <div class="card-body">
-                    <div style="width:75%;">
-                        {!! $chartjs->render() !!}
-                    </div>
+
 
                 </div>
             </div>
@@ -330,9 +314,7 @@
             <div class="card card-dashboard-map-one">
 
                 <div class="">
-                    <div style="width:75%;">
-                        {!! $chartjs1->render() !!}
-                    </div>
+
                 </div>
             </div>
         </div>

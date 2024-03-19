@@ -3,7 +3,7 @@
 				<div class="container-fluid">
 					<div class="main-header-left ">
 
-                        <img src="{{URL::asset('assets/img/miyaslogo.png')}}" width="50px" height="50px">
+                        <img src="{{URL::asset('assets/img/logo.png')}}" width="50px" height="50px">
 						<div class="app-sidebar__toggle" data-toggle="sidebar">
 							<a class="open-toggle" href="#"><i class="header-icon fe fe-align-left" ></i></a>
 							<a class="close-toggle" href="#"><i class="header-icons fe fe-x"></i></a>
@@ -12,6 +12,7 @@
 							<input class="form-control" placeholder="Search for anything..." type="search"> <button class="btn"><i class="fas fa-search d-none d-md-block"></i></button>
 						</div>
 					</div>
+                  <h1>osama</h1>
 					<div class="main-header-right">
 						<ul class="nav">
 							<li class="">

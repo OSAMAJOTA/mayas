@@ -157,3 +157,22 @@ i span{
 .signup a:hover{
     text-decoration: underline;
 }
+.list-group h5 {
+    margin: 0;
+    font-size: 11px;
+    background-color: rgba(194, 220, 245, 0.42);
+    padding: 3px;
+}
+.list-group li {
+    border-right: 2px groove #0b4ba3;
+    margin-bottom: 5px;
+    padding-right: 5px;
+}
+.list-group p {
+    margin: 0;
+    font-size: 9px;
+    padding: 3px;
+}
+h1 {
+    line-height: 25px;
+}

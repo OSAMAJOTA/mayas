@@ -48,7 +48,7 @@
 		<div class="container-login100" style="background-image: url('assets/loglog/images/bg-01.jpg');">
 			<div class="wrap-login100 p-t-30 p-b-50">
 				<span class="login100-form-title p-b-41">
-                    <img src="assets/img/miyaslogo.png" width="250px" height="250px"><br>
+
 
 					Account Login
                       @error('email')
@@ -60,6 +60,9 @@
 
                     <form class="login100-form validate-form p-b-33 p-t-5" method="POST" action="{{ route('login') }}">
                         @csrf
+                        <center>
+                            <img src="assets/img/miyaslogo.png" width="200px" height="200px"><br>
+                        </center>
 
 					<div class="wrap-input100 validate-input" data-validate = "Enter email">
 						<input class="input100 @error('email') is-invalid @enderror " name="email" placeholder="email" value="{{ old('email') }}">

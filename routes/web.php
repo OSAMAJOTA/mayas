@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DurationController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,8 +19,13 @@ Route::get('/', function () {
 });
 
 Auth::routes();
+
+Route::resource('wakel', 'WakelController');
 Route::resource('call', 'CallCenterController');
 Route::resource('agents', 'AgentsController');
+Route::resource('offers', 'OffersController');
+Route::get('add_offer', 'OffersController@addoffer');
+
 Route::resource('forword', 'forword_controller');
 Route::resource('block', 'block_agents');
 Route::resource('unbloock', 'unblock');
@@ -41,6 +47,8 @@ Route::resource('employees', 'EmployeesController');
 Route::resource('emp_groups', 'EmpGroupsController');
 Route::resource('companys', 'CompanysController');
 
+Route::resource('Durations', 'DurationController');
+Route::get('/Duration/{id}', 'DurationController@getcost');
 
 Route::resource('report_agents', 'AgentsReportController');
 Route::post('Search_report', 'AgentsReportController@Search_report');
